@@ -1,14 +1,18 @@
 package com.major.project.travel.common;
 
 import com.major.project.travel.exception.DataNotFoundException;
+import com.major.project.travel.model.Place;
 import com.major.project.travel.util.Utility;
-import org.hibernate.*;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.TypedQuery;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
-import java.util.*;
+import java.util.Collection;
+import java.util.List;
+
 
 /**
  * Created by HUY on 9/9/2018
@@ -49,6 +53,7 @@ public abstract class CommonHibernate<T> implements CommonHibernateInteface<Seri
 
     @Override
     public List<T> findAll() {
+        System.out.println("Common");
         String queryString = "from " + getTableName();
         TypedQuery<T> query = sessionFactory.getCurrentSession().createQuery(queryString);
         return query.getResultList();
