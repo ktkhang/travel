@@ -13,7 +13,7 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[] { HibernateConfig.class, WebSecurityConfig.class };
+        return new Class[] { HibernateConfig.class, WebSecurityConfig.class  };
     }
 
     @Override
@@ -30,6 +30,6 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
     public void onStartup(ServletContext servletContext) throws ServletException {
         super.onStartup(servletContext);
         servletContext.setInitParameter("spring.profiles.active", "dev"); // to set default profile when starting tomcat server.
-
     }
+
 }

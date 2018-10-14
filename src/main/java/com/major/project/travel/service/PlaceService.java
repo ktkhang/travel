@@ -1,5 +1,6 @@
 package com.major.project.travel.service;
 
+import com.major.project.travel.exception.DataNotFoundException;
 import com.major.project.travel.model.Place;
 
 import java.util.List;
@@ -10,9 +11,35 @@ import java.util.List;
 public interface PlaceService {
 
     /**
+     * Create new Place
+     * @param place
+     */
+    void save(Place place);
+
+    /**
+     * Update Place
+     * @param place
+     */
+    void update(Place place);
+
+    /**
+     * Delete Place
+     * @param place
+     */
+    void delete(Place place);
+
+    /**
      * Get List Place
      * @return
      */
     List<Place> list();
+
+    /**
+     * findByUid
+     * @param id
+     * @return
+     * @throws DataNotFoundException
+     */
+    Place findById(Long id) throws DataNotFoundException;
 
 }

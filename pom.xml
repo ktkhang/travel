@@ -250,7 +250,7 @@
     </dependencies>
 
     <build>
-        <finalName>rand</finalName>
+        <finalName>travel</finalName>
         <sourceDirectory>src/main/java</sourceDirectory>
         <resources>
             <resource>

@@ -1,6 +1,7 @@
 package com.major.project.travel.service;
 
 import com.major.project.travel.dao.PlaceDao;
+import com.major.project.travel.exception.DataNotFoundException;
 import com.major.project.travel.model.Place;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,8 +20,28 @@ public class PlaceServiceImpl implements PlaceService{
     private PlaceDao placeDao;
 
     @Override
+    public void save(Place place) {
+        placeDao.saveObj(place);
+    }
+
+    @Override
+    public void update(Place place) {
+        placeDao.updateObj(place);
+    }
+
+    @Override
+    public void delete(Place place) {
+        placeDao.deleteObj(place);
+    }
+
+    @Override
     public List<Place> list() {
-        System.out.println("Service");
         return placeDao.findAll();
     }
+
+    @Override
+    public Place findById(Long id) throws DataNotFoundException {
+        return placeDao.findObjById(id);
+    }
+
 }

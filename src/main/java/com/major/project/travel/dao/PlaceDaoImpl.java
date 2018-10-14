@@ -16,12 +16,5 @@ public class PlaceDaoImpl extends CommonHibernate<Place> implements PlaceDao {
     public String getTableName() {
         return "Place";
     }
-
-    @Override
-    public List<Place> findAll() {
-        System.out.println("Dao");
-        return super.findAll();
-    }
-
 }
 

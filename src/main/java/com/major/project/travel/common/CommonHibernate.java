@@ -1,7 +1,6 @@
 package com.major.project.travel.common;
 
 import com.major.project.travel.exception.DataNotFoundException;
-import com.major.project.travel.model.Place;
 import com.major.project.travel.util.Utility;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -53,7 +52,6 @@ public abstract class CommonHibernate<T> implements CommonHibernateInteface<Seri
 
     @Override
     public List<T> findAll() {
-        System.out.println("Common");
         String queryString = "from " + getTableName();
         TypedQuery<T> query = sessionFactory.getCurrentSession().createQuery(queryString);
         return query.getResultList();
