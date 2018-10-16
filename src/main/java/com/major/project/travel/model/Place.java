@@ -2,6 +2,7 @@ package com.major.project.travel.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.major.project.travel.common.CommonSerialize;
+import com.major.project.travel.util.Constraint;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -13,7 +14,9 @@ import java.util.List;
  * Created by HUY on 10/3/2018
  */
 @Entity
-@Table(name = "TBL_PLACES")
+@Table(name = "TBL_PLACES",
+        uniqueConstraints = {@UniqueConstraint(columnNames = {"PLACE_TITLE", "REGION_ID"},
+                name = Constraint.PLACE_NAME_CONSTRAINT_CODE)})
 public class Place extends CommonSerialize {
 
     @Id
@@ -25,8 +28,9 @@ public class Place extends CommonSerialize {
     private String svgPath;
 
     @NotNull
-    @Column(name = "PLACE_TITLE", unique = true)
+    @Column(name = "PLACE_TITLE")
     private String title;
+
     @Column(name = "PLACE_LATITUDE")
     private Double latitude;
 

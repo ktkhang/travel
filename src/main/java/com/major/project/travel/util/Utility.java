@@ -18,13 +18,13 @@ public class Utility {
 
     private static final String LETTER_LIST = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private static final String NUMBER_LIST = "1234567890";
-    //    private static final String SYMBOL_LIST = "!@#$%^*";
     private static final String SYMBOL_LIST = "!@$%^*";
     private static final String WORD_LIST = LETTER_LIST + NUMBER_LIST;
     private static final String CHAR_LIST = WORD_LIST + SYMBOL_LIST;
 
     /**
      * Random sequence characters
+     *
      * @param source
      * @param length
      * @return
@@ -43,13 +43,14 @@ public class Utility {
 
     /**
      * Validate errors
+     *
      * @param errors
      * @throws RestException
      */
     public static void validateErrorsRequest(Errors errors) throws RestException {
         StringBuilder errorMessage = new StringBuilder();
-        if(errors.hasErrors()) {
-            for(ObjectError error : errors.getAllErrors()) {
+        if (errors.hasErrors()) {
+            for (ObjectError error : errors.getAllErrors()) {
                 errorMessage.append(ERROR_MESSAGE_DELIMITER + error.getDefaultMessage());
             }
             throw new RestException(errorMessage.substring(1), HttpServletResponse.SC_BAD_REQUEST);

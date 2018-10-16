@@ -58,13 +58,14 @@ public class PlaceController {
      * Create new Place
      *
      * @param placeRequest
-     * @return
+     * @param errors
+     * @return Place
      */
     @PostMapping("/create")
-    public Place createPlace(@Valid @RequestBody PlaceRequest placeRequest, Errors errors) throws DataNotFoundException {
+    public Place createPlace(@Valid @RequestBody PlaceRequest placeRequest, Errors errors) {
         // validate input
+        System.out.println("Erorr AAA : " + errors);
         Utility.validateErrorsRequest(errors);
-
         Place place = new Place();
         place.setTitle(placeRequest.getTitle());
         place.setSvgPath(placeRequest.getSvgPath());
@@ -93,7 +94,9 @@ public class PlaceController {
      * Update Place
      *
      * @param placeRequest
+     * @param errors
      * @return
+     * @throws DataNotFoundException
      */
     @PutMapping("/update")
     public Place updatePlace(@Valid @RequestBody PlaceRequest placeRequest, Errors errors) throws DataNotFoundException {
@@ -131,6 +134,13 @@ public class PlaceController {
         return place;
     }
 
+    /**
+     * Delete Place
+     *
+     * @param uid
+     * @return
+     * @throws DataNotFoundException
+     */
     @DeleteMapping("/delete/{uid}")
     public String deletePlace(@PathVariable String uid) throws DataNotFoundException {
         try {

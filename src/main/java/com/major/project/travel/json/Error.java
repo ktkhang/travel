@@ -28,58 +28,55 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "Error", namespace = "http://www.cdisc.org/ns/odm/v1.3")
 public class Error {
 
-	@JsonProperty("status")
-	@XmlElement(name = "Status", namespace = "http://www.cdisc.org/ns/odm/v1.3")
-	private String status;
+    @JsonProperty("status")
+    @XmlElement(name = "Status", namespace = "http://www.cdisc.org/ns/odm/v1.3")
+    private String status;
 
-	@JsonProperty("message")
-	@XmlElement(name = "Message", namespace = "http://www.cdisc.org/ns/odm/v1.3")
-	private String message;
+    @JsonProperty("message")
+    @XmlElement(name = "Message", namespace = "http://www.cdisc.org/ns/odm/v1.3")
+    private String message;
 
-	/**
-	 * Error default constructor.
-	 */
-	public Error() {
-	}
+    /**
+     * Error default constructor.
+     */
+    public Error() {
+    }
 
-	/**
-	 * Error constructor.
-	 *
-	 * @param ex
-	 *            Exception
-	 * @param status
-	 *            String
-	 * @param defaultMessage
-	 *            String
-	 */
-	public Error(Exception ex, String status, String defaultMessage) {
-		this.status = status;
-		this.message = ex.getMessage() == null ? defaultMessage : ex.getMessage();
-	}
+    /**
+     * Error constructor.
+     *
+     * @param ex             Exception
+     * @param status         String
+     * @param defaultMessage String
+     */
+    public Error(Exception ex, String status, String defaultMessage) {
+        this.status = status;
+        this.message = ex.getMessage() == null ? defaultMessage : ex.getMessage();
+    }
 
-	public Error(Exception ex, String status) {
-		this.status = status;
-		this.message = ex.getMessage();
-	}
+    public Error(Exception ex, String status) {
+        this.status = status;
+        this.message = ex.getMessage();
+    }
 
-	public Error(String status, String message) {
-		this.status = status;
-		this.message = message;
-	}
+    public Error(String status, String message) {
+        this.status = status;
+        this.message = message;
+    }
 
-	public String getStatus() {
-		return status;
-	}
+    public String getStatus() {
+        return status;
+    }
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
-	public String getMessage() {
-		return message;
-	}
+    public String getMessage() {
+        return message;
+    }
 
-	public void setMessage(String message) {
-		this.message = message;
-	}
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }

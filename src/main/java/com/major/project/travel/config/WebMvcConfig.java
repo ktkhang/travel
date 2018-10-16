@@ -52,6 +52,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
         source.setDefaultEncoding("UTF-8");
         return source;
     }
+
     @Bean(name = "exceptionSource")
     public MessageSource ExceptionSource() {
         ResourceBundleMessageSource source = new ResourceBundleMessageSource();

@@ -1,6 +1,7 @@
 package com.major.project.travel.request;
 
 import com.major.project.travel.model.PlaceStatus;
+import org.hibernate.validator.constraints.NotBlank;
 
 import javax.validation.constraints.NotNull;
 
@@ -14,9 +15,9 @@ public class PlaceRequest {
     private Double latitude;
     private Double longitude;
     private PlaceStatus placeStatus;
-    @NotNull(message = "Place name must be not empty")
+    @NotBlank(message = "Place name must be not empty")
     private String title;
-    @NotNull(message = "Region must be empty")
+    @NotBlank(message = "Region must be empty")
     private String regionUid;
 
     // Getter and Setter
