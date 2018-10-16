@@ -24,7 +24,7 @@ public class User extends CommonSerialize {
     private Long id;
 
     @NotNull
-    @Column(name = "USER_NAME")
+    @Column(name = "USER_NAME", unique = true)
     private String userName;
 
     @Column(name = "USER_REGION_VISITED")

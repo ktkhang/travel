@@ -44,4 +44,9 @@ public class PlaceServiceImpl implements PlaceService{
         return placeDao.findObjById(id);
     }
 
+    @Override
+    public Place findPlaceByUid(String uid) throws DataNotFoundException {
+        return placeDao.findPlaceByUid(uid);
+    }
+
 }

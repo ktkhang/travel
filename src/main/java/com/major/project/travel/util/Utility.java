@@ -1,5 +1,10 @@
 package com.major.project.travel.util;
 
+import com.major.project.travel.exception.RestException;
+import org.springframework.validation.Errors;
+import org.springframework.validation.ObjectError;
+
+import javax.servlet.http.HttpServletResponse;
 import java.util.Random;
 
 /**
@@ -36,6 +41,20 @@ public class Utility {
         return result.toString();
     }
 
+    /**
+     * Validate errors
+     * @param errors
+     * @throws RestException
+     */
+    public static void validateErrorsRequest(Errors errors) throws RestException {
+        StringBuilder errorMessage = new StringBuilder();
+        if(errors.hasErrors()) {
+            for(ObjectError error : errors.getAllErrors()) {
+                errorMessage.append(ERROR_MESSAGE_DELIMITER + error.getDefaultMessage());
+            }
+            throw new RestException(errorMessage.substring(1), HttpServletResponse.SC_BAD_REQUEST);
+        }
+    }
 
     public static String randomUid() {
         Random random = new Random();

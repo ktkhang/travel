@@ -42,4 +42,12 @@ public interface PlaceService {
      */
     Place findById(Long id) throws DataNotFoundException;
 
+    /**
+     * find Place By Uid
+     * @param uid
+     * @return
+     * @throws DataNotFoundException
+     */
+    Place findPlaceByUid(String uid) throws DataNotFoundException;
+
 }

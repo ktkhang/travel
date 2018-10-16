@@ -24,7 +24,7 @@ public class Region extends CommonSerialize {
     private Long id;
 
     @NotNull
-    @Column(name = "REGION_NAME")
+    @Column(name = "REGION_NAME", unique = true)
     private String name;
 
     @ManyToMany(cascade = {CascadeType.ALL})

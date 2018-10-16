@@ -21,12 +21,18 @@ public class Place extends CommonSerialize {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    @Column(name = "PLACE_COORDINATES")
-    private String coordinates;
+    @Column(name = "PLACE_SVG_PATH")
+    private String svgPath;
 
     @NotNull
-    @Column(name = "PLACE_NAME")
-    private String name;
+    @Column(name = "PLACE_TITLE", unique = true)
+    private String title;
+
+    @Column(name = "PLACE_LATITUDE")
+    private Double latitude;
+
+    @Column(name = "PLACE_LONGITUDE")
+    private Double longitude;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "PLACE_STATUS")
@@ -53,20 +59,36 @@ public class Place extends CommonSerialize {
         this.id = id;
     }
 
-    public String getCoordinates() {
-        return coordinates;
+    public String getSvgPath() {
+        return svgPath;
     }
 
-    public void setCoordinates(String coordinates) {
-        this.coordinates = coordinates;
+    public void setSvgPath(String svgPath) {
+        this.svgPath = svgPath;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Double getLatitude(Double latitude) {
+        return this.latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getLongitude(Double longitude) {
+        return this.longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
     }
 
     public PlaceStatus getPlaceStatus() {
