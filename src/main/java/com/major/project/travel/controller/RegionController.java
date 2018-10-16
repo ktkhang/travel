@@ -1,7 +1,7 @@
 package com.major.project.travel.controller;
 
-import com.major.project.travel.model.User;
-import com.major.project.travel.service.UserService;
+import com.major.project.travel.model.Region;
+import com.major.project.travel.service.RegionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,14 +13,19 @@ import java.util.List;
  * Created by HUY on 10/16/2018
  */
 @RestController
-@RequestMapping("/users")
-public class UserController {
+@RequestMapping("/regions")
+public class RegionController {
 
     @Autowired
-    private UserService userService;
+    private RegionService regionService;
 
+    /**
+     * Get List Region
+     *
+     * @return
+     */
     @GetMapping("/all")
-    public List<User> getUserList(){
-        return userService.list();
+    public List<Region> getRegionList() {
+        return regionService.list();
     }
 }

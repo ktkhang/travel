@@ -41,7 +41,6 @@ public class PlaceUser {
 
     // Getter and Setter
 
-
     public Long getId() {
         return id;
     }
