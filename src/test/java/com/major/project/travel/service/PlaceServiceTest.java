@@ -51,6 +51,9 @@ public class PlaceServiceTest {
     public void testFindAll(){
         System.out.println("testFindAll-------");
         List<Place> places = placeService.list();
+        for (Place place : places){
+            System.out.println("Latitude : " + place.getLatitude());
+        }
     }
 
     //@Test

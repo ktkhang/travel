@@ -34,39 +34,42 @@ public class PlaceController {
 
     /**
      * Get List Place
+     *
      * @return
      */
     @GetMapping("/all")
-    public List<Place> getPlaceList(){
+    public List<Place> getPlaceList() {
         return placeService.list();
     }
 
     /**
      * Find By Id
+     *
      * @param id
      * @return
      * @throws DataNotFoundException
      */
     @GetMapping("/findById/{id}")
-    public Place findPlaceById(@PathVariable Long id)throws DataNotFoundException {
+    public Place findPlaceById(@PathVariable Long id) throws DataNotFoundException {
         return placeService.findById(id);
     }
 
     /**
      * Create new Place
+     *
      * @param placeRequest
      * @return
      */
     @PostMapping("/create")
-    public Place createPlace(@Valid @RequestBody PlaceRequest placeRequest, Errors errors){
+    public Place createPlace(@Valid @RequestBody PlaceRequest placeRequest, Errors errors) throws DataNotFoundException {
         // validate input
         Utility.validateErrorsRequest(errors);
 
         Place place = new Place();
         place.setTitle(placeRequest.getTitle());
         place.setSvgPath(placeRequest.getSvgPath());
-        place.getLatitude(placeRequest.getLatitude());
-        place.getLongitude(placeRequest.getLongitude());
+        place.setLatitude(placeRequest.getLatitude());
+        place.setLongitude(placeRequest.getLongitude());
         place.setPlaceStatus(PlaceStatus.AVAILABLE);
         Region region = null;
         try {
@@ -78,11 +81,70 @@ public class PlaceController {
             throw new RestException("Region is not existed", HttpServletResponse.SC_NOT_FOUND);
         }
         place.setRegion(region);
-        try{
+        try {
             placeService.save(place);
-        }catch (Exception e ){
+        } catch (Exception e) {
             throw e;
         }
         return place;
+    }
+
+    /**
+     * Update Place
+     *
+     * @param placeRequest
+     * @return
+     */
+    @PutMapping("/update")
+    public Place updatePlace(@Valid @RequestBody PlaceRequest placeRequest, Errors errors) throws DataNotFoundException {
+        // validate input
+        Utility.validateErrorsRequest(errors);
+
+        Place place = null;
+
+        try {
+            place = placeService.findPlaceByUid(placeRequest.getUid());
+        } catch (DataNotFoundException e) {
+            throw new RestException("Place is not existed", HttpServletResponse.SC_NOT_FOUND);
+        }
+
+        place.setTitle(placeRequest.getTitle());
+        place.setSvgPath(placeRequest.getSvgPath());
+        place.setLatitude(placeRequest.getLatitude());
+        place.setLongitude(placeRequest.getLongitude());
+        place.setPlaceStatus(placeRequest.getPlaceStatus());
+        Region region = null;
+        try {
+            region = regionService.findRegionByUid(placeRequest.getRegionUid());
+        } catch (Exception e) {
+            throw new RestException("Region is not existed", HttpServletResponse.SC_NOT_FOUND);
+        }
+        if (region == null || region.getId() == 0) {
+            throw new RestException("Region is not existed", HttpServletResponse.SC_NOT_FOUND);
+        }
+        place.setRegion(region);
+        try {
+            placeService.update(place);
+        } catch (Exception e) {
+            throw e;
+        }
+        return place;
+    }
+
+    @DeleteMapping("/delete/{uid}")
+    public String deletePlace(@PathVariable String uid) throws DataNotFoundException {
+        try {
+            Place place = placeService.findPlaceByUid(uid);
+            if (place != null) {
+                placeService.delete(place);
+                return "Delete successfully";
+            } else {
+                return "Place does not exist";
+            }
+        } catch (DataNotFoundException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new RestException(String.format("Cannot delete {%s}. Please contact administrator for help.", String.format("placeUid = %s", uid)));
+        }
     }
 }

@@ -1,0 +1,9 @@
+0:0:0:0:0:0:0:1 - - [16/Oct/2018:16:51:43 +0700] "POST /places/create HTTP/1.1" 200 283 http-bio-8080-exec-2 708
+0:0:0:0:0:0:0:1 - - [16/Oct/2018:16:51:49 +0700] "GET /places/all HTTP/1.1" 200 285 http-bio-8080-exec-3 427
+0:0:0:0:0:0:0:1 - - [16/Oct/2018:16:52:46 +0700] "PUT /places/update HTTP/1.1" 500 10093 http-bio-8080-exec-4 152
+0:0:0:0:0:0:0:1 - - [16/Oct/2018:16:53:31 +0700] "PUT /places/update HTTP/1.1" 400 968 http-bio-8080-exec-6 5
+0:0:0:0:0:0:0:1 - - [16/Oct/2018:16:53:48 +0700] "PUT /places/update HTTP/1.1" 200 285 http-bio-8080-exec-8 186
+0:0:0:0:0:0:0:1 - - [16/Oct/2018:16:54:23 +0700] "GET /places/delete/LqoUMVoaKvht HTTP/1.1" 405 1045 http-bio-8080-exec-9 5
+0:0:0:0:0:0:0:1 - - [16/Oct/2018:16:54:29 +0700] "DELETE /places/delete/LqoUMVoaKvht HTTP/1.1" 200 93 http-bio-8080-exec-10 78
+0:0:0:0:0:0:0:1 - - [16/Oct/2018:16:54:41 +0700] "POST /places/create HTTP/1.1" 200 283 http-bio-8080-exec-10 55
+0:0:0:0:0:0:0:1 - - [16/Oct/2018:16:54:43 +0700] "POST /places/create HTTP/1.1" 500 28787 http-bio-8080-exec-10 263
