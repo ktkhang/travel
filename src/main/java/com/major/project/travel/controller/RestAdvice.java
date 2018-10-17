@@ -43,7 +43,6 @@ public class RestAdvice {
      * @param response HttpServletResponse
      * @return ExceptionWrapper
      */
-
     @ExceptionHandler(Exception.class)
     @ResponseBody
     public Error handleException(Exception ex, HttpServletRequest request, HttpServletResponse response) {
@@ -64,11 +63,9 @@ public class RestAdvice {
                 String constraintName = constraintException.getConstraintName();
 
                 String errorMessage = Constraint.getConstraintErrorMessage(constraintName);
-                System.out.println("Exception ----" + errorMessage);
                 // Need to apply i18n to localize error message.
-                // Also specify real data like : 'Trial A was duplicated' or 'Trial A is existing. Please choose other name'.
                 String localizedMessage = exceptionSource.getMessage(errorMessage, null, localeResolver.resolveLocale(request));
-
+                System.out.println("Message======"+localizedMessage);// Chua xet duoc UTF-8 cho message
                 return new Error(CONSTRAINT_COMMON_ERROR_CODE, localizedMessage);
 
             } else {

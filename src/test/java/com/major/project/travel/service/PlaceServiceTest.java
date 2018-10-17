@@ -10,6 +10,7 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
+import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
@@ -36,51 +37,67 @@ public class PlaceServiceTest {
 
     @Before
     public void setUp(){
+        MockitoAnnotations.initMocks(this);
         placeList = this.getPlaceList();
     }
 
-//    @After
-//    public void clearUnitTest(){
-//        System.out.println("clearUnitTest------");
-//        for(Place place : placeList){
-//            placeService.delete(place);
-//        }
-//    }
+    @After
+    public void clearUnitTest(){
+        System.out.println("clearUnitTest------");
+        for(Place place : placeList){
+            placeService.delete(place);
+        }
+    }
 
     @Test
     public void testFindAll(){
         System.out.println("testFindAll-------");
         List<Place> places = placeService.list();
-        for (Place place : places){
-            System.out.println("Latitude : " + place.getLatitude());
+    }
+
+    @Test
+    public void testSavePlace(){
+        System.out.println("testSavePlace-----");
+        for(Place place : placeList){
+            placeService.save(place);
         }
     }
 
-    //@Test
+    @Test
     public void testFindById(){
         System.out.println("testFindById-------");
         try {
-            Place place = placeService.findById((long) 1);
+            Place place = placeService.findById(1L);
         } catch (DataNotFoundException e) {
             System.out.println("Error : " + e.getMessage());
         }
     }
 
+    @Test
+    public void testDeletePlace(){
+        System.out.println("testDeletePlace----");
+        for(Place place : placeList){
+            placeService.delete(place);
+        }
+    }
+
 
     public List<Place> getPlaceList(){
-//        Place place = new Place();
-//        place.setName("Quang Ngai");
-//        place.setCoordinates("1234");
-//
-//        Place place1 = new Place();
-//        place1.setName("Binh Dinh");
-//        place1.setCoordinates("2345");
-//
-//        List<Place> places = new ArrayList<Place>();
-//        places.add(place);
-//        places.add(place1);
-//        return places;
-        return null;
+
+        Place place = new Place();
+        place.setTitle("Quang Ngai");
+        place.setLongitude(1234.0);
+        place.setLatitude(123.0);
+
+        Place place1 = new Place();
+        place1.setTitle("Binh Dinh");
+        place1.setLongitude(123.0);
+        place1.setLatitude(1234.0);
+
+        List<Place> places = new ArrayList<Place>();
+        places.add(place);
+        places.add(place1);
+        return places;
     }
 
 }

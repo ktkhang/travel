@@ -9,13 +9,23 @@ import javax.validation.constraints.NotNull;
  */
 public class UserRequest {
 
+    private String uid;
     @NotNull(message = "User name must be not empty")
     private String userName;
-    private String regionVisited;
-    private String placeVisited;
+    private long regionVisited;
+    private long placeVisited;
     private UserStatus userStatus;
 
     // Getter && Setter
+
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
 
     public String getUserName() {
         return userName;
@@ -25,19 +35,19 @@ public class UserRequest {
         this.userName = userName;
     }
 
-    public String getRegionVisited() {
+    public long getRegionVisited() {
         return regionVisited;
     }
 
-    public void setRegionVisited(String regionVisited) {
+    public void setRegionVisited(long regionVisited) {
         this.regionVisited = regionVisited;
     }
 
-    public String getPlaceVisited() {
+    public long getPlaceVisited() {
         return placeVisited;
     }
 
-    public void setPlaceVisited(String placeVisited) {
+    public void setPlaceVisited(long placeVisited) {
         this.placeVisited = placeVisited;
     }
 

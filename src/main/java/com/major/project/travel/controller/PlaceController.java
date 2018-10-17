@@ -64,7 +64,6 @@ public class PlaceController {
     @PostMapping("/create")
     public Place createPlace(@Valid @RequestBody PlaceRequest placeRequest, Errors errors) {
         // validate input
-        System.out.println("Erorr AAA : " + errors);
         Utility.validateErrorsRequest(errors);
         Place place = new Place();
         place.setTitle(placeRequest.getTitle());
@@ -99,12 +98,11 @@ public class PlaceController {
      * @throws DataNotFoundException
      */
     @PutMapping("/update")
-    public Place updatePlace(@Valid @RequestBody PlaceRequest placeRequest, Errors errors) throws DataNotFoundException {
+    public Place updatePlace(@Valid @RequestBody PlaceRequest placeRequest, Errors errors) {
         // validate input
         Utility.validateErrorsRequest(errors);
 
         Place place = null;
-
         try {
             place = placeService.findPlaceByUid(placeRequest.getUid());
         } catch (DataNotFoundException e) {

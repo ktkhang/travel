@@ -2,6 +2,7 @@ package com.major.project.travel.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.major.project.travel.common.CommonSerialize;
+import com.major.project.travel.util.Constraint;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -15,7 +16,8 @@ import java.util.Set;
  * Created by HUY on 10/3/2018
  */
 @Entity
-@Table(name = "TBL_USERS")
+@Table(name = "TBL_USERS", uniqueConstraints = {@UniqueConstraint(columnNames = {"USER_NAME"},
+name = Constraint.USER_NAME_CONSTRAINT_CODE)})
 public class User extends CommonSerialize {
 
     @Id
@@ -24,20 +26,20 @@ public class User extends CommonSerialize {
     private Long id;
 
     @NotNull
-    @Column(name = "USER_NAME", unique = true)
+    @Column(name = "USER_NAME")
     private String userName;
 
     @Column(name = "USER_REGION_VISITED")
-    private String regionVisited;
+    private long regionVisited;
 
     @Column(name = "USER_PLACE_VISITED")
-    private String placeVisited;
+    private long placeVisited;
 
     @Enumerated(EnumType.STRING)
     @Column(name ="USER_STATUS")
     private UserStatus userStatus;
 
-    @ManyToMany(mappedBy = "users")
+    @ManyToMany(mappedBy = "users", fetch = FetchType.EAGER)
     private Set<Region> region = new HashSet<Region>();
 
     @JsonIgnore
@@ -64,19 +66,19 @@ public class User extends CommonSerialize {
         this.userName = userName;
     }
 
-    public String getRegionVisited() {
+    public long getRegionVisited() {
         return regionVisited;
     }
 
-    public void setRegionVisited(String regionVisited) {
+    public void setRegionVisited(long regionVisited) {
         this.regionVisited = regionVisited;
     }
 
-    public String getPlaceVisited() {
+    public long getPlaceVisited() {
         return placeVisited;
     }
 
-    public void setPlaceVisited(String placeVisited) {
+    public void setPlaceVisited(long placeVisited) {
         this.placeVisited = placeVisited;
     }
 

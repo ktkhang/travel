@@ -1,6 +1,8 @@
 package com.major.project.travel.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.major.project.travel.common.CommonSerialize;
+import com.major.project.travel.util.Constraint;
 import com.major.project.travel.util.StringListConverter;
 
 import javax.persistence.*;
@@ -10,8 +12,11 @@ import java.util.List;
  * Created by HUY on 10/14/2018
  */
 @Entity
-@Table(name = "TBL_PLACE_USER")
-public class PlaceUser {
+@Table(name = "TBL_PLACE_USER",
+        uniqueConstraints = {@UniqueConstraint(
+                columnNames = {"USER_ID", "PLACE_ID"},
+        name = Constraint.PLACE_USER_CONSTRAINT_CODE)})
+public class PlaceUser extends CommonSerialize {
 
     @Id
     @Column(name = "ID")

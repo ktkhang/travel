@@ -50,6 +50,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
         ResourceBundleMessageSource source = new ResourceBundleMessageSource();
         source.setBasename("messages");
         source.setDefaultEncoding("UTF-8");
+        System.out.println("Message-----"+source);
         return source;
     }
 
@@ -58,6 +59,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
         ResourceBundleMessageSource source = new ResourceBundleMessageSource();
         source.setBasename("exceptions");
         source.setDefaultEncoding("UTF-8");
+        System.out.println("Exeption-----"+source);
         return source;
     }
 
