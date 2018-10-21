@@ -50,17 +50,15 @@ public class WebMvcConfig implements WebMvcConfigurer {
         ResourceBundleMessageSource source = new ResourceBundleMessageSource();
         source.setBasename("messages");
         source.setDefaultEncoding("UTF-8");
-        System.out.println("Message-----"+source);
         return source;
     }
 
     @Bean(name = "exceptionSource")
     public MessageSource ExceptionSource() {
-        ResourceBundleMessageSource source = new ResourceBundleMessageSource();
-        source.setBasename("exceptions");
-        source.setDefaultEncoding("UTF-8");
-        System.out.println("Exeption-----"+source);
-        return source;
+        ResourceBundleMessageSource exceptionSource = new ResourceBundleMessageSource();
+        exceptionSource.setBasename("exceptions");
+        exceptionSource.setDefaultEncoding("UTF-8");
+        return exceptionSource;
     }
 
     @Bean
@@ -69,8 +67,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
         mailSender.setHost("smtp.gmail.com");
         mailSender.setPort(587);
 
-        mailSender.setUsername("mickeyphan17@gmail.com");
-        mailSender.setPassword("Pm325%91");
+        mailSender.setUsername("nguyenquanghuy605@gmail.com");
+        mailSender.setPassword("quanghuy");
 
         Properties props = mailSender.getJavaMailProperties();
         props.put("mail.transport.protocol", "smtp");

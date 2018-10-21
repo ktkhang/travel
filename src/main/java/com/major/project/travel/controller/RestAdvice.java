@@ -65,7 +65,6 @@ public class RestAdvice {
                 String errorMessage = Constraint.getConstraintErrorMessage(constraintName);
                 // Need to apply i18n to localize error message.
                 String localizedMessage = exceptionSource.getMessage(errorMessage, null, localeResolver.resolveLocale(request));
-                System.out.println("Message======"+localizedMessage);// Chua xet duoc UTF-8 cho message
                 return new Error(CONSTRAINT_COMMON_ERROR_CODE, localizedMessage);
 
             } else {
