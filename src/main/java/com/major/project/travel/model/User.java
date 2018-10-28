@@ -16,14 +16,18 @@ import java.util.Set;
  * Created by HUY on 10/3/2018
  */
 @Entity
-@Table(name = "TBL_USERS", uniqueConstraints = {@UniqueConstraint(columnNames = {"USER_NAME"},
-name = Constraint.USER_NAME_CONSTRAINT_CODE)})
+@Table(name = "TBL_USERS", uniqueConstraints = {@UniqueConstraint(columnNames = {"USER_ID"},
+name = Constraint.USER_CONSTRAINT_CODE)})
 public class User extends CommonSerialize {
 
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+
+    @NotNull
+    @Column(name = "USER_ID", unique = true)
+    private Long userID;
 
     @NotNull
     @Column(name = "USER_NAME")
@@ -63,6 +67,14 @@ public class User extends CommonSerialize {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getUserID() {
+        return userID;
+    }
+
+    public void setUserID(Long userID) {
+        this.userID = userID;
     }
 
     public String getUserName() {

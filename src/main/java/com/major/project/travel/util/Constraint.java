@@ -15,7 +15,7 @@ public final class Constraint {
     public static final String CONSTRAINT_DEFAULT_ERROR = "constraint_default_error";
     public static final String PLACE_NAME_CONSTRAINT_CODE = "place_name_unique_constraint";
     public static final String PLACE_USER_CONSTRAINT_CODE = "place_user_unique_constraint";
-    public static final String USER_NAME_CONSTRAINT_CODE = "user_name_unique_constraint";
+    public static final String USER_CONSTRAINT_CODE = "user_unique_constraint";
 
     // DECLARE CONSTRAINT_MESSAGES below
     private final static HashMap<String, String> constraintMap = new HashMap<>();
@@ -23,7 +23,7 @@ public final class Constraint {
     static {
         constraintMap.put(PLACE_NAME_CONSTRAINT_CODE, "place_name_unique_constraint_duplicated");
         constraintMap.put(PLACE_USER_CONSTRAINT_CODE, "place_user_unique_constraint_duplicated");
-        constraintMap.put(USER_NAME_CONSTRAINT_CODE, "user_name_unique_constraint_duplicated");
+        constraintMap.put(USER_CONSTRAINT_CODE, "user_unique_constraint_duplicated");
     }
     public static String getConstraintErrorMessage(String constraintName){
         String result = constraintMap.get(constraintName);
