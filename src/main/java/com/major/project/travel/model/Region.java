@@ -27,6 +27,14 @@ public class Region extends CommonSerialize {
     @Column(name = "REGION_NAME", unique = true)
     private String name;
 
+    @NotNull
+    @Column(name = "REGION_TITLE")
+    private String title;
+
+    @NotNull
+    @Column(name = "REGION_D")
+    private String d;
+
     @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(name = "USER_REGION",
     joinColumns = {@JoinColumn(name = "USER_ID")},
@@ -38,6 +46,7 @@ public class Region extends CommonSerialize {
     private List<Place> placeList;
 
     // Getter and Setter
+
 
     public Long getId() {
         return id;
@@ -53,6 +62,22 @@ public class Region extends CommonSerialize {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getD() {
+        return d;
+    }
+
+    public void setD(String d) {
+        this.d = d;
     }
 
     public Set<User> getUsers() {

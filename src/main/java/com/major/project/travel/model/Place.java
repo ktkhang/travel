@@ -15,7 +15,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "TBL_PLACES",
-        uniqueConstraints = {@UniqueConstraint(columnNames = {"PLACE_TITLE", "REGION_ID"},
+        uniqueConstraints = {@UniqueConstraint(columnNames = {"PLACE_NAME", "REGION_ID"},
                 name = Constraint.PLACE_NAME_CONSTRAINT_CODE)})
 public class Place extends CommonSerialize {
 
@@ -24,6 +24,11 @@ public class Place extends CommonSerialize {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
+    @NotNull
+    @Column(name = "PLACE_NAME", unique = true)
+    private String name;
+
+    @NotNull
     @Column(name = "PLACE_SVG_PATH")
     private String svgPath;
 
@@ -60,6 +65,14 @@ public class Place extends CommonSerialize {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getSvgPath() {

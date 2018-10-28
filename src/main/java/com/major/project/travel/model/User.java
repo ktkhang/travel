@@ -29,6 +29,14 @@ public class User extends CommonSerialize {
     @Column(name = "USER_NAME")
     private String userName;
 
+    @NotNull
+    @Column(name = "USER_EMAIL")
+    private String email;
+
+    @NotNull
+    @Column(name = "USER_AVATAR")
+    private String avatar;
+
     @Column(name = "USER_REGION_VISITED")
     private long regionVisited;
 
@@ -49,7 +57,6 @@ public class User extends CommonSerialize {
 
     // Getter and Setter
 
-
     public Long getId() {
         return id;
     }
@@ -64,6 +71,22 @@ public class User extends CommonSerialize {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
     public long getRegionVisited() {
