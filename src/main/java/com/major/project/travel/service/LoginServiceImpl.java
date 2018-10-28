@@ -1,7 +1,9 @@
 package com.major.project.travel.service;
 
+import com.major.project.travel.dao.RoleDao;
 import com.major.project.travel.dao.UserDao;
 import com.major.project.travel.exception.DataNotFoundException;
+import com.major.project.travel.model.Role;
 import com.major.project.travel.model.User;
 import com.major.project.travel.model.UserStatus;
 import com.major.project.travel.request.LoginRequest;
@@ -15,6 +17,9 @@ public class LoginServiceImpl implements LoginService {
 
     @Autowired
     private UserDao userDao;
+
+    @Autowired
+    private RoleDao roleDao;
 
     /**
      * Handle login
@@ -40,6 +45,8 @@ public class LoginServiceImpl implements LoginService {
             newUser.setUserStatus(UserStatus.ACTIVE);
             newUser.setRegionVisited(0);
             newUser.setPlaceVisited(0);
+            Role role = roleDao.findByRoleName("USER");
+            newUser.setRole(role);
             userDao.saveObj(newUser);
             user = userDao.findUserByUserID(loginRequest.getUserID());
         }

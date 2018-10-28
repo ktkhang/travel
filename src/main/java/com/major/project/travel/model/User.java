@@ -51,6 +51,10 @@ public class User extends CommonSerialize {
     @Column(name ="USER_STATUS")
     private UserStatus userStatus;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "ROLE_ID",referencedColumnName = "ID")
+    private Role role;
+
     @ManyToMany(mappedBy = "users", fetch = FetchType.EAGER)
     private Set<Region> region = new HashSet<Region>();
 
@@ -123,6 +127,14 @@ public class User extends CommonSerialize {
 
     public void setUserStatus(UserStatus userStatus) {
         this.userStatus = userStatus;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public Set<Region> getRegion() {
