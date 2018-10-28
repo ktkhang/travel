@@ -17,4 +17,12 @@ public interface UserDao extends CommonHibernateInteface<Serializable, User> {
      * @throws DataNotFoundException
      */
     User findUserByUid(String uid) throws DataNotFoundException;
+
+    /**
+     * find User By UserID
+     * @param userID
+     * @return
+     * @throws DataNotFoundException
+     */
+    User findUserByUserID(Long userID) throws DataNotFoundException;
 }

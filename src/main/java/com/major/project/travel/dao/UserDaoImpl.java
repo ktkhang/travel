@@ -28,4 +28,16 @@ public class UserDaoImpl extends CommonHibernate<User> implements UserDao{
             throw new DataNotFoundException("User Uid: " + uid + " is not existed.", e);
         }
     }
+
+    @Override
+    public User findUserByUserID(Long userID) throws DataNotFoundException {
+        String sql = "from User u where u.userID = :userID";
+        try {
+            Query query = getCurrentSession().createQuery(sql, User.class)
+                    .setParameter("userID", userID);
+            return (User) query.getSingleResult();
+        } catch (Exception e) {
+            throw new DataNotFoundException("User ID: " + userID + " is not existed.", e);
+        }
+    }
 }
