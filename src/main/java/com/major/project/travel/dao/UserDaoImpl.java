@@ -19,9 +19,9 @@ public class UserDaoImpl extends CommonHibernate<User> implements UserDao{
 
     @Override
     public User findUserByUid(String uid) throws DataNotFoundException {
-        String sql = "select * from tbl_users r where r.uid = :uid";
+        String sql = "from User u where u.uid = :uid";
         try {
-            Query query = getCurrentSession().createNativeQuery(sql, User.class)
+            Query query = getCurrentSession().createQuery(sql, User.class)
                     .setParameter("uid", uid);
             return (User) query.getSingleResult();
         } catch (Exception e) {

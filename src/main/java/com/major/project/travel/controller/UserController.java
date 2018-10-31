@@ -32,6 +32,11 @@ public class UserController {
         return userService.list();
     }
 
+    @GetMapping("/show/{uid}")
+    public User showByUid(@PathVariable String uid) throws DataNotFoundException{
+        return userService.findUserByUid(uid);
+    }
+
     /**
      * Create new User
      *
