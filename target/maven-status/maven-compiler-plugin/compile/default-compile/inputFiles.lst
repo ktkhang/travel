@@ -28,7 +28,6 @@ D:\DOCUMENT\TNCN\travel\src\main\java\com\major\project\travel\service\LoginServ
 D:\DOCUMENT\TNCN\travel\src\main\java\com\major\project\travel\dao\RegionDaoImpl.java
 D:\DOCUMENT\TNCN\travel\src\main\java\com\major\project\travel\json\RestApiJsonContainer.java
 D:\DOCUMENT\TNCN\travel\src\main\java\com\major\project\travel\util\Constraint.java
-D:\DOCUMENT\TNCN\travel\src\main\java\com\major\project\travel\controller\Huy.java
 D:\DOCUMENT\TNCN\travel\src\main\java\com\major\project\travel\request\PlaceUserRequest.java
 D:\DOCUMENT\TNCN\travel\src\main\java\com\major\project\travel\controller\PlaceController.java
 D:\DOCUMENT\TNCN\travel\src\main\java\com\major\project\travel\json\JsonSerializer.java
