@@ -274,13 +274,9 @@
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
-                <includes>
-                    <include>**</include>
-                </includes>
                 <excludes>
                     <exclude>**/*.java</exclude>
                 </excludes>
-                <targetPath>${project.build.outputDirectory}</targetPath>
             </resource>
         </resources>
         <plugins>
@@ -304,6 +300,5 @@
             </plugin>
         </plugins>
     </build>
-
 
 </project>
