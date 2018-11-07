@@ -6,6 +6,7 @@ package com.major.project.travel.util;
 public interface Constant {
 
     String BEARER_STRING = "Bearer ";
+    String AUTHORIZATION_STRING = "Authorization";
 
     String COMMA_DELIMITER = ",";
 
