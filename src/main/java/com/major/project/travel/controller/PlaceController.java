@@ -75,7 +75,7 @@ public class PlaceController {
         } catch (Exception e) {
             throw new RestException("Region is not existed", HttpServletResponse.SC_NOT_FOUND);
         }
-        if (region == null || region.getId() == 0) {
+        if (region == null) {
             throw new RestException("Region is not existed", HttpServletResponse.SC_NOT_FOUND);
         }
         place.setRegion(region);
@@ -118,7 +118,7 @@ public class PlaceController {
         } catch (Exception e) {
             throw new RestException("Region is not existed", HttpServletResponse.SC_NOT_FOUND);
         }
-        if (region == null || region.getId() == 0) {
+        if (region == null) {
             throw new RestException("Region is not existed", HttpServletResponse.SC_NOT_FOUND);
         }
         place.setRegion(region);
