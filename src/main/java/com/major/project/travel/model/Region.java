@@ -7,6 +7,7 @@ import org.hibernate.annotations.ManyToAny;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.xml.soap.Text;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -20,8 +21,7 @@ public class Region extends CommonSerialize {
 
     @Id
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    private String id;
 
     @NotNull
     @Column(name = "REGION_NAME", unique = true)
@@ -30,10 +30,6 @@ public class Region extends CommonSerialize {
     @NotNull
     @Column(name = "REGION_TITLE")
     private String title;
-
-    @NotNull
-    @Column(name = "REGION_D")
-    private String d;
 
     @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(name = "USER_REGION",
@@ -48,11 +44,11 @@ public class Region extends CommonSerialize {
     // Getter and Setter
 
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -70,14 +66,6 @@ public class Region extends CommonSerialize {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getD() {
-        return d;
-    }
-
-    public void setD(String d) {
-        this.d = d;
     }
 
     public Set<User> getUsers() {
