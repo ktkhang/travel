@@ -2,21 +2,16 @@ package com.major.project.travel.controller;
 
 import com.major.project.travel.exception.DataNotFoundException;
 import com.major.project.travel.exception.RestException;
-import com.major.project.travel.model.Place;
-import com.major.project.travel.model.PlaceStatus;
-import com.major.project.travel.model.Region;
-import com.major.project.travel.request.PlaceRequest;
-import com.major.project.travel.service.PlaceService;
-import com.major.project.travel.service.RegionService;
+import com.major.project.travel.model.*;
+import com.major.project.travel.request.*;
+import com.major.project.travel.service.*;
 import com.major.project.travel.util.Utility;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,6 +26,9 @@ public class PlaceController {
 
     @Autowired
     private RegionService regionService;
+
+    @Autowired
+    private UserService userService;
 
     /**
      * Get List Place
@@ -130,6 +128,32 @@ public class PlaceController {
             throw e;
         }
         return place;
+    }
+
+    /**
+     * findPlaceByRegionUid
+     *
+     * @param uid
+     * @return
+     * @throws DataNotFoundException
+     */
+    @GetMapping("/findByRegionUid/{uid}")
+    public List<Place> findPlacesByRegionUid(@PathVariable String uid) throws DataNotFoundException{
+        Region region = regionService.findRegionByUid(uid);
+        return placeService.findByRegion(region);
+    }
+
+    /**
+     * findPlacesByUserUid
+     *
+     * @param uid
+     * @return
+     * @throws DataNotFoundException
+     */
+    @GetMapping("/findByUserUid/{uid}")
+    public List<Place> findPlacesByUserUid(@PathVariable String uid) throws DataNotFoundException{
+        User user = userService.findUserByUid(uid);
+        return  placeService.findByUser(user);
     }
 
     /**

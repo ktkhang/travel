@@ -3,6 +3,8 @@ package com.major.project.travel.dao;
 import com.major.project.travel.common.CommonHibernate;
 import com.major.project.travel.exception.DataNotFoundException;
 import com.major.project.travel.model.Place;
+import com.major.project.travel.model.Region;
+import com.major.project.travel.model.User;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.Query;
@@ -28,6 +30,27 @@ public class PlaceDaoImpl extends CommonHibernate<Place> implements PlaceDao {
             return (Place) query.getSingleResult();
         } catch (Exception e) {
             throw new DataNotFoundException("Place Uid: " + uid + " is not existed.", e);
+        }
+    }
+
+    @Override
+    public List<Place> findByRegion(Region region) throws DataNotFoundException {
+        String sql = "from Place p where p.region = :region";
+        Query query = getCurrentSession().createQuery(sql)
+                .setParameter("region", region);
+        List<Place> places = query.getResultList();
+        return places;
+    }
+
+    @Override
+    public List<Place> findByUser(User user) throws DataNotFoundException {
+        String sql = "select p, pu from Place p, PlaceUser pu where pu.place = p and pu.user = :user";
+        try{
+            Query query = getCurrentSession().createQuery(sql).setParameter("user", user);
+            List<Place> places = query.getResultList();
+            return places;
+        }catch (Exception e){
+            throw new DataNotFoundException(e.getMessage(), e);
         }
     }
 }
