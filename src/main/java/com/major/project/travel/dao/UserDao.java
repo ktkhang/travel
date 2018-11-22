@@ -2,7 +2,8 @@ package com.major.project.travel.dao;
 
 import com.major.project.travel.common.CommonHibernateInteface;
 import com.major.project.travel.exception.DataNotFoundException;
-import com.major.project.travel.model.User;
+import com.major.project.travel.model.*;
+import java.util.*;
 
 import java.io.Serializable;
 
@@ -25,4 +26,12 @@ public interface UserDao extends CommonHibernateInteface<Serializable, User> {
      * @throws DataNotFoundException
      */
     User findUserByUserID(Long userID) throws DataNotFoundException;
+
+    /**
+     * find User By Place
+     * @param place
+     * @return
+     * @throws DataNotFoundException
+     */
+    List<User> findByPlace(Place place) throws DataNotFoundException;
 }

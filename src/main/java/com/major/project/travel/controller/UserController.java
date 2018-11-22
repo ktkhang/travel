@@ -27,6 +27,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private PlaceService placeService;
+
     @GetMapping("/all")
     public List<User> getUserList() {
         return userService.list();
@@ -113,5 +116,31 @@ public class UserController {
         } catch (Exception e) {
             throw new RestException(String.format("Cannot delete {%s}. Please contact administrator for help.", String.format("userUid = %s", uid)));
         }
+    }
+
+    /**
+     * findUsersByPlaceUid
+     *
+     * @param uid
+     * @return
+     * @throws DataNotFoundException
+     */
+    @GetMapping("/findByPlace/{uid}")
+    public List<User> findUsersByPlaceUid(@PathVariable String uid) throws DataNotFoundException{
+        Place place = placeService.findPlaceByUid(uid);
+        return userService.findByPlace(place);
+    }
+
+    /**
+     * findUsersByPlaceUid
+     *
+     * @param uid
+     * @return
+     * @throws DataNotFoundException
+     */
+    @GetMapping("/findByádfPlace/{uid}")
+    public List<User> findUsersByPlaceUiadsfasdd(@PathVariable String uid) throws DataNotFoundException{
+        Place place = placeService.findPlaceByUid(uid);
+        return userService.findByPlace(place);
     }
 }
