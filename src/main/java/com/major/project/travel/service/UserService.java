@@ -1,6 +1,7 @@
 package com.major.project.travel.service;
 
 import com.major.project.travel.exception.DataNotFoundException;
+import com.major.project.travel.model.Place;
 import com.major.project.travel.model.User;
 
 import java.util.List;
@@ -41,4 +42,12 @@ public interface UserService {
      * @throws DataNotFoundException
      */
     User findUserByUid(String uid) throws DataNotFoundException;
+
+    /**
+     * find User By Place
+     * @param place
+     * @return
+     * @throws DataNotFoundException
+     */
+    List<User> findByPlace(Place place) throws DataNotFoundException;
 }
