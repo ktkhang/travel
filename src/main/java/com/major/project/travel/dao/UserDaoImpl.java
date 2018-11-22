@@ -2,12 +2,10 @@ package com.major.project.travel.dao;
 
 import com.major.project.travel.common.CommonHibernate;
 import com.major.project.travel.exception.DataNotFoundException;
-import com.major.project.travel.model.Place;
 import com.major.project.travel.model.User;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.Query;
-import java.util.List;
 
 /**
  * Created by HUY on 10/14/2018
@@ -40,18 +38,6 @@ public class UserDaoImpl extends CommonHibernate<User> implements UserDao{
             return (User) query.getSingleResult();
         } catch (Exception e) {
             throw new DataNotFoundException("User ID: " + userID + " is not existed.", e);
-        }
-    }
-
-    @Override
-    public List<User> findByPlace(Place place) throws DataNotFoundException {
-        String sql = "select u, pu from User u, PlaceUser pu where pu.user = u and pu.place = :place";
-        try{
-            Query query = getCurrentSession().createQuery(sql).setParameter("place", place);
-            List<User> users = query.getResultList();
-            return users;
-        }catch (Exception e){
-            throw new DataNotFoundException(e.getMessage(), e);
         }
     }
 }

@@ -1,7 +1,5 @@
 # Misc directories
+/target
+travel.iml
 .settings/
 .idea/
-
-# Misc files
-.classpath
-.project
