@@ -130,17 +130,4 @@ public class UserController {
         Place place = placeService.findPlaceByUid(uid);
         return userService.findByPlace(place);
     }
-
-    /**
-     * findUsersByPlaceUid
-     *
-     * @param uid
-     * @return
-     * @throws DataNotFoundException
-     */
-    @GetMapping("/findByádfPlace/{uid}")
-    public List<User> findUsersByPlaceUiadsfasdd(@PathVariable String uid) throws DataNotFoundException{
-        Place place = placeService.findPlaceByUid(uid);
-        return userService.findByPlace(place);
-    }
 }
