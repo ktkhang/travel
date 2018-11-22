@@ -2,25 +2,221 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1eefda2-b835-4510-9d9a-0408f818f282" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/major/project/travel/controller/PlaceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/major/project/travel/controller/PlaceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/major/project/travel/controller/PlaceUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/major/project/travel/controller/PlaceUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/major/project/travel/dao/PlaceDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/major/project/travel/dao/PlaceDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/major/project/travel/dao/PlaceDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/major/project/travel/dao/PlaceDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/major/project/travel/service/PlaceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/major/project/travel/service/PlaceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/major/project/travel/service/PlaceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/major/project/travel/service/PlaceServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/major/project/travel/service/PlaceUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/major/project/travel/service/PlaceUserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/major/project/travel/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/major/project/travel/service/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/controller/PlaceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/major/project/travel/controller/PlaceController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/dao/PlaceDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/major/project/travel/dao/PlaceDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/dao/PlaceDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/major/project/travel/dao/PlaceDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/service/PlaceService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/major/project/travel/service/PlaceService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/service/PlaceServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/major/project/travel/service/PlaceServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/controller/PlaceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/controller/PlaceController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/dao/PlaceDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/dao/PlaceDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/dao/PlaceDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/dao/PlaceDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/service/PlaceService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/service/PlaceService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/service/PlaceServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/service/PlaceServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/common/CommonHibernate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/common/CommonHibernateInteface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/common/CommonSerialize.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/config/AppInitializer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/config/HibernateConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/config/SecurityWebApplicationInitializer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/config/WebMvcConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/controller/AuthenticationController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/controller/PlaceController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/controller/PlaceUserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/controller/RegionController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/controller/RestAdvice.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/controller/RoleController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/controller/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/dao/PlaceDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/dao/PlaceDaoImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/dao/PlaceUserDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/dao/PlaceUserDaoImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/dao/RegionDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/dao/RegionDaoImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/dao/RoleDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/dao/RoleDaoImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/dao/UserDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/dao/UserDaoImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/exception/DataNotFoundException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/exception/RestException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/json/Error.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/json/JsonSerializer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/json/RestApiJsonContainer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/model/Place.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/model/PlaceStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/model/PlaceUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/model/Region.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/model/Role.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/model/RoleStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/model/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/model/UserStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/request/LoginRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/request/PlaceRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/request/PlaceUserRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/request/RegionRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/request/RoleRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/request/UserRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/service/LoginService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/service/LoginServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/service/PlaceService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/service/PlaceServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/service/PlaceUserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/service/PlaceUserServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/service/RegionService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/service/RegionServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/service/RoleService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/service/RoleServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/service/UserServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/util/Constraint.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/util/StringListConverter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/major/project/travel/util/Utility.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/database.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/exceptions_en.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/exceptions_vi.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hibernate.cfg.test.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hibernate.cfg.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/messages_en.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/messages_vi.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/major/project/travel/config/HibernateConfigTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/major/project/travel/config/TestBeanConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/major/project/travel/service/PlaceServiceTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/major/project/travel/service/UserServiceTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/applicationContext.xml.bk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/common/CommonHibernate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/common/CommonHibernateInteface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/common/CommonSerialize.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/config/AppInitializer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/config/HibernateConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/config/SecurityWebApplicationInitializer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/config/WebMvcConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/controller/AuthenticationController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/controller/PlaceController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/controller/PlaceUserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/controller/RegionController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/controller/RestAdvice.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/controller/RoleController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/controller/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/dao/PlaceDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/dao/PlaceDaoImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/dao/PlaceUserDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/dao/PlaceUserDaoImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/dao/RegionDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/dao/RegionDaoImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/dao/RoleDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/dao/RoleDaoImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/dao/UserDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/dao/UserDaoImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/exception/DataNotFoundException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/exception/RestException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/json/Error.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/json/JsonSerializer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/json/RestApiJsonContainer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/model/Place.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/model/PlaceStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/model/PlaceUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/model/Region.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/model/Role.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/model/RoleStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/model/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/model/UserStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/request/LoginRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/request/PlaceRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/request/PlaceUserRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/request/RegionRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/request/RoleRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/request/UserRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/service/LoginService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/service/LoginServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/service/PlaceService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/service/PlaceServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/service/PlaceUserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/service/PlaceUserServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/service/RegionService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/service/RegionServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/service/RoleService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/service/RoleServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/service/UserServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/util/Constraint.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/util/StringListConverter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/com/major/project/travel/util/Utility.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/database.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/exceptions_en.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/exceptions_vi.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/hibernate.cfg.test.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/hibernate.cfg.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/messages_en.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/classes/messages_vi.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/dispatcher-servlet.xml.bk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/activation-1.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/antlr-2.7.7.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/c3p0-0.9.5.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/classmate-1.3.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/commons-codec-1.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/commons-collections-3.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/commons-dbcp-20030825.184428.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/commons-pool-20030825.183949.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/dbunit-2.5.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/dom4j-1.6.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/hamcrest-core-1.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/hibernate-c3p0-5.2.11.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/hibernate-commons-annotations-5.0.1.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/hibernate-core-5.2.11.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/hibernate-jpa-2.1-api-1.0.0.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/hibernate-validator-5.4.1.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/hsqldb-1.8.0.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/httpcore-4.4.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/jackson-annotations-2.9.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/jackson-core-2.9.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/jackson-databind-2.9.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/jackson-dataformat-xml-2.9.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/jackson-datatype-jdk8-2.9.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/jackson-datatype-joda-2.9.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/jackson-datatype-jsr310-2.9.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/jackson-module-jaxb-annotations-2.9.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/jackson-module-jsonSchema-2.9.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/jandex-2.0.3.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/javassist-3.20.0-GA.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/javax.servlet.jsp.jstl-api-1.2.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/jboss-logging-3.3.0.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/jboss-transaction-api_1.2_spec-1.0.1.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/jjwt-api-0.10.5.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/jjwt-impl-0.10.5.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/jjwt-jackson-0.10.5.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/joda-time-2.7.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/junit-4.12.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/mail-1.4.7.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/mchange-commons-java-0.2.11.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/mockito-core-1.10.19.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/objenesis-2.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/poi-3.11.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/poi-ooxml-3.11.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/poi-ooxml-schemas-3.11.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/postgresql-42.2.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/slf4j-api-1.7.12.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/spring-aop-5.0.7.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/spring-beans-5.0.7.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/spring-context-5.0.7.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/spring-context-support-5.0.7.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/spring-core-5.0.7.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/spring-expression-5.0.7.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/spring-jcl-5.0.7.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/spring-jdbc-5.0.7.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/spring-orm-5.0.7.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/spring-security-config-5.0.0.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/spring-security-core-5.0.0.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/spring-security-web-5.0.0.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/spring-test-5.0.7.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/spring-tx-5.0.7.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/spring-web-5.0.7.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/spring-webmvc-5.0.7.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/standard-1.1.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/stax-api-1.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/stax2-api-3.1.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/validation-api-1.1.0.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/woodstox-core-5.0.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/lib/xmlbeans-2.6.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/views/editUsers.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/views/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/views/login.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/WEB-INF/web.xml.bk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/travel/index.jsp.bk" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -32,72 +228,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PlaceUserController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/major/project/travel/controller/PlaceUserController.java">
+    <leaf>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="72" column="41" selection-start-line="72" selection-start-column="41" selection-end-line="72" selection-end-column="41" />
-              <folding>
-                <element signature="e#1102#1103#0" expanded="true" />
-                <element signature="e#1148#1149#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlaceUserServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/major/project/travel/service/PlaceUserServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
-              <folding>
-                <element signature="e#809#810#0" expanded="true" />
-                <element signature="e#873#874#0" expanded="true" />
-                <element signature="e#934#935#0" expanded="true" />
-                <element signature="e#998#999#0" expanded="true" />
-                <element signature="e#1049#1050#0" expanded="true" />
-                <element signature="e#1094#1095#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlaceServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/major/project/travel/service/PlaceServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="54" column="42" lean-forward="true" selection-start-line="54" selection-start-column="42" selection-end-line="54" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/major/project/travel/service/UserServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="477">
-              <caret line="50" column="5" lean-forward="true" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserDaoImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/major/project/travel/dao/UserDaoImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlaceController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/major/project/travel/controller/PlaceController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="65" column="19" selection-start-line="65" selection-start-column="14" selection-end-line="65" selection-end-column="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="336">
+              <caret line="281" column="27" selection-start-line="281" selection-start-column="27" selection-end-line="281" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -145,7 +281,6 @@
         <option value="$PROJECT_DIR$/src/test/java/com/major/project/travel/service/PlaceServiceTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/major/project/travel/model/Place.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/major/project/travel/request/PlaceRequest.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/major/project/travel/dao/PlaceUserDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/major/project/travel/security/JwtAuthenticationFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/major/project/travel/dao/PlaceDao.java" />
@@ -156,8 +291,20 @@
         <option value="$PROJECT_DIR$/src/main/java/com/major/project/travel/service/PlaceServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/major/project/travel/service/PlaceUserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/major/project/travel/controller/PlaceUserController.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="travel" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="10" />
@@ -171,7 +318,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -217,14 +364,32 @@
             <path>
               <item name="travel" type="b2602c69:ProjectViewProjectNode" />
               <item name="travel" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="travel" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="travel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="travel" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="travel" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="travel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="travel" type="462c0819:PsiDirectoryNode" />
               <item name="target" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -308,7 +473,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -322,8 +486,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2193646" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22239032" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -335,23 +498,24 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24962178" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2647504" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="bottom" id="Terminal" order="8" />
@@ -359,7 +523,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Capture Tool" order="5" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info id="Favorites" order="6" side_tool="true" />
     </layout-to-restore>
@@ -368,10 +532,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/messages_en.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-      <provider editor-type-id="ResourceBundle" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/major/project/travel/common/CommonSerialize.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="588">
@@ -523,20 +683,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/major/project/travel/controller/Huy.java" />
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="275" column="57" selection-start-line="275" selection-start-column="57" selection-end-line="275" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/major/project/travel/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/major/project/travel/controller/RegionController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -560,8 +706,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/major/project/travel/service/RegionServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="43" column="30" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
+        <state relative-caret-position="315">
+          <caret line="52" column="34" selection-start-line="52" selection-start-column="34" selection-end-line="52" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -604,16 +750,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
           <caret line="18" column="74" lean-forward="true" selection-start-line="18" selection-start-column="74" selection-end-line="18" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/major/project/travel/dao/PlaceDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="29" column="4" lean-forward="true" selection-start-line="29" selection-start-column="4" selection-end-line="35" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -676,14 +812,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
           <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
-          <folding>
-            <element signature="e#809#810#0" expanded="true" />
-            <element signature="e#873#874#0" expanded="true" />
-            <element signature="e#934#935#0" expanded="true" />
-            <element signature="e#998#999#0" expanded="true" />
-            <element signature="e#1049#1050#0" expanded="true" />
-            <element signature="e#1094#1095#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -695,6 +823,41 @@
             <element signature="e#1102#1103#0" expanded="true" />
             <element signature="e#1148#1149#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/major/project/travel/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="519">
+          <caret line="42" column="64" selection-start-line="42" selection-start-column="64" selection-end-line="42" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/major/project/travel/dao/PlaceDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="35" selection-end-column="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/major/project/travel/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="542">
+          <caret line="144" column="5" selection-start-line="144" selection-start-column="5" selection-end-line="144" selection-end-column="5" />
+          <folding>
+            <element signature="e#1056#1057#0" expanded="true" />
+            <element signature="e#1097#1098#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="281" column="27" selection-start-line="281" selection-start-column="27" selection-end-line="281" selection-end-column="27" />
         </state>
       </provider>
     </entry>
