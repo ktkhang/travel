@@ -2,10 +2,12 @@ package com.major.project.travel.dao;
 
 import com.major.project.travel.common.CommonHibernate;
 import com.major.project.travel.exception.DataNotFoundException;
+import com.major.project.travel.exception.RestException;
 import com.major.project.travel.model.Region;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.Query;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * Created by HUY on 10/14/2018
@@ -25,7 +27,7 @@ public class RegionDaoImpl extends CommonHibernate<Region> implements RegionDao 
                     .setParameter("uid", uid);
             return (Region) query.getSingleResult();
         } catch (Exception e) {
-            throw new DataNotFoundException("Region Uid: " + uid + " is not existed.", e);
+            throw new RestException(String.format("Region have {%s} is not existed.", String.format("regionUid = %s", uid)),HttpServletResponse.SC_NOT_FOUND);
         }
     }
 }

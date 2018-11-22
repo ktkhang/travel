@@ -2,12 +2,14 @@ package com.major.project.travel.dao;
 
 import com.major.project.travel.common.CommonHibernate;
 import com.major.project.travel.exception.DataNotFoundException;
+import com.major.project.travel.exception.RestException;
 import com.major.project.travel.model.Place;
 import com.major.project.travel.model.Region;
 import com.major.project.travel.model.User;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.Query;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
@@ -29,7 +31,7 @@ public class PlaceDaoImpl extends CommonHibernate<Place> implements PlaceDao {
                     .setParameter("uid", uid);
             return (Place) query.getSingleResult();
         } catch (Exception e) {
-            throw new DataNotFoundException("Place Uid: " + uid + " is not existed.", e);
+            throw new RestException(String.format("Place have {%s} is not existed.", String.format("placeUid = %s", uid)),HttpServletResponse.SC_NOT_FOUND);
         }
     }
 

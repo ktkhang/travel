@@ -1,8 +1,10 @@
 package com.major.project.travel.service;
 
+import com.major.project.travel.controller.RestAdvice;
 import com.major.project.travel.dao.RoleDao;
 import com.major.project.travel.dao.UserDao;
 import com.major.project.travel.exception.DataNotFoundException;
+import com.major.project.travel.exception.RestException;
 import com.major.project.travel.model.Role;
 import com.major.project.travel.model.User;
 import com.major.project.travel.model.UserStatus;
@@ -49,6 +51,7 @@ public class LoginServiceImpl implements LoginService {
             newUser.setRole(role);
             userDao.saveObj(newUser);
             user = userDao.findUserByUserID(loginRequest.getUserID());
+            throw new RestException("Login fail :" + e.getMessage());
         }
         return user;
     }
