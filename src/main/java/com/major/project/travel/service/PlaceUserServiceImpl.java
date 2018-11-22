@@ -22,12 +22,7 @@ public class PlaceUserServiceImpl implements PlaceUserService{
 
     @Override
     public void save(PlaceUser placeUser) {
-        try{
-            placeUserDao.saveObj((Serializable) placeUser);
-        }
-        catch (Exception e){
-            throw e;
-        }
+        placeUserDao.saveObj((Serializable) placeUser);
     }
 
     @Override

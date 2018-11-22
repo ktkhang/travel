@@ -51,8 +51,8 @@ public class PlaceServiceImpl implements PlaceService{
     @Override
     public Place findPlaceByUid(String uid) throws DataNotFoundException {
         Place place = placeDao.findPlaceByUid(uid);
-        if (place == null || place.getId() == 0) {
-            throw new RestException("Place is not existed", HttpServletResponse.SC_NOT_FOUND);
+        if (place == null) {
+            throw new RestException(String.format("Place have {%s} is not existed.", String.format("placeUid = %s", uid)),HttpServletResponse.SC_NOT_FOUND);
         }
         return placeDao.findPlaceByUid(uid);
     }

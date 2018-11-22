@@ -2,11 +2,13 @@ package com.major.project.travel.service;
 
 import com.major.project.travel.dao.RegionDao;
 import com.major.project.travel.exception.DataNotFoundException;
+import com.major.project.travel.exception.RestException;
 import com.major.project.travel.model.Region;
 import com.major.project.travel.request.RegionRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -37,6 +39,10 @@ public class RegionServiceImpl implements RegionService {
 
     @Override
     public Region findRegionByUid(String uid) throws DataNotFoundException {
+        Region region = regionDao.findRegionByUid(uid);
+        if(region == null){
+            throw new RestException(String.format("Region have {%s} is not existed.", String.format("regionUid = %s", uid)),HttpServletResponse.SC_NOT_FOUND);
+        }
         return regionDao.findRegionByUid(uid);
     }
 

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import javax.xml.crypto.Data;
 import java.util.List;
 
 /**
@@ -60,30 +61,20 @@ public class PlaceController {
      * @return Place
      */
     @PostMapping("/create")
-    public Place createPlace(@Valid @RequestBody PlaceRequest placeRequest, Errors errors) {
+    public Place createPlace(@Valid @RequestBody PlaceRequest placeRequest, Errors errors)
+        throws DataNotFoundException{
         // validate input
         Utility.validateErrorsRequest(errors);
         Place place = new Place();
+        place.setName(placeRequest.getName());
         place.setTitle(placeRequest.getTitle());
         place.setSvgPath(placeRequest.getSvgPath());
         place.setLatitude(placeRequest.getLatitude());
         place.setLongitude(placeRequest.getLongitude());
         place.setPlaceStatus(PlaceStatus.AVAILABLE);
-        Region region = null;
-        try {
-            region = regionService.findRegionByUid(placeRequest.getRegionUid());
-        } catch (Exception e) {
-            throw new RestException("Region is not existed", HttpServletResponse.SC_NOT_FOUND);
-        }
-        if (region == null) {
-            throw new RestException("Region is not existed", HttpServletResponse.SC_NOT_FOUND);
-        }
+        Region region = regionService.findRegionByUid(placeRequest.getRegionUid());
         place.setRegion(region);
-        try {
-            placeService.save(place);
-        } catch (Exception e) {
-            throw e;
-        }
+        placeService.save(place);
         return place;
     }
 
@@ -96,37 +87,21 @@ public class PlaceController {
      * @throws DataNotFoundException
      */
     @PutMapping("/update")
-    public Place updatePlace(@Valid @RequestBody PlaceRequest placeRequest, Errors errors) {
+    public Place updatePlace(@Valid @RequestBody PlaceRequest placeRequest, Errors errors)
+        throws DataNotFoundException
+    {
         // validate input
         Utility.validateErrorsRequest(errors);
-
-        Place place = null;
-        try {
-            place = placeService.findPlaceByUid(placeRequest.getUid());
-        } catch (DataNotFoundException e) {
-            throw new RestException("Place is not existed", HttpServletResponse.SC_NOT_FOUND);
-        }
-
+        Place place = placeService.findPlaceByUid(placeRequest.getUid());
+        place.setName(placeRequest.getName());
         place.setTitle(placeRequest.getTitle());
         place.setSvgPath(placeRequest.getSvgPath());
         place.setLatitude(placeRequest.getLatitude());
         place.setLongitude(placeRequest.getLongitude());
         place.setPlaceStatus(placeRequest.getPlaceStatus());
-        Region region = null;
-        try {
-            region = regionService.findRegionByUid(placeRequest.getRegionUid());
-        } catch (Exception e) {
-            throw new RestException("Region is not existed", HttpServletResponse.SC_NOT_FOUND);
-        }
-        if (region == null) {
-            throw new RestException("Region is not existed", HttpServletResponse.SC_NOT_FOUND);
-        }
+        Region region = regionService.findRegionByUid(placeRequest.getRegionUid());
         place.setRegion(region);
-        try {
-            placeService.update(place);
-        } catch (Exception e) {
-            throw e;
-        }
+        placeService.update(place);
         return place;
     }
 

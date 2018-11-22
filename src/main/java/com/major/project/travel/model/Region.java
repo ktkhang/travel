@@ -31,7 +31,7 @@ public class Region extends CommonSerialize {
     @Column(name = "REGION_TITLE")
     private String title;
 
-    @ManyToMany(cascade = {CascadeType.ALL})
+    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER )
     @JoinTable(name = "USER_REGION",
     joinColumns = {@JoinColumn(name = "USER_ID")},
     inverseJoinColumns = {@JoinColumn(name ="REGION_ID")})

@@ -1,6 +1,7 @@
 package com.major.project.travel.common;
 
 import com.major.project.travel.exception.DataNotFoundException;
+import com.major.project.travel.exception.RestException;
 import com.major.project.travel.util.Utility;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -28,12 +29,20 @@ public abstract class CommonHibernate<T> implements CommonHibernateInteface<Seri
                 ((CommonSerialize) t).setUid(Utility.randomUid());
             }
         }
-        Serializable s = sessionFactory.getCurrentSession().save(t);
+        try{
+            Serializable s = sessionFactory.getCurrentSession().save(t);
+        }catch (Exception e){
+            throw new RestException("Create fail :" + e.getMessage());
+        }
     }
 
     @Override
     public void updateObj(Serializable t) {
-        sessionFactory.getCurrentSession().update(t);
+        try{
+            sessionFactory.getCurrentSession().update(t);
+        }catch (Exception e){
+            throw new RestException("Update fail :" + e.getMessage());
+        }
     }
 
     @Override

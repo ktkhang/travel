@@ -11,12 +11,14 @@ import javax.validation.constraints.NotNull;
 public class PlaceRequest {
 
     private String uid;
+    @NotBlank(message = "Place name must be not empty")
+    private String name;
     private String svgPath;
+    @NotBlank(message = "Place title must be not empty")
+    private String title;
     private Double latitude;
     private Double longitude;
     private PlaceStatus placeStatus;
-    @NotBlank(message = "Place name must be not empty")
-    private String title;
     @NotBlank(message = "Region must be empty")
     private String regionUid;
 
@@ -76,5 +78,13 @@ public class PlaceRequest {
 
     public void setRegionUid(String regionUid) {
         this.regionUid = regionUid;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

@@ -46,11 +46,7 @@ public class RoleServiceImpl implements RoleService  {
         Role role = new Role();
         role.setRoleName(roleRequest.getRoleName());
         role.setRoleStatus(roleRequest.getRoleStatus());
-        try {
-            roleDao.saveObj(role);
-        } catch (Exception e) {
-            throw e;
-        }
+        roleDao.saveObj(role);
         return role;
     }
 }
