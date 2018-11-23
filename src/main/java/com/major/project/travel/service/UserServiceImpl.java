@@ -45,7 +45,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public User findUserByUid(String uid) throws DataNotFoundException {
         User user = userDao.findUserByUid(uid);
-        if (user == null || user.getId() == 0) {
+        if (user == null) {
             throw new RestException(String.format("User have {%s} is not existed.", String.format("userUid = %s", uid)),HttpServletResponse.SC_NOT_FOUND);
         }
         return userDao.findUserByUid(uid);

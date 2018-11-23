@@ -32,6 +32,7 @@ public class LoginServiceImpl implements LoginService {
     public User login(LoginRequest loginRequest) throws DataNotFoundException {
         User user = null;
         try {
+
             user = userDao.findUserByUserID(loginRequest.getUserID());
 
             user.setUserName(loginRequest.getUserName());
@@ -51,7 +52,6 @@ public class LoginServiceImpl implements LoginService {
             newUser.setRole(role);
             userDao.saveObj(newUser);
             user = userDao.findUserByUserID(loginRequest.getUserID());
-            throw new RestException("Login fail :" + e.getMessage());
         }
         return user;
     }

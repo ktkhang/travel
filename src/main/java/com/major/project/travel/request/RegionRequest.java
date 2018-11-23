@@ -14,6 +14,8 @@ public class RegionRequest {
     private String name;
     @NotBlank(message = "Region title must be not empty")
     private String title;
+    @NotBlank(message = "Region coordinate must be not empty")
+    private String coordinate;
 
     public String getId() {
         return id;
@@ -37,5 +39,13 @@ public class RegionRequest {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getCoordinate() {
+        return coordinate;
+    }
+
+    public void setCoordinate(String coordinate) {
+        this.coordinate = coordinate;
     }
 }

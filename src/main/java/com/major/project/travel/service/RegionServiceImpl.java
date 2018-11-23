@@ -4,6 +4,7 @@ import com.major.project.travel.dao.RegionDao;
 import com.major.project.travel.exception.DataNotFoundException;
 import com.major.project.travel.exception.RestException;
 import com.major.project.travel.model.Region;
+import com.major.project.travel.model.User;
 import com.major.project.travel.request.RegionRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,6 +45,11 @@ public class RegionServiceImpl implements RegionService {
             throw new RestException(String.format("Region have {%s} is not existed.", String.format("regionUid = %s", uid)),HttpServletResponse.SC_NOT_FOUND);
         }
         return regionDao.findRegionByUid(uid);
+    }
+
+    @Override
+    public List<Region> findByUser(User user) throws DataNotFoundException {
+        return regionDao.findByUser(user);
     }
 
     @Override
@@ -444,4 +450,5 @@ public class RegionServiceImpl implements RegionService {
 
         return regionDao.findAll();
     }
+
 }

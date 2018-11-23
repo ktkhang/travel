@@ -1,16 +1,15 @@
 package com.major.project.travel.controller;
 
-import com.major.project.travel.exception.RestException;
-import com.major.project.travel.model.Place;
-import com.major.project.travel.model.Region;
+import com.major.project.travel.exception.DataNotFoundException;
+import com.major.project.travel.model.*;
 import com.major.project.travel.request.RegionRequest;
 import com.major.project.travel.service.RegionService;
-import com.major.project.travel.util.Utility;
+import com.major.project.travel.service.UserService;
+import com.major.project.travel.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -23,6 +22,9 @@ public class RegionController {
 
     @Autowired
     private RegionService regionService;
+
+    @Autowired
+    private UserService userService;
 
     /**
      * Get List Region
@@ -40,6 +42,12 @@ public class RegionController {
         Utility.validateErrorsRequest(errors);
 
         return regionService.create(regionRequest);
+}
+
+    @GetMapping("/findByUser/{uid}")
+    public List<Region> findRegionByUserUid(@PathVariable String uid) throws DataNotFoundException{
+        User user = userService.findUserByUid(uid);
+        return regionService.findByUser(user);
     }
 
     @PostMapping("/createSample")
