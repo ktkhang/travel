@@ -48,6 +48,7 @@ public class LoginServiceImpl implements LoginService {
             newUser.setUserStatus(UserStatus.ACTIVE);
             newUser.setRegionVisited(0);
             newUser.setPlaceVisited(0);
+            System.out.println("=============");
             Role role = roleDao.findByRoleName("USER");
             newUser.setRole(role);
             userDao.saveObj(newUser);

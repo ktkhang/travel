@@ -1,5 +1,6 @@
 package com.major.project.travel.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.major.project.travel.common.CommonSerialize;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -38,6 +39,7 @@ public class Region extends CommonSerialize {
     @JoinTable(name = "USER_REGION",
     joinColumns = {@JoinColumn(name = "REGION_ID",referencedColumnName = "ID")},
     inverseJoinColumns = {@JoinColumn(name ="USER_ID", referencedColumnName = "ID")})
+    @JsonIgnore
     private Set<User> users = new HashSet<User>();
 
     @OneToMany(mappedBy = "region", fetch = FetchType.EAGER)

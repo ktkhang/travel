@@ -52,7 +52,6 @@ public class Place extends CommonSerialize {
     @JoinColumn(name = "REGION_ID", referencedColumnName = "ID")
     private Region region;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "place", fetch = FetchType.EAGER)
     @Fetch(value = FetchMode.SUBSELECT)
     private List<PlaceUser> placeUsers;

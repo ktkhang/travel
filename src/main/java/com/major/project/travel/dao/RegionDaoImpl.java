@@ -35,7 +35,8 @@ public class RegionDaoImpl extends CommonHibernate<Region> implements RegionDao 
     @Override
     public List<Region> findByUser(User user) throws DataNotFoundException {
         System.out.println("User ID : " + user.getId());
-        String sql = "select r from tbl_regions r, user_region ur where ur.region_id = r.id and ur.user_id = :id";
+        //String sql = "select r from tbl_regions r, user_region ur where ur.region_id = r.id and ur.user_id = :id";
+        String sql = "select * from tbl_regions, user_region  where tbl_regions.id = user_region.region_id and user_region.user_id = :id";
         try{
             System.out.println("Prepare Query");
             Query query = getCurrentSession().createNativeQuery(sql)
@@ -43,7 +44,6 @@ public class RegionDaoImpl extends CommonHibernate<Region> implements RegionDao 
                     .setParameter("id", user.getId());
             System.out.println("========");
             List<Region> regions = query.getResultList();
-            System.out.println("User ID 2: " + regions.get(0));
             return regions;
         }catch (Exception e){
             throw new RestException("Find region error, Please contact admin to help.",HttpServletResponse.SC_NOT_FOUND);
