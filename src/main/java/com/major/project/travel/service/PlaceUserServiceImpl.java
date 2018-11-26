@@ -50,10 +50,7 @@ public class PlaceUserServiceImpl implements PlaceUserService{
             List<UserRegion> userRegions = regionDao.findByUserUid(user.getId());
 
             for(UserRegion ur : userRegions){
-                System.out.println("2=============" + ur.getUser().getId());
-                System.out.println("3=============" + ur.getRegion().getId());
                 if(ur.getRegion().getId().equals(place.getRegion().getId())){
-                    System.out.println("flag=true");
                     flag = true;
                 }
             }
