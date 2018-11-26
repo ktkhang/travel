@@ -17,6 +17,7 @@ public final class Constraint {
     public static final String PLACE_USER_CONSTRAINT_CODE = "place_user_unique_constraint";
     public static final String USER_CONSTRAINT_CODE = "user_unique_constraint";
     public static final String ROLE_CONSTRAINT_CODE = "role_unique_constraint";
+    public static final String USER_REGION_CONSTRAINT = "user_region_constraint";
 
     // DECLARE CONSTRAINT_MESSAGES below
     private final static HashMap<String, String> constraintMap = new HashMap<>();
@@ -26,6 +27,7 @@ public final class Constraint {
         constraintMap.put(PLACE_USER_CONSTRAINT_CODE, "place_user_unique_constraint_duplicated");
         constraintMap.put(USER_CONSTRAINT_CODE, "user_unique_constraint_duplicated");
         constraintMap.put(ROLE_CONSTRAINT_CODE, "role_unique_constraint_duplicated");
+        constraintMap.put(USER_REGION_CONSTRAINT, "user_region_constraint_duplicated");
     }
     public static String getConstraintErrorMessage(String constraintName){
         String result = constraintMap.get(constraintName);

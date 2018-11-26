@@ -3,6 +3,7 @@ package com.major.project.travel.service;
 import com.major.project.travel.dao.RegionDao;
 import com.major.project.travel.exception.DataNotFoundException;
 import com.major.project.travel.exception.RestException;
+import com.major.project.travel.model.Place;
 import com.major.project.travel.model.Region;
 import com.major.project.travel.model.User;
 import com.major.project.travel.request.RegionRequest;
@@ -50,6 +51,11 @@ public class RegionServiceImpl implements RegionService {
     @Override
     public List<Region> findByUser(User user) throws DataNotFoundException {
         return regionDao.findByUser(user);
+    }
+
+    @Override
+    public Region findByPlace(Place place) throws DataNotFoundException {
+        return regionDao.findByPlace(place);
     }
 
     @Override

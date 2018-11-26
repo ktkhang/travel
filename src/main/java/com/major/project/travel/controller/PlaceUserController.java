@@ -56,42 +56,20 @@ public class PlaceUserController {
      * @return PlaceUser
      */
     @PostMapping("/create")
-    public PlaceUser createPlaceUser(@Valid @RequestBody PlaceUserRequest placeUserRequest, Errors errors) {
+    public PlaceUser createPlaceUser(@Valid @RequestBody PlaceUserRequest placeUserRequest, Errors errors)
+    throws DataNotFoundException{
         // validate input
         Utility.validateErrorsRequest(errors);
 
         PlaceUser placeUser = new PlaceUser();
-
-        User user = null;
-        try {
-            user = userService.findUserByUid(placeUserRequest.getUserUid());
-        } catch (Exception e) {
-            throw new RestException("User is not existed", HttpServletResponse.SC_NOT_FOUND);
-        }
-        if (user == null || user.getId() == 0) {
-            throw new RestException("User is not existed", HttpServletResponse.SC_NOT_FOUND);
-        }
+        User user = userService.findUserByUid(placeUserRequest.getUserUid());
         placeUser.setUser(user);
-
-        Place place = null;
-        try {
-            place = placeService.findPlaceByUid(placeUserRequest.getPlaceUid());
-        } catch (Exception e) {
-            throw new RestException("Place is not existed", HttpServletResponse.SC_NOT_FOUND);
-        }
-        if (place == null || place.getId() == 0) {
-            throw new RestException("Place is not existed", HttpServletResponse.SC_NOT_FOUND);
-        }
+        Place place = placeService.findPlaceByUid(placeUserRequest.getPlaceUid());
         placeUser.setPlace(place);
-
         placeUser.setFeeling(placeUserRequest.getFeeling());
         placeUser.setAlbums(placeUserRequest.getAlbums());
         placeUser.setVideos(placeUserRequest.getVideos());
-        try {
-            placeUserService.save(placeUser);
-        } catch (Exception e) {
-            throw e;
-        }
+        placeUserService.save(placeUser);
         return placeUser;
     }
 
@@ -107,41 +85,15 @@ public class PlaceUserController {
     public PlaceUser updatePlaceUser(@Valid @RequestBody PlaceUserRequest placeUserRequest, Errors errors) throws DataNotFoundException {
         // validate input
         Utility.validateErrorsRequest(errors);
-        PlaceUser placeUser = null;
-        try{
-            placeUser = placeUserService.findPlaceUserByUid(placeUserRequest.getUid());
-        }catch (DataNotFoundException e){
-            throw new RestException("PlaceUser is not existed", HttpServletResponse.SC_NOT_FOUND);
-        }
+        PlaceUser placeUser = placeUserService.findPlaceUserByUid(placeUserRequest.getUid());
         placeUser.setFeeling(placeUserRequest.getFeeling());
         placeUser.setAlbums(placeUserRequest.getAlbums());
         placeUser.setVideos(placeUserRequest.getVideos());
-        User user = null;
-        try {
-            user = userService.findUserByUid(placeUserRequest.getUserUid());
-        } catch (Exception e) {
-            throw new RestException("User is not existed", HttpServletResponse.SC_NOT_FOUND);
-        }
-        if (user == null || user.getId() == 0) {
-            throw new RestException("User is not existed", HttpServletResponse.SC_NOT_FOUND);
-        }
+        User user = userService.findUserByUid(placeUserRequest.getUserUid());
         placeUser.setUser(user);
-
-        Place place = null;
-        try {
-            place = placeService.findPlaceByUid(placeUserRequest.getPlaceUid());
-        } catch (Exception e) {
-            throw new RestException("Place is not existed", HttpServletResponse.SC_NOT_FOUND);
-        }
-        if (place == null || place.getId() == 0) {
-            throw new RestException("Place is not existed", HttpServletResponse.SC_NOT_FOUND);
-        }
+        Place place = placeService.findPlaceByUid(placeUserRequest.getPlaceUid());
         placeUser.setPlace(place);
-        try {
-            placeUserService.update(placeUser);
-        } catch (Exception e) {
-            throw e;
-        }
+        placeUserService.update(placeUser);
         return placeUser;
     }
 

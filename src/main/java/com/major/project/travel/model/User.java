@@ -55,12 +55,16 @@ public class User extends CommonSerialize {
     @JoinColumn(name = "ROLE_ID",referencedColumnName = "ID")
     private Role role;
 
-    @ManyToMany(mappedBy = "users", fetch = FetchType.EAGER)
-    private Set<Region> region = new HashSet<Region>();
+//    @ManyToMany(mappedBy = "users", fetch = FetchType.EAGER)
+//    private Set<Region> region = new HashSet<Region>();
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    @Fetch(value = FetchMode.SUBSELECT)
+    private List<UserRegion> userRegions;
 
     @JsonIgnore
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
-    @Fetch(value =  FetchMode.SUBSELECT)
+    @Fetch(value = FetchMode.SUBSELECT)
     private List<PlaceUser> placeUsers;
 
     // Getter and Setter
@@ -137,12 +141,12 @@ public class User extends CommonSerialize {
         this.role = role;
     }
 
-    public Set<Region> getRegion() {
-        return region;
+    public List<UserRegion> getUserRegions() {
+        return userRegions;
     }
 
-    public void setRegion(Set<Region> region) {
-        this.region = region;
+    public void setUserRegions(List<UserRegion> userRegions) {
+        this.userRegions = userRegions;
     }
 
     public List<PlaceUser> getPlaceUsers() {

@@ -35,10 +35,11 @@ public class PlaceServiceTest {
 
     List<Place> placeList = new ArrayList<Place>();
 
-//    @Before
+    @Before
     public void setUp(){
         MockitoAnnotations.initMocks(this);
-        placeList = this.getPlaceList();
+        System.out.println("Unit Test");
+//        placeList = this.getPlaceList();
     }
 
 //    @After

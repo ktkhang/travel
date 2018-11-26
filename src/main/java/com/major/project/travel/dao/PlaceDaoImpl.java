@@ -3,9 +3,7 @@ package com.major.project.travel.dao;
 import com.major.project.travel.common.CommonHibernate;
 import com.major.project.travel.exception.DataNotFoundException;
 import com.major.project.travel.exception.RestException;
-import com.major.project.travel.model.Place;
-import com.major.project.travel.model.Region;
-import com.major.project.travel.model.User;
+import com.major.project.travel.model.*;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.Query;

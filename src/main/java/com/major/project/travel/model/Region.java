@@ -35,12 +35,16 @@ public class Region extends CommonSerialize {
     @Column(name = "REGION_COORDINATE")
     private String coordinate;
 
-    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER )
-    @JoinTable(name = "USER_REGION",
-    joinColumns = {@JoinColumn(name = "REGION_ID",referencedColumnName = "ID")},
-    inverseJoinColumns = {@JoinColumn(name ="USER_ID", referencedColumnName = "ID")})
-    @JsonIgnore
-    private Set<User> users = new HashSet<User>();
+//    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER )
+//    @JoinTable(name = "USER_REGION",
+//    joinColumns = {@JoinColumn(name = "REGION_ID",referencedColumnName = "ID")},
+//    inverseJoinColumns = {@JoinColumn(name ="USER_ID", referencedColumnName = "ID")})
+//    @JsonIgnore
+//    private Set<User> users = new HashSet<User>();
+
+    @OneToMany(mappedBy = "region", fetch = FetchType.EAGER)
+    @Fetch(value = FetchMode.SUBSELECT)
+    private List<UserRegion> userRegions;
 
     @OneToMany(mappedBy = "region", fetch = FetchType.EAGER)
     @Fetch(value = FetchMode.SUBSELECT)
@@ -72,12 +76,12 @@ public class Region extends CommonSerialize {
         this.title = title;
     }
 
-    public Set<User> getUsers() {
-        return users;
+    public List<UserRegion> getUserRegions() {
+        return userRegions;
     }
 
-    public void setUsers(Set<User> users) {
-        this.users = users;
+    public void setUserRegions(List<UserRegion> userRegions) {
+        this.userRegions = userRegions;
     }
 
     public List<Place> getPlaceList() {

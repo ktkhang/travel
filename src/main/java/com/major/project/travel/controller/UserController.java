@@ -73,15 +73,10 @@ public class UserController {
      * @return
      */
     @PutMapping("/update")
-    public User updateUser(@Valid @RequestBody UserRequest userRequest, Errors errors) {
+    public User updateUser(@Valid @RequestBody UserRequest userRequest, Errors errors) throws DataNotFoundException{
         // validate input
         Utility.validateErrorsRequest(errors);
-        User user = null;
-        try {
-            user = userService.findUserByUid(userRequest.getUid());
-        } catch (DataNotFoundException e) {
-            throw new RestException("User is not existed", HttpServletResponse.SC_NOT_FOUND);
-        }
+        User user = userService.findUserByUid(userRequest.getUid());
         user.setUserName(userRequest.getUserName());
         user.setPlaceVisited(userRequest.getPlaceVisited());
         user.setRegionVisited(userRequest.getRegionVisited());

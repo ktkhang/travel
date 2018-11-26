@@ -1,6 +1,7 @@
 package com.major.project.travel.service;
 
 import com.major.project.travel.exception.DataNotFoundException;
+import com.major.project.travel.model.Place;
 import com.major.project.travel.model.Region;
 import com.major.project.travel.model.User;
 import com.major.project.travel.request.RegionRequest;
@@ -40,4 +41,12 @@ public interface RegionService {
      * @throws DataNotFoundException
      */
     List<Region> findByUser(User user) throws DataNotFoundException;
+
+    /**
+     * find Region by Place uid
+     * @param place
+     * @return
+     * @throws DataNotFoundException
+     */
+    Region findByPlace(Place place) throws DataNotFoundException;
 }
