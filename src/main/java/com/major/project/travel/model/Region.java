@@ -32,9 +32,6 @@ public class Region extends CommonSerialize {
     @Column(name = "REGION_TITLE")
     private String title;
 
-    @Column(name = "REGION_COORDINATE")
-    private String coordinate;
-
 //    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER )
 //    @JoinTable(name = "USER_REGION",
 //    joinColumns = {@JoinColumn(name = "REGION_ID",referencedColumnName = "ID")},
@@ -90,13 +87,5 @@ public class Region extends CommonSerialize {
 
     public void setPlaceList(List<Place> placeList) {
         this.placeList = placeList;
-    }
-
-    public String getCoordinate() {
-        return coordinate;
-    }
-
-    public void setCoordinate(String coordinate) {
-        this.coordinate = coordinate;
     }
 }
