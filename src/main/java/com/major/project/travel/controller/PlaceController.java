@@ -54,6 +54,17 @@ public class PlaceController {
     }
 
     /**
+     * Find by Uid
+     * @param uid
+     * @return
+     * @throws DataNotFoundException
+     */
+    @GetMapping("/findByUid/{uid}")
+    public Place findByUid(@PathVariable String uid) throws DataNotFoundException {
+        return placeService.findPlaceByUid(uid);
+    }
+
+    /**
      * Create new Place
      *
      * @param placeRequest

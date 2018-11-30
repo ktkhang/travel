@@ -36,13 +36,18 @@ public class RegionController {
         return regionService.list();
     }
 
+    @GetMapping("/findByUid/{uid}")
+    public Region findRegionByUid(@PathVariable String uid) throws DataNotFoundException{
+        return regionService.findRegionByUid(uid);
+    }
+
     @PostMapping("/create")
     public Region createRegion(@Valid @RequestBody RegionRequest regionRequest, Errors errors) {
         // validate input
         Utility.validateErrorsRequest(errors);
 
         return regionService.create(regionRequest);
-}
+    }
 
     @GetMapping("/findByUser/{uid}")
     public List<Region> findRegionByUserUid(@PathVariable String uid) throws DataNotFoundException{
