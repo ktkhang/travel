@@ -13,6 +13,13 @@ import java.io.Serializable;
  */
 public interface RegionDao extends CommonHibernateInteface<Serializable, Region> {
     /**
+     * find Region by id
+     * @param id
+     * @return
+     * @throws DataNotFoundException
+     */
+    Region findRegionById(String id) throws DataNotFoundException;
+    /**
      * find Region By Uid
      * @param uid
      * @return

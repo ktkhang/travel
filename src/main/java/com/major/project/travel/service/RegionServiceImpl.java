@@ -1,9 +1,11 @@
 package com.major.project.travel.service;
 
+import com.major.project.travel.dao.PlaceDao;
 import com.major.project.travel.dao.RegionDao;
 import com.major.project.travel.exception.DataNotFoundException;
 import com.major.project.travel.exception.RestException;
 import com.major.project.travel.model.Place;
+import com.major.project.travel.model.PlaceStatus;
 import com.major.project.travel.model.Region;
 import com.major.project.travel.model.User;
 import com.major.project.travel.request.RegionRequest;
@@ -23,6 +25,9 @@ public class RegionServiceImpl implements RegionService {
 
     @Autowired
     private RegionDao regionDao;
+
+    @Autowired
+    private PlaceDao placeDao;
 
     @Override
     public Region create(RegionRequest regionRequest) {
@@ -453,6 +458,54 @@ public class RegionServiceImpl implements RegionService {
         region65.setName("QuanDaoHoangSa");
         region65.setTitle("Quần đảo Hoàng Sa, Đà Nẵng, Việt Nam");
         regionDao.saveObj(region65);
+
+
+        // save places of GiaLai
+        Region region = null;
+        try {
+            region = regionDao.findRegionById("VN-22");
+        } catch (DataNotFoundException e) {
+            e.printStackTrace();
+        }
+        Place place1 = new Place();
+        place1.setName("HoTNung");
+        place1.setTitle("Hồ T'Nưng");
+        place1.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
+        place1.setLatitude(-45.7679);
+        place1.setLongitude(26.3213);
+        place1.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place1.setRegion(region);
+        placeDao.saveObj(place1);
+
+        Place place2 = new Place();
+        place2.setName("HoTroi");
+        place2.setTitle("Hố Trời");
+        place2.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
+        place2.setLatitude(-42.0899);
+        place2.setLongitude(15.425);
+        place2.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place2.setRegion(region);
+        placeDao.saveObj(place2);
+
+        Place place3 = new Place();
+        place3.setName("ChuDangYa");
+        place3.setTitle("Núi lửa Chư Đăng Ya");
+        place3.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
+        place3.setLatitude(-39.5967);
+        place3.setLongitude(24.2362);
+        place3.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place3.setRegion(region);
+        placeDao.saveObj(place3);
+
+        Place place4 = new Place();
+        place4.setName("ThacXungKhoeng");
+        place4.setTitle("Thác Xung Khoeng");
+        place4.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
+        place4.setLatitude(-49.5403);
+        place4.setLongitude(26.994);
+        place4.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place4.setRegion(region);
+        placeDao.saveObj(place4);
 
         return regionDao.findAll();
     }

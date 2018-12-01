@@ -21,6 +21,18 @@ public class RegionDaoImpl extends CommonHibernate<Region> implements RegionDao 
     }
 
     @Override
+    public Region findRegionById(String id) throws DataNotFoundException {
+        String sql = "from Region r where r.id = :id";
+        try {
+            Query query = getCurrentSession().createQuery(sql, Region.class)
+                    .setParameter("id", id);
+            return (Region) query.getSingleResult();
+        } catch (Exception e) {
+            throw new RestException(String.format("Region have {%s} is not existed.", String.format("regionId = %s", id)),HttpServletResponse.SC_NOT_FOUND);
+        }
+    }
+
+    @Override
     public Region findRegionByUid(String uid) throws DataNotFoundException {
         String sql = "select * from tbl_regions r where r.uid = :uid";
         try {
