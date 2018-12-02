@@ -2,6 +2,7 @@ package com.major.project.travel.service;
 
 import com.major.project.travel.exception.DataNotFoundException;
 import com.major.project.travel.model.PlaceUser;
+import com.major.project.travel.request.PlaceUserRequest;
 
 import java.util.List;
 
@@ -12,21 +13,21 @@ public interface PlaceUserService {
 
     /**
      * Create new PlaceUser
-     * @param placeUser
+     * @param placeUserRequest
      */
-    void save(PlaceUser placeUser);
+    PlaceUser save(PlaceUserRequest placeUserRequest) throws DataNotFoundException;
 
     /**
      * Update PlaceUser
-     * @param placeUser
+     * @param placeUserRequest
      */
-    void update(PlaceUser placeUser);
+    PlaceUser update(PlaceUserRequest placeUserRequest) throws DataNotFoundException;
 
     /**
      * Delete PlaceUser
-     * @param placeUser
+     * @param uid
      */
-    void delete(PlaceUser placeUser);
+    String delete(String uid) throws DataNotFoundException;
 
     /**
      * Get List PlaceUser

@@ -60,17 +60,7 @@ public class PlaceUserController {
     throws DataNotFoundException{
         // validate input
         Utility.validateErrorsRequest(errors);
-
-        PlaceUser placeUser = new PlaceUser();
-        User user = userService.findUserByUid(placeUserRequest.getUserUid());
-        placeUser.setUser(user);
-        Place place = placeService.findPlaceByUid(placeUserRequest.getPlaceUid());
-        placeUser.setPlace(place);
-        placeUser.setFeeling(placeUserRequest.getFeeling());
-        placeUser.setAlbums(placeUserRequest.getAlbums());
-        placeUser.setVideos(placeUserRequest.getVideos());
-        placeUserService.save(placeUser);
-        return placeUser;
+        return placeUserService.save(placeUserRequest);
     }
 
     /**
@@ -85,16 +75,7 @@ public class PlaceUserController {
     public PlaceUser updatePlaceUser(@Valid @RequestBody PlaceUserRequest placeUserRequest, Errors errors) throws DataNotFoundException {
         // validate input
         Utility.validateErrorsRequest(errors);
-        PlaceUser placeUser = placeUserService.findPlaceUserByUid(placeUserRequest.getUid());
-        placeUser.setFeeling(placeUserRequest.getFeeling());
-        placeUser.setAlbums(placeUserRequest.getAlbums());
-        placeUser.setVideos(placeUserRequest.getVideos());
-        User user = userService.findUserByUid(placeUserRequest.getUserUid());
-        placeUser.setUser(user);
-        Place place = placeService.findPlaceByUid(placeUserRequest.getPlaceUid());
-        placeUser.setPlace(place);
-        placeUserService.update(placeUser);
-        return placeUser;
+        return placeUserService.update(placeUserRequest);
     }
 
     /**
@@ -106,18 +87,6 @@ public class PlaceUserController {
      */
     @DeleteMapping("/delete/{uid}")
     public String deletePlaceUser(@PathVariable String uid) throws DataNotFoundException {
-        try {
-            PlaceUser placeUser = placeUserService.findPlaceUserByUid(uid);
-            if (placeUser != null) {
-                placeUserService.delete(placeUser);
-                return "Delete successfully";
-            } else {
-                return "PlaceUser does not exist";
-            }
-        } catch (DataNotFoundException e) {
-            throw e;
-        } catch (Exception e) {
-            throw new RestException(String.format("Cannot delete {%s}. Please contact administrator for help.", String.format("placeUserUid = %s", uid)));
-        }
+        return placeUserService.delete(uid);
     }
 }

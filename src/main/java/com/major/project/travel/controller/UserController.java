@@ -41,55 +41,6 @@ public class UserController {
     }
 
     /**
-     * Create new User
-     *
-     * @param userRequest
-     * @param errors
-     * @return
-     */
-    @PostMapping("/create")
-    public User createUser(@Valid @RequestBody UserRequest userRequest, Errors errors) {
-        // validate input
-        Utility.validateErrorsRequest(errors);
-
-        User user = new User();
-        user.setUserName(userRequest.getUserName());
-        user.setPlaceVisited(userRequest.getPlaceVisited());
-        user.setRegionVisited(userRequest.getRegionVisited());
-        user.setUserStatus(UserStatus.ACTIVE);
-        try {
-            userService.save(user);
-        } catch (Exception e) {
-            throw e;
-        }
-        return user;
-    }
-
-    /**
-     * Update User
-     *
-     * @param userRequest
-     * @param errors
-     * @return
-     */
-    @PutMapping("/update")
-    public User updateUser(@Valid @RequestBody UserRequest userRequest, Errors errors) throws DataNotFoundException{
-        // validate input
-        Utility.validateErrorsRequest(errors);
-        User user = userService.findUserByUid(userRequest.getUid());
-        user.setUserName(userRequest.getUserName());
-        user.setPlaceVisited(userRequest.getPlaceVisited());
-        user.setRegionVisited(userRequest.getRegionVisited());
-        user.setUserStatus(userRequest.getUserStatus());
-        try {
-            userService.update(user);
-        } catch (Exception e) {
-            throw e;
-        }
-        return user;
-    }
-
-    /**
      * Delete User
      *
      * @param uid
@@ -98,19 +49,7 @@ public class UserController {
      */
     @DeleteMapping("/delete/{uid}")
     public String deleteUser(@PathVariable String uid) throws DataNotFoundException {
-        try {
-            User user = userService.findUserByUid(uid);
-            if (user != null) {
-                userService.delete(user);
-                return "Delete successfully";
-            } else {
-                return "User does not exist";
-            }
-        } catch (DataNotFoundException e) {
-            throw e;
-        } catch (Exception e) {
-            throw new RestException(String.format("Cannot delete {%s}. Please contact administrator for help.", String.format("userUid = %s", uid)));
-        }
+        return userService.delete(uid);
     }
 
     /**

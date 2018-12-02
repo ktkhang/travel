@@ -4,6 +4,7 @@ import com.major.project.travel.dao.*;
 import com.major.project.travel.exception.DataNotFoundException;
 import com.major.project.travel.exception.RestException;
 import com.major.project.travel.model.*;
+import com.major.project.travel.request.PlaceUserRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,17 +36,25 @@ public class PlaceUserServiceImpl implements PlaceUserService{
     private UserRegionDao userRegionDao;
 
     @Override
-    public void save(PlaceUser placeUser) {
-        boolean flag = false;
-        placeUserDao.saveObj((Serializable) placeUser);
-        // Handle increase regionVisited & placeVisited return {User}
+    public PlaceUser save(PlaceUserRequest placeUserRequest) throws DataNotFoundException{
         User user = null;
-        UserRegion userRegion = new UserRegion();
         Region region = null;
+        Place place = null;
+        PlaceUser placeUser = new PlaceUser();
+        user = userDao.findUserByUid(placeUserRequest.getUserUid());
+        placeUser.setUser(user);
+        place = placeDao.findPlaceByUid(placeUserRequest.getPlaceUid());
+        placeUser.setPlace(place);
+        placeUser.setFeeling(placeUserRequest.getFeeling());
+        placeUser.setAlbums(placeUserRequest.getAlbums());
+        placeUser.setVideos(placeUserRequest.getVideos());
+
+        boolean flag = false;
+        placeUserDao.saveObj(placeUser);
+        // Handle increase regionVisited & placeVisited return {User}
+        UserRegion userRegion = new UserRegion();
         try {
-            user = userDao.findUserByUid(placeUser.getUser().getUid());
             // check Region existed in user_region
-            Place place = placeDao.findPlaceByUid(placeUser.getPlace().getUid());
             region = regionDao.findByPlace(place);
             List<UserRegion> userRegions = regionDao.findByUserUid(user.getId());
 
@@ -77,16 +86,42 @@ public class PlaceUserServiceImpl implements PlaceUserService{
                 userRegionDao.saveObj(userRegion);
             }
         }
+        return placeUser;
     }
 
     @Override
-    public void update(PlaceUser placeUser) {
-        placeUserDao.updateObj((Serializable) placeUser);
+    public PlaceUser update(PlaceUserRequest placeUserRequest) throws DataNotFoundException {
+        User user = null;
+        Region region = null;
+        Place place = null;
+        PlaceUser placeUser = new PlaceUser();
+        placeUser = placeUserDao.findPlaceUserByUid(placeUserRequest.getUid());
+        placeUser.setFeeling(placeUserRequest.getFeeling());
+        placeUser.setAlbums(placeUserRequest.getAlbums());
+        placeUser.setVideos(placeUserRequest.getVideos());
+        user = userDao.findUserByUid(placeUserRequest.getUserUid());
+        placeUser.setUser(user);
+        place = placeDao.findPlaceByUid(placeUserRequest.getPlaceUid());
+        placeUser.setPlace(place);
+        placeUserDao.updateObj(placeUser);
+        return placeUser;
     }
 
     @Override
-    public void delete(PlaceUser placeUser) {
-        placeUserDao.deleteObj((Serializable) placeUser);
+    public String delete(String uid) throws DataNotFoundException{
+        try {
+            PlaceUser placeUser = placeUserDao.findPlaceUserByUid(uid);
+            if (placeUser != null) {
+                placeUserDao.deleteObj(placeUser);
+                return "Delete successfully";
+            } else {
+                return "PlaceUser does not exist";
+            }
+        } catch (DataNotFoundException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new RestException(String.format("Cannot delete {%s}. Please contact administrator for help.", String.format("placeUserUid = %s", uid)));
+        }
     }
 
     @Override

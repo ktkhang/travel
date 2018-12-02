@@ -25,9 +25,9 @@ public interface UserService {
 
     /**
      * Delete User
-     * @param user
+     * @param uid
      */
-    void delete(User user);
+    String delete(String uid) throws DataNotFoundException;
 
     /**
      * Get List User

@@ -33,8 +33,20 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public void delete(User user) {
-        userDao.deleteObj(user);
+    public String delete(String uid) throws DataNotFoundException{
+        try {
+            User user = userDao.findUserByUid(uid);
+            if (user != null) {
+                userDao.deleteObj(user);
+                return "Delete successfully";
+            } else {
+                return "User does not exist";
+            }
+        } catch (DataNotFoundException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new RestException(String.format("Cannot delete {%s}. Please contact administrator for help.", String.format("userUid = %s", uid)));
+        }
     }
 
     @Override

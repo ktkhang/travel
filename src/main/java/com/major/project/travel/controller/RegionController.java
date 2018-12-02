@@ -45,7 +45,6 @@ public class RegionController {
     public Region createRegion(@Valid @RequestBody RegionRequest regionRequest, Errors errors) {
         // validate input
         Utility.validateErrorsRequest(errors);
-
         return regionService.create(regionRequest);
     }
 
