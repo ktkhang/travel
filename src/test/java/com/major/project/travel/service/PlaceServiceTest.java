@@ -46,7 +46,7 @@ public class PlaceServiceTest {
     public void clearUnitTest(){
         System.out.println("clearUnitTest------");
         for(Place place : placeList){
-            placeService.delete(place);
+//            placeService.delete(place);
         }
     }
 
@@ -60,7 +60,7 @@ public class PlaceServiceTest {
     public void testSavePlace(){
         System.out.println("testSavePlace-----");
         for(Place place : placeList){
-            placeService.save(place);
+//            placeService.save(place);
         }
     }
 
@@ -78,7 +78,7 @@ public class PlaceServiceTest {
     public void testDeletePlace(){
         System.out.println("testDeletePlace----");
         for(Place place : placeList){
-            placeService.delete(place);
+//            placeService.delete(place);
         }
     }
 

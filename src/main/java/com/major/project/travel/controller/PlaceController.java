@@ -76,17 +76,7 @@ public class PlaceController {
         throws DataNotFoundException{
         // validate input
         Utility.validateErrorsRequest(errors);
-        Place place = new Place();
-        place.setName(placeRequest.getName());
-        place.setTitle(placeRequest.getTitle());
-        place.setSvgPath(placeRequest.getSvgPath());
-        place.setLatitude(placeRequest.getLatitude());
-        place.setLongitude(placeRequest.getLongitude());
-        place.setPlaceStatus(PlaceStatus.AVAILABLE);
-        Region region = regionService.findRegionByUid(placeRequest.getRegionUid());
-        place.setRegion(region);
-        placeService.save(place);
-        return place;
+        return placeService.save(placeRequest);
     }
 
     /**
@@ -99,21 +89,10 @@ public class PlaceController {
      */
     @PutMapping("/update")
     public Place updatePlace(@Valid @RequestBody PlaceRequest placeRequest, Errors errors)
-        throws DataNotFoundException
-    {
+        throws DataNotFoundException{
         // validate input
         Utility.validateErrorsRequest(errors);
-        Place place = placeService.findPlaceByUid(placeRequest.getUid());
-        place.setName(placeRequest.getName());
-        place.setTitle(placeRequest.getTitle());
-        place.setSvgPath(placeRequest.getSvgPath());
-        place.setLatitude(placeRequest.getLatitude());
-        place.setLongitude(placeRequest.getLongitude());
-        place.setPlaceStatus(placeRequest.getPlaceStatus());
-        Region region = regionService.findRegionByUid(placeRequest.getRegionUid());
-        place.setRegion(region);
-        placeService.update(place);
-        return place;
+        return placeService.update(placeRequest);
     }
 
     /**
@@ -151,18 +130,6 @@ public class PlaceController {
      */
     @DeleteMapping("/delete/{uid}")
     public String deletePlace(@PathVariable String uid) throws DataNotFoundException {
-        try {
-            Place place = placeService.findPlaceByUid(uid);
-            if (place != null) {
-                placeService.delete(place);
-                return "Delete successfully";
-            } else {
-                return "Place does not exist";
-            }
-        } catch (DataNotFoundException e) {
-            throw e;
-        } catch (Exception e) {
-            throw new RestException(String.format("Cannot delete {%s}. Please contact administrator for help.", String.format("placeUid = %s", uid)));
-        }
+        return placeService.delete(uid);
     }
 }

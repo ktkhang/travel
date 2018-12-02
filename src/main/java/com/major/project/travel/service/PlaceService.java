@@ -4,6 +4,7 @@ import com.major.project.travel.exception.DataNotFoundException;
 import com.major.project.travel.model.Place;
 import com.major.project.travel.model.Region;
 import com.major.project.travel.model.User;
+import com.major.project.travel.request.PlaceRequest;
 
 import java.util.List;
 
@@ -14,21 +15,21 @@ public interface PlaceService {
 
     /**
      * Create new Place
-     * @param place
+     * @param placeRequest
      */
-    void save(Place place);
+    Place save(PlaceRequest placeRequest) throws DataNotFoundException;
 
     /**
      * Update Place
-     * @param place
+     * @param placeRequest
      */
-    void update(Place place);
+    Place update(PlaceRequest placeRequest) throws DataNotFoundException;
 
     /**
      * Delete Place
-     * @param place
+     * @param uid
      */
-    void delete(Place place);
+    String delete(String uid) throws DataNotFoundException;
 
     /**
      * Get List Place
