@@ -3,8 +3,10 @@ package com.major.project.travel.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.major.project.travel.common.CommonSerialize;
 import com.major.project.travel.util.Constraint;
+import com.major.project.travel.util.StringListConverter;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by HUY on 11/26/2018
@@ -31,6 +33,17 @@ public class UserRegion extends CommonSerialize {
     @JoinColumn(name = "REGION_ID", referencedColumnName = "ID")
     private Region region;
 
+    @Column(name = "UR_FEELING")
+    private String feeling;
+
+    @Column(name = "UR_ALBUM")
+    @Convert(converter = StringListConverter.class)
+    private List<String> albums;
+
+    @Column(name = "UR_VIDEO")
+    @Convert(converter = StringListConverter.class)
+    private List<String> videos;
+
     public Long getId() {
         return id;
     }
@@ -53,5 +66,29 @@ public class UserRegion extends CommonSerialize {
 
     public void setRegion(Region region) {
         this.region = region;
+    }
+
+    public String getFeeling() {
+        return feeling;
+    }
+
+    public void setFeeling(String feeling) {
+        this.feeling = feeling;
+    }
+
+    public List<String> getAlbums() {
+        return albums;
+    }
+
+    public void setAlbums(List<String> albums) {
+        this.albums = albums;
+    }
+
+    public List<String> getVideos() {
+        return videos;
+    }
+
+    public void setVideos(List<String> videos) {
+        this.videos = videos;
     }
 }
