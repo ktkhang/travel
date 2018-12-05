@@ -83,11 +83,6 @@ public class PlaceServiceImpl implements PlaceService{
     }
 
     @Override
-    public Place findById(Long id) throws DataNotFoundException {
-        return placeDao.findObjById(id);
-    }
-
-    @Override
     public Place findPlaceByUid(String uid) throws DataNotFoundException {
         Place place = placeDao.findPlaceByUid(uid);
         if (place == null) {

@@ -130,11 +130,6 @@ public class PlaceUserServiceImpl implements PlaceUserService{
     }
 
     @Override
-    public PlaceUser findById(Long id) throws DataNotFoundException {
-        return placeUserDao.findObjById(id);
-    }
-
-    @Override
     public PlaceUser findPlaceUserByUid(String uid) throws DataNotFoundException {
         return placeUserDao.findPlaceUserByUid(uid);
     }

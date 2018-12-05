@@ -36,17 +36,6 @@ public class PlaceUserController {
     public List<PlaceUser> getPlaceUserList(){
         return placeUserService.list();
     }
-    /**
-     * Find By Id
-     *
-     * @param id
-     * @return
-     * @throws DataNotFoundException
-     */
-    @GetMapping("/findById/{id}")
-    public PlaceUser findPlaceUserById(@PathVariable Long id) throws DataNotFoundException {
-        return placeUserService.findById(id);
-    }
 
     /**
      * Create new PlaceUser

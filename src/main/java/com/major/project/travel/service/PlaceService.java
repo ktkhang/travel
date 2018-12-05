@@ -38,14 +38,6 @@ public interface PlaceService {
     List<Place> list();
 
     /**
-     * findByUid
-     * @param id
-     * @return
-     * @throws DataNotFoundException
-     */
-    Place findById(Long id) throws DataNotFoundException;
-
-    /**
      * find Place By Uid
      * @param uid
      * @return

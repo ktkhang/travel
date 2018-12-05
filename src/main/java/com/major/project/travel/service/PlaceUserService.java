@@ -36,14 +36,6 @@ public interface PlaceUserService {
     List<PlaceUser> list();
 
     /**
-     * findByUid
-     * @param id
-     * @return
-     * @throws DataNotFoundException
-     */
-    PlaceUser findById(Long id) throws DataNotFoundException;
-
-    /**
      * find PlaceUser By Uid
      * @param uid
      * @return

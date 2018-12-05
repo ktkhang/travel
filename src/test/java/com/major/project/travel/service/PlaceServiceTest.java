@@ -65,16 +65,6 @@ public class PlaceServiceTest {
     }
 
 //    @Test
-    public void testFindById(){
-        System.out.println("testFindById-------");
-        try {
-            Place place = placeService.findById(1L);
-        } catch (DataNotFoundException e) {
-            System.out.println("Error : " + e.getMessage());
-        }
-    }
-
-//    @Test
     public void testDeletePlace(){
         System.out.println("testDeletePlace----");
         for(Place place : placeList){
