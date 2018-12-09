@@ -42,6 +42,11 @@ public class RegionController {
         return regionService.findRegionByUid(uid);
     }
 
+    @GetMapping("/findById/{id}")
+    public Region findRegionById(@PathVariable String id) throws DataNotFoundException{
+        return regionService.findRegionById(id);
+    }
+
     @PostMapping("/create")
     public Region createRegion(@Valid @RequestBody RegionRequest regionRequest, Errors errors) {
         // validate input

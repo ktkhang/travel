@@ -53,6 +53,11 @@ public class RegionServiceImpl implements RegionService {
     }
 
     @Override
+    public Region findRegionById(String id) throws DataNotFoundException {
+        return regionDao.findRegionById(id);
+    }
+
+    @Override
     public Region findRegionByUid(String uid) throws DataNotFoundException {
         Region region = regionDao.findRegionByUid(uid);
         if(region == null){
