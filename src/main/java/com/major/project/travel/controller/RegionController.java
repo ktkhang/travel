@@ -3,6 +3,7 @@ package com.major.project.travel.controller;
 import com.major.project.travel.exception.DataNotFoundException;
 import com.major.project.travel.model.*;
 import com.major.project.travel.request.RegionRequest;
+import com.major.project.travel.response.RegionUserResponse;
 import com.major.project.travel.service.RegionService;
 import com.major.project.travel.service.UserService;
 import com.major.project.travel.util.*;
@@ -53,6 +54,15 @@ public class RegionController {
         User user = userService.findUserByUid(uid);
         return regionService.findByUser(user);
     }
+
+
+    /* additional */
+    @GetMapping("/findAllByUser/{uid}")
+    public List<RegionUserResponse> findAllRegionByUserUid(@PathVariable String uid) throws DataNotFoundException{
+        User user = userService.findUserByUid(uid);
+        return regionService.findAllByUser(user);
+    }
+
 
     @PostMapping("/createSample")
     public List<Region> createSampleData(){

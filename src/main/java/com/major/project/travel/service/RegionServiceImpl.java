@@ -1,19 +1,21 @@
 package com.major.project.travel.service;
 
 import com.major.project.travel.dao.PlaceDao;
+import com.major.project.travel.dao.PlaceUserDao;
 import com.major.project.travel.dao.RegionDao;
+import com.major.project.travel.dao.UserRegionDao;
 import com.major.project.travel.exception.DataNotFoundException;
 import com.major.project.travel.exception.RestException;
-import com.major.project.travel.model.Place;
-import com.major.project.travel.model.PlaceStatus;
-import com.major.project.travel.model.Region;
-import com.major.project.travel.model.User;
+import com.major.project.travel.model.*;
 import com.major.project.travel.request.RegionRequest;
+import com.major.project.travel.response.PlaceUserResponse;
+import com.major.project.travel.response.RegionUserResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,6 +30,12 @@ public class RegionServiceImpl implements RegionService {
 
     @Autowired
     private PlaceDao placeDao;
+
+    @Autowired
+    private UserRegionDao userRegionDao;
+
+    @Autowired
+    private PlaceUserDao placeUserDao;
 
     @Override
     public Region create(RegionRequest regionRequest) {
@@ -61,6 +69,58 @@ public class RegionServiceImpl implements RegionService {
     @Override
     public Region findByPlace(Place place) throws DataNotFoundException {
         return regionDao.findByPlace(place);
+    }
+
+    @Override
+    public List<RegionUserResponse> findAllByUser(User user) {
+        List<Region> allRegions = regionDao.findAll();
+        List<RegionUserResponse> regionUserResponse = new ArrayList<RegionUserResponse>();
+        for(Region region : allRegions){
+            RegionUserResponse regionResponse = new RegionUserResponse();
+
+            regionResponse.setCreatedDate(region.getCreatedDate());
+            regionResponse.setCreatedBy(region.getCreatedBy());
+            regionResponse.setUpdatedDate(region.getUpdatedDate());
+            regionResponse.setUpdatedBy(region.getUpdatedBy());
+            regionResponse.setId(region.getId());
+            regionResponse.setUid(region.getUid());
+            regionResponse.setName(region.getName());
+            regionResponse.setTitle(region.getTitle());
+            regionResponse.setUserRegions(region.getUserRegions());
+
+            UserRegion regionUserDetail = userRegionDao.findByUserAndRegion(user, region);
+            regionResponse.setRegionUserDetail(regionUserDetail);
+
+            List<PlaceUserResponse> placeList = new ArrayList<PlaceUserResponse>();
+            List<Place> places = region.getPlaceList();
+            for(Place place : places){
+                PlaceUserResponse placeResponse = new PlaceUserResponse();
+
+                placeResponse.setCreatedDate(place.getCreatedDate());
+                placeResponse.setCreatedBy(place.getCreatedBy());
+                placeResponse.setUpdatedDate(place.getUpdatedDate());
+                placeResponse.setUpdatedBy(place.getUpdatedBy());
+                placeResponse.setId(place.getId());
+                placeResponse.setUid(place.getUid());
+                placeResponse.setName(place.getName());
+                placeResponse.setSvgPath(place.getSvgPath());
+                placeResponse.setTitle(place.getTitle());
+                placeResponse.setLatitude(place.getLatitude());
+                placeResponse.setLongitude(place.getLongitude());
+                placeResponse.setPlaceStatus(place.getPlaceStatus());
+                placeResponse.setPlaceUsers(place.getPlaceUsers());
+
+                PlaceUser placeUserDetail = placeUserDao.findByUserAndPlace(user, place);
+                placeResponse.setPlaceUserDetail(placeUserDetail);
+
+                placeList.add(placeResponse);
+            }
+            regionResponse.setPlaceList(placeList);
+
+            regionUserResponse.add(regionResponse);
+        }
+
+        return regionUserResponse;
     }
 
     @Override

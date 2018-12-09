@@ -5,6 +5,7 @@ import com.major.project.travel.model.Place;
 import com.major.project.travel.model.Region;
 import com.major.project.travel.model.User;
 import com.major.project.travel.request.RegionRequest;
+import com.major.project.travel.response.RegionUserResponse;
 
 import java.util.List;
 
@@ -49,4 +50,12 @@ public interface RegionService {
      * @throws DataNotFoundException
      */
     Region findByPlace(Place place) throws DataNotFoundException;
+
+    /**
+     * find list Region by user (additional)
+     * @param user
+     * @return
+     * @throws DataNotFoundException
+     */
+    List<RegionUserResponse> findAllByUser(User user) throws DataNotFoundException;
 }
