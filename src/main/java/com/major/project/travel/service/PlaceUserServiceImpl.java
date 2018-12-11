@@ -45,7 +45,7 @@ public class PlaceUserServiceImpl implements PlaceUserService{
         placeUser.setUser(user);
         place = placeDao.findPlaceByUid(placeUserRequest.getPlaceUid());
         placeUser.setPlace(place);
-        placeUser.setFeeling(placeUserRequest.getFeeling());
+        placeUser.setFeelings(placeUserRequest.getFeelings());
         placeUser.setAlbums(placeUserRequest.getAlbums());
         placeUser.setVideos(placeUserRequest.getVideos());
 
@@ -96,7 +96,7 @@ public class PlaceUserServiceImpl implements PlaceUserService{
         Place place = null;
         PlaceUser placeUser = new PlaceUser();
         placeUser = placeUserDao.findPlaceUserByUid(placeUserRequest.getUid());
-        placeUser.setFeeling(placeUserRequest.getFeeling());
+        placeUser.setFeelings(placeUserRequest.getFeelings());
         placeUser.setAlbums(placeUserRequest.getAlbums());
         placeUser.setVideos(placeUserRequest.getVideos());
         user = userDao.findUserByUid(placeUserRequest.getUserUid());

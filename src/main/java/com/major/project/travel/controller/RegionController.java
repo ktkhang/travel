@@ -60,7 +60,6 @@ public class RegionController {
         return regionService.findByUser(user);
     }
 
-
     /* additional */
     @GetMapping("/findAllByUser/{uid}")
     public List<RegionUserResponse> findAllRegionByUserUid(@PathVariable String uid) throws DataNotFoundException{

@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.major.project.travel.common.CommonSerialize;
 import com.major.project.travel.util.Constraint;
 import com.major.project.travel.util.StringListConverter;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.util.List;
@@ -33,12 +35,20 @@ public class UserRegion extends CommonSerialize {
     @JoinColumn(name = "REGION_ID", referencedColumnName = "ID")
     private Region region;
 
-    @Column(name = "UR_FEELING")
-    private String feeling;
+//    @Column(name = "UR_FEELING")
+//    private String feeling;
 
-    @Column(name = "UR_ALBUM")
-    @Convert(converter = StringListConverter.class)
-    private List<String> albums;
+//    @Column(name = "UR_ALBUM")
+//    @Convert(converter = StringListConverter.class)
+//    private List<String> albums;
+
+    @OneToMany(mappedBy = "userRegion", fetch = FetchType.EAGER)
+    @Fetch(value = FetchMode.SUBSELECT)
+    private List<Feeling> feelings;
+
+    @OneToMany(mappedBy = "userRegion", fetch = FetchType.EAGER)
+    @Fetch(value = FetchMode.SUBSELECT)
+    private List<Album> albums;
 
     @Column(name = "UR_VIDEO")
     @Convert(converter = StringListConverter.class)
@@ -68,19 +78,19 @@ public class UserRegion extends CommonSerialize {
         this.region = region;
     }
 
-    public String getFeeling() {
-        return feeling;
+    public List<Feeling> getFeelings() {
+        return feelings;
     }
 
-    public void setFeeling(String feeling) {
-        this.feeling = feeling;
+    public void setFeelings(List<Feeling> feelings) {
+        this.feelings = feelings;
     }
 
-    public List<String> getAlbums() {
+    public List<Album> getAlbums() {
         return albums;
     }
 
-    public void setAlbums(List<String> albums) {
+    public void setAlbums(List<Album> albums) {
         this.albums = albums;
     }
 

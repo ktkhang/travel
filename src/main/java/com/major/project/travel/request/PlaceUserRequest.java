@@ -1,5 +1,8 @@
 package com.major.project.travel.request;
 
+import com.major.project.travel.model.Album;
+import com.major.project.travel.model.Feeling;
+
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
@@ -13,12 +16,11 @@ public class PlaceUserRequest {
     private String userUid;
     @NotNull(message = "Place must be empty")
     private String placeUid;
-    private String feeling;
-    private List<String> albums;
+    private List<Feeling> feelings;
+    private List<Album> albums;
     private List<String> videos;
 
     // Getter && Setter
-
 
     public String getUid() {
         return uid;
@@ -44,19 +46,19 @@ public class PlaceUserRequest {
         this.placeUid = placeUid;
     }
 
-    public String getFeeling() {
-        return feeling;
+    public List<Feeling> getFeelings() {
+        return feelings;
     }
 
-    public void setFeeling(String feeling) {
-        this.feeling = feeling;
+    public void setFeelings(List<Feeling> feelings) {
+        this.feelings = feelings;
     }
 
-    public List<String> getAlbums() {
+    public List<Album> getAlbums() {
         return albums;
     }
 
-    public void setAlbums(List<String> albums) {
+    public void setAlbums(List<Album> albums) {
         this.albums = albums;
     }
 
