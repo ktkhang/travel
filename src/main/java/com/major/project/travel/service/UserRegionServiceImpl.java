@@ -53,7 +53,7 @@ public class UserRegionServiceImpl implements UserRegionService {
         }
         Region region = new Region();
         try {
-            region = regionDao.findRegionByUid(feelingRegionRequest.getRegionUid());
+            region = regionDao.findRegionById(feelingRegionRequest.getRegionId());
         } catch (DataNotFoundException e) {
             e.printStackTrace();
         }

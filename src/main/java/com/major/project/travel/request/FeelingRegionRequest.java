@@ -13,7 +13,7 @@ public class FeelingRegionRequest {
     @NotBlank(message = "User name must be not empty")
     private String userUid;
     @NotBlank(message = "Region must be not empty")
-    private String regionUid;
+    private String regionId;
 
     public String getTopic() {
         return topic;
@@ -39,11 +39,11 @@ public class FeelingRegionRequest {
         this.userUid = userUid;
     }
 
-    public String getRegionUid() {
-        return regionUid;
+    public String getRegionId() {
+        return regionId;
     }
 
-    public void setRegionUid(String regionUid) {
-        this.regionUid = regionUid;
+    public void setRegionId(String regionId) {
+        this.regionId = regionId;
     }
 }
