@@ -27,6 +27,10 @@ public class Album extends CommonSerialize {
     @Convert(converter = StringListConverter.class)
     private List<String> images;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "STATUS")
+    private AlbumStatus albumStatus;
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JsonIgnore
     @JoinColumn(name = "USER_REGION_ID", referencedColumnName = "ID")
@@ -59,6 +63,14 @@ public class Album extends CommonSerialize {
 
     public void setImages(List<String> images) {
         this.images = images;
+    }
+
+    public AlbumStatus getAlbumStatus() {
+        return albumStatus;
+    }
+
+    public void setAlbumStatus(AlbumStatus albumStatus) {
+        this.albumStatus = albumStatus;
     }
 
     public UserRegion getUserRegion() {

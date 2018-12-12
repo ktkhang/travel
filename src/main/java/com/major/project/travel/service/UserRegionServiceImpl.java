@@ -5,10 +5,7 @@ import com.major.project.travel.dao.RegionDao;
 import com.major.project.travel.dao.UserDao;
 import com.major.project.travel.dao.UserRegionDao;
 import com.major.project.travel.exception.DataNotFoundException;
-import com.major.project.travel.model.Feeling;
-import com.major.project.travel.model.Region;
-import com.major.project.travel.model.User;
-import com.major.project.travel.model.UserRegion;
+import com.major.project.travel.model.*;
 import com.major.project.travel.request.FeelingRegionRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -71,6 +68,7 @@ public class UserRegionServiceImpl implements UserRegionService {
         feeling.setTopic(feelingRegionRequest.getTopic());
         feeling.setContent(feelingRegionRequest.getContent());
         feeling.setUserRegion(userRegion);
+        feeling.setFeelingStatus(FeelingStatus.UNAPPROVED);
         feelingDao.saveObj(feeling);
 
         userRegion.setFeelings(feelingDao.findAllByUserRegion(userRegion));

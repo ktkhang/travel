@@ -26,6 +26,10 @@ public class Feeling extends CommonSerialize {
     @Column(name = "CONTENT")
     private String content;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "STATUS")
+    private FeelingStatus feelingStatus;
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JsonIgnore
     @JoinColumn(name = "USER_REGION_ID", referencedColumnName = "ID")
@@ -58,6 +62,14 @@ public class Feeling extends CommonSerialize {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public FeelingStatus getFeelingStatus() {
+        return feelingStatus;
+    }
+
+    public void setFeelingStatus(FeelingStatus feelingStatus) {
+        this.feelingStatus = feelingStatus;
     }
 
     public UserRegion getUserRegion() {
