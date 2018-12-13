@@ -1,9 +1,6 @@
 package com.major.project.travel.service;
 
-import com.major.project.travel.dao.PlaceDao;
-import com.major.project.travel.dao.PlaceUserDao;
-import com.major.project.travel.dao.RegionDao;
-import com.major.project.travel.dao.UserRegionDao;
+import com.major.project.travel.dao.*;
 import com.major.project.travel.exception.DataNotFoundException;
 import com.major.project.travel.exception.RestException;
 import com.major.project.travel.model.*;
@@ -36,6 +33,12 @@ public class RegionServiceImpl implements RegionService {
 
     @Autowired
     private PlaceUserDao placeUserDao;
+
+    @Autowired
+    private RoleDao roleDao;
+
+    @Autowired
+    private UserDao userDao;
 
     @Override
     public Region create(RegionRequest regionRequest) {
@@ -524,6 +527,52 @@ public class RegionServiceImpl implements RegionService {
         region65.setTitle("Quần đảo Hoàng Sa, Đà Nẵng, Việt Nam");
         regionDao.saveObj(region65);
 
+        // Save Role
+        Role role = new Role();
+        role = new Role();
+        role.setRoleName("ADMIN");
+        role.setRoleStatus(RoleStatus.ACTIVE);
+        roleDao.saveObj(role);
+
+        role.setRoleName("USER");
+        role.setRoleStatus(RoleStatus.ACTIVE);
+        roleDao.saveObj(role);
+
+        // Save User
+        User user = new User();
+        user.setUserName("Nguyễn Quang Huy");
+        user.setUserStatus(UserStatus.ACTIVE);
+        user.setAvatar("https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=2165468497037647&height=50&width=50&ext=1547266045&hash=AeSmrP_0PQsxbkme");
+        user.setEmail("nguyenquanghuy605@gmail.com");
+        user.setUserID(2165468497037647L);
+        user.setRole(role);
+        userDao.saveObj(user);
+
+        User user1 = new User();
+        user1.setUserName("Lê Tấn Khang");
+        user1.setUserStatus(UserStatus.ACTIVE);
+        user1.setAvatar("https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=2165468497037647&height=50&width=50&ext=1547266045&hash=AeSmrP_0PQsxbkme");
+        user1.setEmail("letankhang@gmail.com");
+        user1.setUserID(2165468497037644L);
+        user1.setRole(role);
+        userDao.saveObj(user1);
+
+
+        // Save UserRegion
+        UserRegion userRegion = new UserRegion();
+        userRegion.setUser(user);
+        userRegion.setRegion(region21);
+        userRegionDao.saveObj(userRegion);
+
+        userRegion = new UserRegion();
+        userRegion.setUser(user);
+        userRegion.setRegion(region16);
+        userRegionDao.saveObj(userRegion);
+
+        userRegion = new UserRegion();
+        userRegion.setUser(user);
+        userRegion.setRegion(region14);
+        userRegionDao.saveObj(userRegion);
 
         // save places of GiaLai
         Region region = null;
@@ -572,7 +621,357 @@ public class RegionServiceImpl implements RegionService {
         place4.setRegion(region);
         placeDao.saveObj(place4);
 
-        return regionDao.findAll();
-    }
+        // Quang Ngai
+        try {
+            region = regionDao.findRegionById("VN-21");
+        } catch (DataNotFoundException e) {
+            e.printStackTrace();
+        }
 
+        Place place5 = new Place();
+        place5.setName("NuiThienAn");
+        place5.setTitle("Núi Thiên Ấn");
+        place5.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
+        place5.setLatitude(-10.1859);
+        place5.setLongitude(15.013);
+        place5.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place5.setRegion(region);
+        placeDao.saveObj(place5);
+
+        Place place6 = new Place();
+        place6.setName("ThacTrang");
+        place6.setTitle("Thác Trắng");
+        place6.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
+        place6.setLatitude(-13.3284);
+        place6.setLongitude(18.3737);
+        place6.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place6.setRegion(region);
+        placeDao.saveObj(place6);
+
+        Place place7 = new Place();
+        place7.setName("ChungTichSonMy");
+        place7.setTitle("Chứng tích Sơn Mỹ");
+        place7.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
+        place7.setLatitude(-20.0966);
+        place7.setLongitude(16.6649);
+        place7.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place7.setRegion(region);
+        placeDao.saveObj(place7);
+
+        Place place8 = new Place();
+        place8.setName("BienLeThuy");
+        place8.setTitle("Biển Lệ Thủy");
+        place8.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
+        place8.setLatitude(-20.075);
+        place8.setLongitude(11.8233);
+        place8.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place8.setRegion(region);
+        placeDao.saveObj(place8);
+
+        Place place9 = new Place();
+        place9.setName("BienMyKhe");
+        place9.setTitle("Biển Mỹ Khê");
+        place9.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
+        place9.setLatitude(-14.8176);
+        place9.setLongitude(12.4783);
+        place9.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place9.setRegion(region);
+        placeDao.saveObj(place9);
+
+        //////////////////////////////////////
+        // Nghe An
+        try {
+            region = regionDao.findRegionById("VN-14");
+        } catch (DataNotFoundException e) {
+            e.printStackTrace();
+        }
+        Place place10 = new Place();
+        place10.setName("ThacXaoLa");
+        place10.setTitle("Thác Xao La");
+        place10.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
+        place10.setLatitude(73.5804);
+        place10.setLongitude(59.1337);
+        place10.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place10.setRegion(region);
+        placeDao.saveObj(place10);
+
+        Place place11 = new Place();
+        place11.setName("BienCuaLo");
+        place11.setTitle("Biển Cửa Lò");
+        place11.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
+        place11.setLatitude(76.4642);
+        place11.setLongitude(54.7581);
+        place11.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place11.setRegion(region);
+        placeDao.saveObj(place11);
+
+        Place place12 = new Place();
+        place12.setName("Đồi Chè Thanh Chương");
+        place12.setTitle("Đồi Chè Thanh Chương");
+        place12.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
+        place12.setLatitude(79.1192);
+        place12.setLongitude(71.3915);
+        place12.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place12.setRegion(region);
+        placeDao.saveObj(place12);
+
+        Place place13 = new Place();
+        place13.setName("Cánh Đồng Hoa Hướng Dương");
+        place13.setTitle("Cánh Đồng Hoa Hướng Dương");
+        place13.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
+        place13.setLatitude(77.6002);
+        place13.setLongitude(71.5837);
+        place13.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place13.setRegion(region);
+        placeDao.saveObj(place13);
+
+        Place place14 = new Place();
+        place14.setName("Làng Sen quê Bác");
+        place14.setTitle("Làng Sen quê Bác");
+        place14.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
+        place14.setLatitude(78.0961);
+        place14.setLongitude(64.2285);
+        place14.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place14.setRegion(region);
+        placeDao.saveObj(place14);
+
+        Place place15 = new Place();
+        place15.setName("Thành cổ Vinh");
+        place15.setTitle("Thành cổ Vinh");
+        place15.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
+        place15.setLatitude(75.641);
+        place15.setLongitude(63.2671);
+        place15.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place15.setRegion(region);
+        placeDao.saveObj(place15);
+
+        Place place16 = new Place();
+        place16.setName("Vườn quốc gia Pù Mát");
+        place16.setTitle("Vườn quốc gia Pù Mát");
+        place16.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
+        place16.setLatitude(77.8754);
+        place16.setLongitude(58.5559);
+        place16.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place16.setRegion(region);
+        placeDao.saveObj(place16);
+
+        //////////////////////////////////////
+        // Binh Thuan
+        try {
+            region = regionDao.findRegionById("VN-30");
+        } catch (DataNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        Place place17 = new Place();
+        place17.setName("NuiTaCu");
+        place17.setTitle("Núi Tà Cú");
+        place17.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
+        place17.setLatitude(-79.2322);
+        place17.setLongitude(18.3989);
+        place17.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place17.setRegion(region);
+        placeDao.saveObj(place17);
+
+        Place place18 = new Place();
+        place18.setName("CongVienTuongCatForgottenLand");
+        place18.setTitle("Công viên Tượng cát Forgotten Land");
+        place18.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
+        place18.setLatitude(-80.4274);
+        place18.setLongitude(20.7588);
+        place18.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place18.setRegion(region);
+        placeDao.saveObj(place18);
+
+        Place place19 = new Place();
+        place19.setName("Mũi Yến");
+        place19.setTitle("Mũi Yến");
+        place19.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
+        place19.setLatitude(-79.9974);
+        place19.setLongitude(15.1909);
+        place19.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place19.setRegion(region);
+        placeDao.saveObj(place19);
+
+        Place place20 = new Place();
+        place20.setName("BaiDaOngDia");
+        place20.setTitle("Bãi đá Ông Địa");
+        place20.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
+        place20.setLatitude(-81.3018);
+        place20.setLongitude(22.8237);
+        place20.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place20.setRegion(region);
+        placeDao.saveObj(place20);
+
+        Place place21 = new Place();
+        place21.setName("TruongDucThanh");
+        place21.setTitle("Trường Dục Thanh");
+        place21.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
+        place21.setLatitude(-80.6502);
+        place21.setLongitude(26.511);
+        place21.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place21.setRegion(region);
+        placeDao.saveObj(place21);
+
+        Place place22 = new Place();
+        place22.setName("ThapChamPoshanư");
+        place22.setTitle("Tháp Chàm Poshanư");
+        place22.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
+        place22.setLatitude(-79.7592);
+        place22.setLongitude(20.5006);
+        place22.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place22.setRegion(region);
+        placeDao.saveObj(place22);
+
+        Place place23 = new Place();
+        place23.setName("DoiCatHoaThang");
+        place23.setTitle("Đồi cát Hoà Thắng");
+        place23.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
+        place23.setLatitude(-81.8222);
+        place23.setLongitude(27.2765);
+        place23.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place23.setRegion(region);
+        placeDao.saveObj(place23);
+
+        // Quang Binh
+        try {
+            region = regionDao.findRegionById("VN-16");
+        } catch (DataNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        Place place24 = new Place();
+        place24.setName("HangEn");
+        place24.setTitle("Hang Én");
+        place24.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
+        place24.setLatitude(60.1533);
+        place24.setLongitude(45.7699);
+        place24.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place24.setRegion(region);
+        placeDao.saveObj(place24);
+
+        Place place25 = new Place();
+        place25.setName("DongPhongNha");
+        place25.setTitle("Động Phong Nha");
+        place25.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
+        place25.setLatitude(57.239);
+        place25.setLongitude(44.2047);
+        place25.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place25.setRegion(region);
+        placeDao.saveObj(place25);
+
+        Place place26 = new Place();
+        place26.setName("DongTienSon");
+        place26.setTitle("Động Tiên Sơn");
+        place26.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
+        place26.setLatitude(51.7626);
+        place26.setLongitude(41.4178);
+        place26.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place26.setRegion(region);
+        placeDao.saveObj(place26);
+
+        Place place27 = new Place();
+        place27.setName("DongThienDuong");
+        place27.setTitle("Động Thiên Đường");
+        place27.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
+        place27.setLatitude(55.0508);
+        place27.setLongitude(42.5249);
+        place27.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place27.setRegion(region);
+        placeDao.saveObj(place27);
+
+        Place place28 = new Place();
+        place28.setName("HangSonDoong");
+        place28.setTitle("Hang Sơn Đoòng");
+        place28.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
+        place28.setLatitude(55.0508);
+        place28.setLongitude(42.5249);
+        place28.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place28.setRegion(region);
+        placeDao.saveObj(place28);
+
+        Place place29 = new Place();
+        place29.setName("SuoiNuocMooc");
+        place29.setTitle("Suối Nước Moọc");
+        place29.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
+        place29.setLatitude(55.8991);
+        place29.setLongitude(46.1517);
+        place29.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place29.setRegion(region);
+        placeDao.saveObj(place29);
+
+        Place place30 = new Place();
+        place30.setName("BaiDaNhay");
+        place30.setTitle("Bãi Đá Nhảy");
+        place30.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
+        place30.setLatitude(49.0202);
+        place30.setLongitude(39.089);
+        place30.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place30.setRegion(region);
+        placeDao.saveObj(place30);
+
+        Place place31 = new Place();
+        place31.setName("BauTro");
+        place31.setTitle("Bàu Tró");
+        place31.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
+        place31.setLatitude(47.3995);
+        place31.setLongitude(41.3796);
+        place31.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place31.setRegion(region);
+        placeDao.saveObj(place31);
+
+        Place place32 = new Place();
+        place32.setName("NuiThanDinh");
+        place32.setTitle("Núi Thần Đinh");
+        place32.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
+        place32.setLatitude(59.8728);
+        place32.setLongitude(50.6565);
+        place32.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place32.setRegion(region);
+        placeDao.saveObj(place32);
+
+        // Save UserPlace
+        PlaceUser placeUser = new PlaceUser();
+        placeUser.setUser(user);
+        placeUser.setPlace(place5);
+        placeUserDao.saveObj(placeUser);
+
+        PlaceUser placeUser1 = new PlaceUser();
+        placeUser1.setUser(user);
+        placeUser1.setPlace(place6);
+        placeUserDao.saveObj(placeUser1);
+
+        PlaceUser placeUser2 = new PlaceUser();
+        placeUser2.setUser(user);
+        placeUser2.setPlace(place7);
+        placeUserDao.saveObj(placeUser2);
+
+        PlaceUser placeUser3 = new PlaceUser();
+        placeUser3.setUser(user);
+        placeUser3.setPlace(place9);
+        placeUserDao.saveObj(placeUser3);
+
+        PlaceUser placeUser4 = new PlaceUser();
+        placeUser4.setUser(user);
+        placeUser4.setPlace(place10);
+        placeUserDao.saveObj(placeUser4);
+
+        PlaceUser placeUser5 = new PlaceUser();
+        placeUser5.setUser(user);
+        placeUser5.setPlace(place12);
+        placeUserDao.saveObj(placeUser5);
+
+        PlaceUser placeUser6 = new PlaceUser();
+        placeUser6.setUser(user);
+        placeUser6.setPlace(place13);
+        placeUserDao.saveObj(placeUser6);
+
+        PlaceUser placeUser7 = new PlaceUser();
+        placeUser7.setUser(user);
+        placeUser7.setPlace(place18);
+        placeUserDao.saveObj(placeUser7);
+
+        return regionDao.findAll();
+
+    }
 }

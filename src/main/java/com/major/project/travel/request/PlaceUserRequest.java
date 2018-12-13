@@ -1,7 +1,6 @@
 package com.major.project.travel.request;
 
-import com.major.project.travel.model.Album;
-import com.major.project.travel.model.Feeling;
+import com.major.project.travel.model.*;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -18,7 +17,7 @@ public class PlaceUserRequest {
     private String placeUid;
     private List<Feeling> feelings;
     private List<Album> albums;
-    private List<String> videos;
+    private List<Video> videos;
 
     // Getter && Setter
 
@@ -62,11 +61,11 @@ public class PlaceUserRequest {
         this.albums = albums;
     }
 
-    public List<String> getVideos() {
+    public List<Video> getVideos() {
         return videos;
     }
 
-    public void setVideos(List<String> videos) {
+    public void setVideos(List<Video> videos) {
         this.videos = videos;
     }
 }

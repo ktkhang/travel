@@ -50,9 +50,13 @@ public class UserRegion extends CommonSerialize {
     @Fetch(value = FetchMode.SUBSELECT)
     private List<Album> albums;
 
-    @Column(name = "UR_VIDEO")
-    @Convert(converter = StringListConverter.class)
-    private List<String> videos;
+//    @Column(name = "UR_VIDEO")
+//    @Convert(converter = StringListConverter.class)
+//    private List<String> videos;
+    @OneToMany(mappedBy = "userRegion", fetch = FetchType.EAGER)
+    @Fetch(value = FetchMode.SUBSELECT)
+    private List<Video> videos;
+
 
     public Long getId() {
         return id;
@@ -94,11 +98,11 @@ public class UserRegion extends CommonSerialize {
         this.albums = albums;
     }
 
-    public List<String> getVideos() {
+    public List<Video> getVideos() {
         return videos;
     }
 
-    public void setVideos(List<String> videos) {
+    public void setVideos(List<Video> videos) {
         this.videos = videos;
     }
 }

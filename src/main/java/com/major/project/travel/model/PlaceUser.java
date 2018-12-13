@@ -50,9 +50,12 @@ public class PlaceUser extends CommonSerialize {
     @Fetch(value = FetchMode.SUBSELECT)
     private List<Album> albums;
 
-    @Column(name = "PU_VIDEO")
-    @Convert(converter = StringListConverter.class)
-    private List<String> videos;
+//    @Column(name = "PU_VIDEO")
+//    @Convert(converter = StringListConverter.class)
+//    private List<String> videos;
+    @OneToMany(mappedBy = "placeUser", fetch = FetchType.EAGER)
+    @Fetch(value = FetchMode.SUBSELECT)
+    private List<Video> videos;
 
     // Getter and Setter
 
@@ -96,11 +99,11 @@ public class PlaceUser extends CommonSerialize {
         this.albums = albums;
     }
 
-    public List<String> getVideos() {
+    public List<Video> getVideos() {
         return videos;
     }
 
-    public void setVideos(List<String> videos) {
+    public void setVideos(List<Video> videos) {
         this.videos = videos;
     }
 }
