@@ -2,6 +2,7 @@ package com.major.project.travel.dao;
 
 import com.major.project.travel.common.CommonHibernate;
 import com.major.project.travel.model.Feeling;
+import com.major.project.travel.model.PlaceUser;
 import com.major.project.travel.model.UserRegion;
 import org.springframework.stereotype.Repository;
 
@@ -28,6 +29,15 @@ public class FeelingDaoImpl extends CommonHibernate<Feeling> implements FeelingD
         String sql = "from Feeling f where f.userRegion = :userRegion";
         Query query = getCurrentSession().createQuery(sql)
                 .setParameter("userRegion", userRegion);
+        List<Feeling> feelings = query.getResultList();
+        return feelings;
+    }
+
+    @Override
+    public List<Feeling> findAllByPlaceUser(PlaceUser placeUser) {
+        String sql = "from Feeling f where f.placeUser = :placeUser";
+        Query query = getCurrentSession().createQuery(sql)
+                .setParameter("placeUser", placeUser);
         List<Feeling> feelings = query.getResultList();
         return feelings;
     }

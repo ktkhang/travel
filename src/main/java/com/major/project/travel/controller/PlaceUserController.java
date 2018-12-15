@@ -3,6 +3,7 @@ package com.major.project.travel.controller;
 import com.major.project.travel.exception.DataNotFoundException;
 import com.major.project.travel.exception.RestException;
 import com.major.project.travel.model.*;
+import com.major.project.travel.request.FeelingPlaceRequest;
 import com.major.project.travel.request.PlaceUserRequest;
 import com.major.project.travel.service.PlaceService;
 import com.major.project.travel.service.PlaceUserService;
@@ -77,5 +78,13 @@ public class PlaceUserController {
     @DeleteMapping("/delete/{uid}")
     public String deletePlaceUser(@PathVariable String uid) throws DataNotFoundException {
         return placeUserService.delete(uid);
+    }
+
+    @PostMapping("/addPost")
+    public PlaceUser addPost(@Valid @RequestBody FeelingPlaceRequest feelingPlaceRequest, Errors errors)
+            throws DataNotFoundException {
+        // validate input
+        Utility.validateErrorsRequest(errors);
+        return placeUserService.addPost(feelingPlaceRequest);
     }
 }

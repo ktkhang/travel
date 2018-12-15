@@ -4,6 +4,7 @@ import com.major.project.travel.dao.*;
 import com.major.project.travel.exception.DataNotFoundException;
 import com.major.project.travel.exception.RestException;
 import com.major.project.travel.model.*;
+import com.major.project.travel.request.FeelingPlaceRequest;
 import com.major.project.travel.request.PlaceUserRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,6 +35,9 @@ public class PlaceUserServiceImpl implements PlaceUserService{
 
     @Autowired
     private UserRegionDao userRegionDao;
+
+    @Autowired
+    private FeelingDao feelingDao;
 
     @Override
     public PlaceUser save(PlaceUserRequest placeUserRequest) throws DataNotFoundException{
@@ -132,5 +136,52 @@ public class PlaceUserServiceImpl implements PlaceUserService{
     @Override
     public PlaceUser findPlaceUserByUid(String uid) throws DataNotFoundException {
         return placeUserDao.findPlaceUserByUid(uid);
+    }
+
+    @Override
+    public PlaceUser addPost(FeelingPlaceRequest feelingPlaceRequest) {
+        User user = new User();
+        try {
+            user = userDao.findUserByUid(feelingPlaceRequest.getUserUid());
+        } catch (DataNotFoundException e) {
+            e.printStackTrace();
+        }
+        Place place = new Place();
+        try {
+            place = placeDao.findPlaceByUid(feelingPlaceRequest.getPlaceUid());
+        } catch (DataNotFoundException e) {
+            e.printStackTrace();
+        }
+        PlaceUser placeUser = placeUserDao.findByUserAndPlace(user, place);
+        if (placeUser == null){
+            PlaceUser placeUserNew = new PlaceUser();
+            placeUserNew.setUser(user);
+            placeUserNew.setPlace(place);
+            try{
+                placeUserDao.saveObj(placeUserNew);
+                placeUser = placeUserDao.findByUserAndPlace(user, place);
+
+                Region region = regionDao.findByPlace(place);
+                if(userRegionDao.findByUserAndRegion(user, region) == null){
+                    UserRegion userRegion = new UserRegion();
+                    userRegion.setUser(user);
+                    userRegion.setRegion(region);
+                    userRegionDao.saveObj(userRegion);
+                }
+
+                Feeling feeling = new Feeling();
+                feeling.setTopic(feelingPlaceRequest.getTopic());
+                feeling.setContent(feelingPlaceRequest.getContent());
+                feeling.setPlaceUser(placeUser);
+                feeling.setFeelingStatus(FeelingStatus.UNAPPROVED);
+                feelingDao.saveObj(feeling);
+
+                placeUser.setFeelings(feelingDao.findAllByPlaceUser(placeUser));
+            } catch (Exception e){
+                placeUser = null;
+            }
+        }
+
+        return placeUser;
     }
 }
