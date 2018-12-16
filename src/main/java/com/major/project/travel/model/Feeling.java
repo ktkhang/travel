@@ -11,7 +11,10 @@ import javax.validation.constraints.NotNull;
  * Created by ktKhang on 11, Dec, 2018
  **/
 @Entity
-@Table(name = "TBL_FEELINGS")
+@Table(name = "TBL_FEELINGS",
+        uniqueConstraints = {@UniqueConstraint(columnNames = {"TOPIC","USER_REGION_ID"}, name = Constraint.TOPIC_REGION_CONSTRAINT_CODE),
+                @UniqueConstraint(columnNames = {"TOPIC","PLACE_USER_ID"}, name = Constraint.TOPIC_PLACE_CONSTRAINT_CODE)}
+)
 public class Feeling extends CommonSerialize {
     @Id
     @Column(name = "ID")
@@ -19,7 +22,7 @@ public class Feeling extends CommonSerialize {
     private Long id;
 
     @NotNull
-    @Column(name = "TOPIC", unique = true)
+    @Column(name = "TOPIC")
     private String topic;
 
     @NotNull
