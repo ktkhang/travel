@@ -169,17 +169,20 @@ public class PlaceUserServiceImpl implements PlaceUserService{
                     userRegionDao.saveObj(userRegion);
                 }
 
-                Feeling feeling = new Feeling();
-                feeling.setTopic(feelingPlaceRequest.getTopic());
-                feeling.setContent(feelingPlaceRequest.getContent());
-                feeling.setPlaceUser(placeUser);
-                feeling.setFeelingStatus(FeelingStatus.UNAPPROVED);
-                feelingDao.saveObj(feeling);
 
-                placeUser.setFeelings(feelingDao.findAllByPlaceUser(placeUser));
             } catch (Exception e){
                 placeUser = null;
             }
+        }
+        if(placeUser != null){
+            Feeling feeling = new Feeling();
+            feeling.setTopic(feelingPlaceRequest.getTopic());
+            feeling.setContent(feelingPlaceRequest.getContent());
+            feeling.setPlaceUser(placeUser);
+            feeling.setFeelingStatus(FeelingStatus.UNAPPROVED);
+            feelingDao.saveObj(feeling);
+
+            placeUser.setFeelings(feelingDao.findAllByPlaceUser(placeUser));
         }
 
         return placeUser;
