@@ -1,20 +1,13 @@
 package com.major.project.travel.controller;
 
 import com.major.project.travel.exception.DataNotFoundException;
-import com.major.project.travel.exception.RestException;
-import com.major.project.travel.model.Place;
+import com.major.project.travel.model.*;
 import com.major.project.travel.model.User;
-import com.major.project.travel.model.UserStatus;
-import com.major.project.travel.request.UserRequest;
+import com.major.project.travel.service.FeelingService;
 import com.major.project.travel.service.PlaceService;
 import com.major.project.travel.service.UserService;
-import com.major.project.travel.util.Utility;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletResponse;
-import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -29,6 +22,9 @@ public class UserController {
 
     @Autowired
     private PlaceService placeService;
+
+    @Autowired
+    private FeelingService feelingService;
 
     @GetMapping("/all")
     public List<User> getUserList() {
@@ -63,5 +59,19 @@ public class UserController {
     public List<User> findUsersByPlaceUid(@PathVariable String uid) throws DataNotFoundException{
         Place place = placeService.findPlaceByUid(uid);
         return userService.findByPlace(place);
+    }
+
+    /**
+     * find Post by User9ikm
+     *
+     * @param uid
+     * @return
+     * @throws DataNotFoundException
+     */
+    @GetMapping("/findPostByUser/{uid}")
+    public List<Feeling> findPostByUser(@PathVariable String uid) throws DataNotFoundException{
+        User user = userService.findUserByUid(uid);
+        return feelingService.findPostByUser(user);
+
     }
 }

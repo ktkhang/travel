@@ -545,6 +545,8 @@ public class RegionServiceImpl implements RegionService {
         user.setAvatar("https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=2165468497037647&height=50&width=50&ext=1547266045&hash=AeSmrP_0PQsxbkme");
         user.setEmail("nguyenquanghuy605@gmail.com");
         user.setUserID(2165468497037647L);
+        user.setPlaceVisited(9);
+        user.setRegionVisited(3);
         user.setRole(role);
         userDao.saveObj(user);
 

@@ -1,9 +1,8 @@
 package com.major.project.travel.dao;
 
 import com.major.project.travel.common.CommonHibernateInteface;
-import com.major.project.travel.model.Feeling;
-import com.major.project.travel.model.PlaceUser;
-import com.major.project.travel.model.UserRegion;
+import com.major.project.travel.exception.DataNotFoundException;
+import com.major.project.travel.model.*;
 
 import java.io.Serializable;
 import java.util.List;
@@ -25,4 +24,12 @@ public interface FeelingDao extends CommonHibernateInteface<Serializable, Feelin
      * @return
      */
     List<Feeling> findAllByPlaceUser (PlaceUser placeUser);
+
+    /**
+     * Find By User
+     * @param user
+     * @return
+     * @throws DataNotFoundException
+     */
+    List<Feeling> findPostByUser(User user) throws DataNotFoundException;
 }
