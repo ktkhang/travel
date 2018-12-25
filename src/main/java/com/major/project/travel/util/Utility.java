@@ -13,6 +13,7 @@ import java.util.Random;
 public class Utility {
 
     public static final int UID_LENGTH = 12;
+    public static final int USERID_LENGTH = 16;
 
     private static final String ERROR_MESSAGE_DELIMITER = ";";
 
@@ -62,6 +63,13 @@ public class Utility {
         int idx = random.nextInt(LETTER_LIST.length());
         char first = LETTER_LIST.charAt(idx);
         return first + randomSequenceCharacters(WORD_LIST, UID_LENGTH - 1);
+    }
+
+    public static Long randomUserId() {
+        Random random = new Random();
+        int idx = random.nextInt(NUMBER_LIST.length());
+        char first = NUMBER_LIST.charAt(idx);
+        return Long.parseLong(first + randomSequenceCharacters(NUMBER_LIST, USERID_LENGTH - 1));
     }
 
 }

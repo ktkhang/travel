@@ -28,10 +28,26 @@ public interface UserDao extends CommonHibernateInteface<Serializable, User> {
     User findUserByUserID(Long userID) throws DataNotFoundException;
 
     /**
+     * find User By UserName and Role
+     * @param userName
+     * @param role
+     * @return
+     * @throws DataNotFoundException
+     */
+    User findUserByUserNameAndRole(String userName, Role role) throws DataNotFoundException;
+
+    /**
      * find User By Place
      * @param place
      * @return
      * @throws DataNotFoundException
      */
     List<User> findByPlace(Place place) throws DataNotFoundException;
+
+    /**
+     * find all user with role
+     * @return
+     * @throws DataNotFoundException
+     */
+    List<User> findAllUserWithRole(Role role) throws DataNotFoundException;
 }
