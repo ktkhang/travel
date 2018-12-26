@@ -529,14 +529,14 @@ public class RegionServiceImpl implements RegionService {
 
         // Save Role
         Role role = new Role();
-        role = new Role();
         role.setRoleName("ADMIN");
         role.setRoleStatus(RoleStatus.ACTIVE);
         roleDao.saveObj(role);
 
-        role.setRoleName("USER");
-        role.setRoleStatus(RoleStatus.ACTIVE);
-        roleDao.saveObj(role);
+        Role role1 = new Role();
+        role1.setRoleName("USER");
+        role1.setRoleStatus(RoleStatus.ACTIVE);
+        roleDao.saveObj(role1);
 
         // Save User
         User user = new User();
@@ -547,7 +547,7 @@ public class RegionServiceImpl implements RegionService {
         user.setUserID(2165468497037647L);
         user.setPlaceVisited(9);
         user.setRegionVisited(3);
-        user.setRole(role);
+        user.setRole(role1);
         userDao.saveObj(user);
 
         User user1 = new User();
@@ -556,9 +556,26 @@ public class RegionServiceImpl implements RegionService {
         user1.setAvatar("https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=2165468497037647&height=50&width=50&ext=1547266045&hash=AeSmrP_0PQsxbkme");
         user1.setEmail("letankhang@gmail.com");
         user1.setUserID(2165468497037644L);
-        user1.setRole(role);
+        user1.setRole(role1);
         userDao.saveObj(user1);
 
+        User user2 = new User();
+        user2.setUserName("Lâm Chí Hào");
+        user2.setUserStatus(UserStatus.ACTIVE);
+        user2.setAvatar("https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=2165468497037647&height=50&width=50&ext=1547266045&hash=AeSmrP_0PQsxbkme");
+        user2.setEmail("haolam@gmail.com");
+        user2.setUserID(2165468497037624L);
+        user2.setRole(role);
+        userDao.saveObj(user2);
+
+        User user3 = new User();
+        user3.setUserName("Lâm Chí Nghi");
+        user3.setUserStatus(UserStatus.ACTIVE);
+        user3.setAvatar("https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=2165468497037647&height=50&width=50&ext=1547266045&hash=AeSmrP_0PQsxbkme");
+        user3.setEmail("haolamnghi@gmail.com");
+        user3.setUserID(2165438497037624L);
+        user3.setRole(role);
+        userDao.saveObj(user3);
 
         // Save UserRegion
         UserRegion userRegion = new UserRegion();

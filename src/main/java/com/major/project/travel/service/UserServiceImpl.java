@@ -5,6 +5,7 @@ import com.major.project.travel.exception.DataNotFoundException;
 import com.major.project.travel.exception.RestException;
 import com.major.project.travel.model.Place;
 import com.major.project.travel.model.User;
+import com.major.project.travel.model.UserStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,7 +38,8 @@ public class UserServiceImpl implements UserService{
         try {
             User user = userDao.findUserByUid(uid);
             if (user != null) {
-                userDao.deleteObj(user);
+                user.setUserStatus(UserStatus.LOCKED);
+                userDao.updateObj(user);
                 return "Delete successfully";
             } else {
                 return "User does not exist";
