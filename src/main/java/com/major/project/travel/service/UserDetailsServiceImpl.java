@@ -25,8 +25,16 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             UserDetails userDetails = UserPrincipal.create(user);
             return userDetails;
         } catch (Exception ex) {
-            ex.printStackTrace();
-            throw new UsernameNotFoundException(ex.getMessage(), ex);
+            try {
+                System.out.println("======== userDetailsService");
+                User user = this.userService.findUserAdminByName(userUid);
+                UserDetails userDetails = UserPrincipal.create(user);
+                System.out.println(user.getPassword());
+                return userDetails;
+            } catch (DataNotFoundException e) {
+//                ex.printStackTrace();
+                throw new UsernameNotFoundException(ex.getMessage(), ex);
+            }
         }
     }
 }

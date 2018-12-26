@@ -7,6 +7,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
@@ -26,11 +27,16 @@ public class JwtProvider {
     //    @Value("${app.jwtSecret}")
     private String jwtSecret = "JWTSuperSecretKeyForProjectTravelWebTeamTieuLuanChuyenNganhITK15SPKT20180411ManyThanksForAllYourSupport";
 
-//    private SecretKey key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
+    //    private SecretKey key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
 
     //    @Value("${app.jwtExpirationInMs}")
     private int jwtExpirationInMs = 604800000;
 
+    /**
+     * generate token for user facebook login
+     * @param authenticationUser
+     * @return
+     */
     public String generateToken(User authenticationUser) {
         Date now = new Date();
         Date expiryDate = new Date(now.getTime() + jwtExpirationInMs);
@@ -40,11 +46,29 @@ public class JwtProvider {
                 .setIssuedAt(new Date())
                 .setExpiration(expiryDate)
                 .signWith(SignatureAlgorithm.HS512, jwtSecret)
-//                .signWith(key)
                 .claim("role", authenticationUser.getRole().getRoleName())
                 .compact();
         System.out.println(jws);
         return jws;
+    }
+
+    /**
+     * generate token for admin login
+     * @param authentication
+     * @return
+     */
+    public String generateTokenForAdmin(Authentication authentication) {
+        UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
+        Date now = new Date();
+        Date expiryDate = new Date(now.getTime() + jwtExpirationInMs);
+
+        return Jwts.builder()
+                .setSubject(userPrincipal.getUid())
+                .setIssuedAt(new Date())
+                .setExpiration(expiryDate)
+                .signWith(SignatureAlgorithm.HS512, jwtSecret)
+                .claim("role", "ADMIN")
+                .compact();
     }
 
     public String getUserUidFromJWT(String token) {

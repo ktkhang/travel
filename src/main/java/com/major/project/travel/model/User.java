@@ -33,11 +33,15 @@ public class User extends CommonSerialize {
     @Column(name = "USER_NAME")
     private String userName;
 
+    @Column(name = "PASSWORD")
+    @JsonIgnore
+    private String password;
+
     @NotNull
     @Column(name = "USER_EMAIL")
     private String email;
 
-    @NotNull
+//    @NotNull
     @Column(name = "USER_AVATAR")
     private String avatar;
 
@@ -91,6 +95,14 @@ public class User extends CommonSerialize {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getEmail() {

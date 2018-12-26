@@ -3,11 +3,18 @@ package com.major.project.travel.controller;
 import com.major.project.travel.exception.DataNotFoundException;
 import com.major.project.travel.model.*;
 import com.major.project.travel.model.User;
+import com.major.project.travel.request.UserCreationRequest;
 import com.major.project.travel.service.FeelingService;
 import com.major.project.travel.service.PlaceService;
+import com.major.project.travel.service.RoleService;
 import com.major.project.travel.service.UserService;
+import com.major.project.travel.util.Utility;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -29,6 +36,12 @@ public class UserController {
     @GetMapping("/all")
     public List<User> getUserList() {
         return userService.list();
+    }
+
+    @PostMapping("/createAdmin")
+    public User createAdminUser(@Valid @RequestBody UserCreationRequest userRequest, Errors errors) throws DataNotFoundException {
+        Utility.validateErrorsRequest(errors);
+        return userService.createAdminUser(userRequest);
     }
 
     @GetMapping("/show/{uid}")
