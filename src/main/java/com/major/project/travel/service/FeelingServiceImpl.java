@@ -25,4 +25,9 @@ public class FeelingServiceImpl implements FeelingService {
     public List<Feeling> findPostByUser(User user) throws DataNotFoundException {
         return feelingDao.findPostByUser(user);
     }
+
+    @Override
+    public void save(Feeling feeling) throws DataNotFoundException {
+        feelingDao.saveObj(feeling);
+    }
 }

@@ -9,6 +9,7 @@ import com.major.project.travel.response.PlaceUserResponse;
 import com.major.project.travel.response.RegionUserResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.transaction.Transactional;
@@ -39,6 +40,12 @@ public class RegionServiceImpl implements RegionService {
 
     @Autowired
     private UserDao userDao;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private FeelingService feelingService;
 
     @Override
     public Region create(RegionRequest regionRequest) {
@@ -565,17 +572,26 @@ public class RegionServiceImpl implements RegionService {
         user2.setAvatar("https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=2165468497037647&height=50&width=50&ext=1547266045&hash=AeSmrP_0PQsxbkme");
         user2.setEmail("haolam@gmail.com");
         user2.setUserID(2165468497037624L);
-        user2.setRole(role);
+        user2.setRole(role1);
         userDao.saveObj(user2);
 
         User user3 = new User();
-        user3.setUserName("Lâm Chí Nghi");
+        user3.setUserName("QuangHuy");
         user3.setUserStatus(UserStatus.ACTIVE);
-        user3.setAvatar("https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=2165468497037647&height=50&width=50&ext=1547266045&hash=AeSmrP_0PQsxbkme");
-        user3.setEmail("haolamnghi@gmail.com");
+        user3.setEmail("quanghuy@gmail.com");
+        user3.setPassword(passwordEncoder.encode("123"));
         user3.setUserID(2165438497037624L);
         user3.setRole(role);
         userDao.saveObj(user3);
+
+        User user4 = new User();
+        user4.setUserName("KhangLe");
+        user4.setUserStatus(UserStatus.ACTIVE);
+        user4.setEmail("khangle@gmail.com");
+        user4.setPassword(passwordEncoder.encode("123"));
+        user4.setUserID(2165438497035624L);
+        user4.setRole(role);
+        userDao.saveObj(user4);
 
         // Save UserRegion
         UserRegion userRegion = new UserRegion();
@@ -989,6 +1005,31 @@ public class RegionServiceImpl implements RegionService {
         placeUser7.setUser(user);
         placeUser7.setPlace(place18);
         placeUserDao.saveObj(placeUser7);
+
+        // Save Feeling
+        Feeling feeling = new Feeling();
+        feeling.setTopic("Ngày Quốc Khánh");
+        feeling.setContent("Một ngày thật tuyệt vời với một địa danh tuyệt đẹp như trong mơ");
+        feeling.setFeelingStatus(FeelingStatus.APPROVED);
+        feeling.setPlaceUser(placeUser);
+        feeling.setUserRegion(userRegion);
+        try {
+            feelingService.save(feeling);
+        } catch (DataNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        Feeling feeling1 = new Feeling();
+        feeling1.setTopic("Ngày Tết Tây");
+        feeling1.setContent("Đi tham quan cùng bạn bè và chụp những bức hình tuyệt đẹp nào!");
+        feeling1.setFeelingStatus(FeelingStatus.APPROVED);
+        feeling1.setPlaceUser(placeUser2);
+        feeling1.setUserRegion(userRegion);
+        try {
+            feelingService.save(feeling1);
+        } catch (DataNotFoundException e) {
+            e.printStackTrace();
+        }
 
         return regionDao.findAll();
 

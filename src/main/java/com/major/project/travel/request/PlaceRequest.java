@@ -13,7 +13,6 @@ public class PlaceRequest {
     private String uid;
     @NotBlank(message = "Place name must be not empty")
     private String name;
-    private String svgPath;
     @NotBlank(message = "Place title must be not empty")
     private String title;
     private Double latitude;
@@ -30,14 +29,6 @@ public class PlaceRequest {
 
     public void setUid(String uid) {
         this.uid = uid;
-    }
-
-    public String getSvgPath() {
-        return svgPath;
-    }
-
-    public void setSvgPath(String svgPath) {
-        this.svgPath = svgPath;
     }
 
     public Double getLatitude() {
