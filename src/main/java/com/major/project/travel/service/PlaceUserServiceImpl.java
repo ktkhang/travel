@@ -179,7 +179,7 @@ public class PlaceUserServiceImpl implements PlaceUserService{
             feeling.setTopic(feelingPlaceRequest.getTopic());
             feeling.setContent(feelingPlaceRequest.getContent());
             feeling.setPlaceUser(placeUser);
-            feeling.setFeelingStatus(FeelingStatus.UNAPPROVED);
+            feeling.setFeelingStatus(FeelingStatus.APPROVED);
             feelingDao.saveObj(feeling);
 
             placeUser.setFeelings(feelingDao.findAllByPlaceUser(placeUser));

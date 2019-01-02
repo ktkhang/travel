@@ -26,4 +26,13 @@ public interface FeelingService {
      * @param feeling
      */
     void save(Feeling feeling) throws DataNotFoundException;
+
+    /**
+     * Find Feeling By Place
+     * @param place
+     * @return
+     * @throws DataNotFoundException
+     */
+    List<Feeling> findFeelingByPlace(Place place) throws DataNotFoundException;
+
 }

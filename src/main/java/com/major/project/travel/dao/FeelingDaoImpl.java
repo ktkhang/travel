@@ -2,10 +2,7 @@ package com.major.project.travel.dao;
 
 import com.major.project.travel.common.CommonHibernate;
 import com.major.project.travel.exception.DataNotFoundException;
-import com.major.project.travel.model.Feeling;
-import com.major.project.travel.model.PlaceUser;
-import com.major.project.travel.model.User;
-import com.major.project.travel.model.UserRegion;
+import com.major.project.travel.model.*;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.Query;
@@ -50,6 +47,17 @@ public class FeelingDaoImpl extends CommonHibernate<Feeling> implements FeelingD
                 "where (f.userRegion = ur and ur.user = :user) or (f.placeUser = pu and pu.user = :user)";
         try {
             Query query = getCurrentSession().createQuery(sql).setParameter("user", user);
+            return query.getResultList();
+        }catch (Exception e){
+            throw e;
+        }
+    }
+
+    @Override
+    public List<Feeling> findFeelingByPlace(Place place) throws DataNotFoundException {
+        String sql = "select distinct f from Feeling f, PlaceUser pu, Place p where pu.place = :place and f.placeUser = pu";
+        try {
+            Query query = getCurrentSession().createQuery(sql).setParameter("place", place);
             return query.getResultList();
         }catch (Exception e){
             throw e;

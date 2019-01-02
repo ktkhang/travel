@@ -32,4 +32,12 @@ public interface FeelingDao extends CommonHibernateInteface<Serializable, Feelin
      * @throws DataNotFoundException
      */
     List<Feeling> findPostByUser(User user) throws DataNotFoundException;
+
+    /**
+     * Find Feeling By Place
+     * @param place
+     * @return
+     * @throws DataNotFoundException
+     */
+    List<Feeling> findFeelingByPlace(Place place) throws DataNotFoundException;
 }
