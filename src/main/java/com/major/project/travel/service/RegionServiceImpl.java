@@ -554,7 +554,7 @@ public class RegionServiceImpl implements RegionService {
         user.setUserID(2165468497037647L);
         user.setPlaceVisited(9);
         user.setRegionVisited(3);
-        user.setRole(role1);
+        user.setRole(role);
         userDao.saveObj(user);
 
         User user1 = new User();
@@ -741,7 +741,7 @@ public class RegionServiceImpl implements RegionService {
         placeDao.saveObj(place11);
 
         Place place12 = new Place();
-        place12.setName("Đồi Chè Thanh Chương");
+        place12.setName("DoiCheThanhChuong");
         place12.setTitle("Đồi Chè Thanh Chương");
         place12.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
         place12.setLatitude(79.1192);
@@ -751,7 +751,7 @@ public class RegionServiceImpl implements RegionService {
         placeDao.saveObj(place12);
 
         Place place13 = new Place();
-        place13.setName("Cánh Đồng Hoa Hướng Dương");
+        place13.setName("CanhDongHoaHuongDuong");
         place13.setTitle("Cánh Đồng Hoa Hướng Dương");
         place13.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
         place13.setLatitude(77.6002);
@@ -761,7 +761,7 @@ public class RegionServiceImpl implements RegionService {
         placeDao.saveObj(place13);
 
         Place place14 = new Place();
-        place14.setName("Làng Sen quê Bác");
+        place14.setName("LangSenQueBac");
         place14.setTitle("Làng Sen quê Bác");
         place14.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
         place14.setLatitude(78.0961);
@@ -771,7 +771,7 @@ public class RegionServiceImpl implements RegionService {
         placeDao.saveObj(place14);
 
         Place place15 = new Place();
-        place15.setName("Thành cổ Vinh");
+        place15.setName("ThanhCoVinh");
         place15.setTitle("Thành cổ Vinh");
         place15.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
         place15.setLatitude(75.641);
@@ -781,7 +781,7 @@ public class RegionServiceImpl implements RegionService {
         placeDao.saveObj(place15);
 
         Place place16 = new Place();
-        place16.setName("Vườn quốc gia Pù Mát");
+        place16.setName("VuonQuocGiaPuMat");
         place16.setTitle("Vườn quốc gia Pù Mát");
         place16.setSvgPath("M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z");
         place16.setLatitude(77.8754);

@@ -20,12 +20,13 @@ public class Album extends CommonSerialize {
     private Long id;
 
     @NotNull
-    @Column(name = "NAME", unique = true)
-    private String name;
-
-    @Column(name = "IMAGES")
+    @Column(name = "NAMES")
     @Convert(converter = StringListConverter.class)
-    private List<String> images;
+    private List<String> names;
+
+    @Column(name = "URL_IMAGES")
+    @Convert(converter = StringListConverter.class)
+    private List<String> urlImages;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "STATUS")
@@ -49,20 +50,20 @@ public class Album extends CommonSerialize {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public List<String> getNames() {
+        return names;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNames(List<String> names) {
+        this.names = names;
     }
 
-    public List<String> getImages() {
-        return images;
+    public List<String> getUrlImages() {
+        return urlImages;
     }
 
-    public void setImages(List<String> images) {
-        this.images = images;
+    public void setUrlImages(List<String> urlImages) {
+        this.urlImages = urlImages;
     }
 
     public AlbumStatus getAlbumStatus() {
