@@ -11,24 +11,42 @@ import java.util.List;
  * Created by HUY on 3/5/2019
  **/
 public class AlbumRequest {
+    @NotBlank(message = "Name must be not empty")
+    private String name;
+    @NotBlank(message = "User must be not empty")
+    private String userUid;
+    private String regionId;
+    private String placeUid;
 
-    private List<String> names;
-
-    private List<String> urlImages;
-
-    public List<String> getNames() {
-        return names;
+    public String getName() {
+        return name;
     }
 
-    public void setNames(List<String> names) {
-        this.names = names;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public List<String> getUrlImages() {
-        return urlImages;
+    public String getUserUid() {
+        return userUid;
     }
 
-    public void setUrlImages(List<String> urlImages) {
-        this.urlImages = urlImages;
+    public void setUserUid(String userUid) {
+        this.userUid = userUid;
+    }
+
+    public String getRegionId() {
+        return regionId;
+    }
+
+    public void setRegionId(String regionId) {
+        this.regionId = regionId;
+    }
+
+    public String getPlaceUid() {
+        return placeUid;
+    }
+
+    public void setPlaceUid(String placeUid) {
+        this.placeUid = placeUid;
     }
 }

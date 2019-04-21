@@ -3,6 +3,8 @@ package com.major.project.travel.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.major.project.travel.common.CommonSerialize;
 import com.major.project.travel.util.StringListConverter;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -20,13 +22,13 @@ public class Album extends CommonSerialize {
     private Long id;
 
     @NotNull
-    @Column(name = "NAMES")
-    @Convert(converter = StringListConverter.class)
-    private List<String> names;
+    @Column(name = "NAME")
+    private String name;
 
-    @Column(name = "URL_IMAGES")
-    @Convert(converter = StringListConverter.class)
-    private List<String> urlImages;
+    @Column(name = "PHOTOS")
+    @OneToMany(mappedBy = "album", fetch = FetchType.EAGER)
+    @Fetch(value = FetchMode.SUBSELECT)
+    private List<Photo> photos;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "STATUS")
@@ -50,20 +52,20 @@ public class Album extends CommonSerialize {
         this.id = id;
     }
 
-    public List<String> getNames() {
-        return names;
+    public String getName() {
+        return name;
     }
 
-    public void setNames(List<String> names) {
-        this.names = names;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public List<String> getUrlImages() {
-        return urlImages;
+    public List<Photo> getPhotos() {
+        return photos;
     }
 
-    public void setUrlImages(List<String> urlImages) {
-        this.urlImages = urlImages;
+    public void setPhotos(List<Photo> photos) {
+        this.photos = photos;
     }
 
     public AlbumStatus getAlbumStatus() {
