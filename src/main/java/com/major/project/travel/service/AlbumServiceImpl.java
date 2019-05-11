@@ -8,14 +8,24 @@ import com.major.project.travel.request.AlbumRequest;
 import com.major.project.travel.request.PhotoRequest;
 import com.major.project.travel.util.Utility;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 /**
  * Created by HUY on 3/5/2019
@@ -112,35 +122,58 @@ public class AlbumServiceImpl implements AlbumService {
         }
     }
 
-    @Override
-    public Photo addPhoto(PhotoRequest photoRequest) throws DataNotFoundException {
-        String imgUrl = photoRequest.getPath();
+//    @Override
+//    public Photo addPhoto(PhotoRequest photoRequest) throws DataNotFoundException {
+//        String imgUrl = photoRequest.getPath();
+//
+//        Photo photo = new Photo();
+//        photo.setAlbum(albumDao.findAlbumByUid(photoRequest.getAlbumUid()));
+//        photo.setPhotoStatus(PhotoStatus.AVAILABLE);
+//
+//        BufferedImage image = null;
+//        try {
+//            // read file
+//            File f = new File(imgUrl);
+//            image = ImageIO.read(f);
+//            try{
+//                String photoName = getPhotoName(new File(imgUrl).getName(), photoRequest.getUserUid());
+//                // write file
+//                File fileClone = new File(resource + "/"+ photoRequest.getUserUid() + "/" + photoName +".png");
+//                ImageIO.write(image,"png", fileClone);
+//                photo.setName(photoName);
+//                photo.setPath(resourcePath + "/"+ photoRequest.getUserUid() + "/" + photoName + ".png");
+//
+//                photoDao.saveObj(photo);
+//            } catch (Exception e){
+//                throw new RestException("Can not create image file.", HttpServletResponse.SC_FORBIDDEN);
+//            }
+//        } catch (Exception e){
+//            throw new RestException("Can not read image file.", HttpServletResponse.SC_FORBIDDEN);
+//        }
+//
+//        return photo;
+//    }
 
+    @Override
+    public Photo addNewPhoto(MultipartFile file, String userUid, String albumUid) throws DataNotFoundException {
         Photo photo = new Photo();
-        photo.setAlbum(albumDao.findAlbumByUid(photoRequest.getAlbumUid()));
+        photo.setAlbum(albumDao.findAlbumByUid(albumUid));
         photo.setPhotoStatus(PhotoStatus.AVAILABLE);
 
-        BufferedImage image = null;
-        try {
-            // read file
-            File f = new File(imgUrl);
-            image = ImageIO.read(f);
-            try{
-                String photoName = getPhotoName(new File(imgUrl).getName(), photoRequest.getUserUid());
-                // write file
-                File fileClone = new File(resource + "/"+ photoRequest.getUserUid() + "/" + photoName +".png");
-                ImageIO.write(image,"png", fileClone);
-                photo.setName(photoName);
-                photo.setPath(resourcePath + "/"+ photoRequest.getUserUid() + "/" + photoName + ".png");
+        try{
+            String photoName = getPhotoName(file.getOriginalFilename(), userUid);
 
-                photoDao.saveObj(photo);
-            } catch (Exception e){
-                throw new RestException("Can not create image file.", HttpServletResponse.SC_FORBIDDEN);
-            }
-        } catch (Exception e){
-            throw new RestException("Can not read image file.", HttpServletResponse.SC_FORBIDDEN);
+            // clone file to server dir
+            Path rootLocation = Paths.get(resourcePath + "/" + userUid);
+            Files.copy(file.getInputStream(), rootLocation.resolve(photoName + ".png"));
+
+            photo.setName(photoName);
+//            photo.setPath(resourcePath + "/"+ userUid + "/" + photoName + ".png");
+            photoDao.saveObj(photo);
         }
-
+        catch (Exception e) {
+            throw new RestException(e.getMessage(), HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        }
         return photo;
     }
 

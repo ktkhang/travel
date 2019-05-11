@@ -21,10 +21,6 @@ public class Photo extends CommonSerialize {
     @Column(name = "NAME")
     private String name;
 
-    @NotNull
-    @Column(name = "PATH")
-    private String path;
-
     @Enumerated(EnumType.STRING)
     @Column(name = "STATUS")
     private PhotoStatus photoStatus;
@@ -48,14 +44,6 @@ public class Photo extends CommonSerialize {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getPath() {
-        return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
     }
 
     public PhotoStatus getPhotoStatus() {
