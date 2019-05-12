@@ -49,6 +49,7 @@ public class PlaceUserServiceImpl implements PlaceUserService{
         placeUser.setUser(user);
         place = placeDao.findPlaceByUid(placeUserRequest.getPlaceUid());
         placeUser.setPlace(place);
+        placeUser.setRating(placeUserRequest.getRating());
         placeUser.setFeelings(placeUserRequest.getFeelings());
         placeUser.setAlbums(placeUserRequest.getAlbums());
         placeUser.setVideos(placeUserRequest.getVideos());
@@ -100,6 +101,7 @@ public class PlaceUserServiceImpl implements PlaceUserService{
         Place place = null;
         PlaceUser placeUser = new PlaceUser();
         placeUser = placeUserDao.findPlaceUserByUid(placeUserRequest.getUid());
+        placeUser.setRating(placeUserRequest.getRating());
         placeUser.setFeelings(placeUserRequest.getFeelings());
         placeUser.setAlbums(placeUserRequest.getAlbums());
         placeUser.setVideos(placeUserRequest.getVideos());
@@ -186,5 +188,12 @@ public class PlaceUserServiceImpl implements PlaceUserService{
         }
 
         return placeUser;
+    }
+
+    @Override
+    public PlaceUser findByUserAndPlace(String userUid, String placeUid) throws  DataNotFoundException{
+        User user = userDao.findUserByUid(userUid);
+        Place place = placeDao.findPlaceByUid(placeUid);
+        return placeUserDao.findByUserAndPlace(user, place);
     }
 }

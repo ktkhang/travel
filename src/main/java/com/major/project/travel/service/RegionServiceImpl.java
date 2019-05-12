@@ -623,6 +623,7 @@ public class RegionServiceImpl implements RegionService {
         place1.setLatitude(-45.7679);
         place1.setLongitude(26.3213);
         place1.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place1.setRating(4.6);
         place1.setRegion(region);
         placeDao.saveObj(place1);
 
@@ -633,6 +634,7 @@ public class RegionServiceImpl implements RegionService {
         place2.setLatitude(-42.0899);
         place2.setLongitude(15.425);
         place2.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place2.setRating(4.7);
         place2.setRegion(region);
         placeDao.saveObj(place2);
 
@@ -643,6 +645,7 @@ public class RegionServiceImpl implements RegionService {
         place3.setLatitude(-39.5967);
         place3.setLongitude(24.2362);
         place3.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place3.setRating(4.6);
         place3.setRegion(region);
         placeDao.saveObj(place3);
 
@@ -653,6 +656,7 @@ public class RegionServiceImpl implements RegionService {
         place4.setLatitude(-49.5403);
         place4.setLongitude(26.994);
         place4.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place4.setRating(4.8);
         place4.setRegion(region);
         placeDao.saveObj(place4);
 
@@ -670,6 +674,7 @@ public class RegionServiceImpl implements RegionService {
         place5.setLatitude(-10.1859);
         place5.setLongitude(15.013);
         place5.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place5.setRating(4.5);
         place5.setRegion(region);
         placeDao.saveObj(place5);
 
@@ -680,6 +685,7 @@ public class RegionServiceImpl implements RegionService {
         place6.setLatitude(-13.3284);
         place6.setLongitude(18.3737);
         place6.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place6.setRating(4.7);
         place6.setRegion(region);
         placeDao.saveObj(place6);
 
@@ -690,6 +696,7 @@ public class RegionServiceImpl implements RegionService {
         place7.setLatitude(-20.0966);
         place7.setLongitude(16.6649);
         place7.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place7.setRating(4.6);
         place7.setRegion(region);
         placeDao.saveObj(place7);
 
@@ -700,6 +707,7 @@ public class RegionServiceImpl implements RegionService {
         place8.setLatitude(-20.075);
         place8.setLongitude(11.8233);
         place8.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place8.setRating(4.6);
         place8.setRegion(region);
         placeDao.saveObj(place8);
 
@@ -710,6 +718,7 @@ public class RegionServiceImpl implements RegionService {
         place9.setLatitude(-14.8176);
         place9.setLongitude(12.4783);
         place9.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place9.setRating(4.6);
         place9.setRegion(region);
         placeDao.saveObj(place9);
 
@@ -727,6 +736,7 @@ public class RegionServiceImpl implements RegionService {
         place10.setLatitude(73.5804);
         place10.setLongitude(59.1337);
         place10.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place10.setRating(4.5);
         place10.setRegion(region);
         placeDao.saveObj(place10);
 
@@ -737,6 +747,7 @@ public class RegionServiceImpl implements RegionService {
         place11.setLatitude(76.4642);
         place11.setLongitude(54.7581);
         place11.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place11.setRating(4.6);
         place11.setRegion(region);
         placeDao.saveObj(place11);
 
@@ -747,6 +758,7 @@ public class RegionServiceImpl implements RegionService {
         place12.setLatitude(79.1192);
         place12.setLongitude(71.3915);
         place12.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place12.setRating(4.7);
         place12.setRegion(region);
         placeDao.saveObj(place12);
 
@@ -757,6 +769,7 @@ public class RegionServiceImpl implements RegionService {
         place13.setLatitude(77.6002);
         place13.setLongitude(71.5837);
         place13.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place13.setRating(4.9);
         place13.setRegion(region);
         placeDao.saveObj(place13);
 
@@ -767,6 +780,7 @@ public class RegionServiceImpl implements RegionService {
         place14.setLatitude(78.0961);
         place14.setLongitude(64.2285);
         place14.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place14.setRating(4.6);
         place14.setRegion(region);
         placeDao.saveObj(place14);
 
@@ -777,6 +791,7 @@ public class RegionServiceImpl implements RegionService {
         place15.setLatitude(75.641);
         place15.setLongitude(63.2671);
         place15.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place15.setRating(4.7);
         place15.setRegion(region);
         placeDao.saveObj(place15);
 
@@ -787,6 +802,7 @@ public class RegionServiceImpl implements RegionService {
         place16.setLatitude(77.8754);
         place16.setLongitude(58.5559);
         place16.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place16.setRating(4.9);
         place16.setRegion(region);
         placeDao.saveObj(place16);
 
@@ -805,6 +821,7 @@ public class RegionServiceImpl implements RegionService {
         place17.setLatitude(-79.2322);
         place17.setLongitude(18.3989);
         place17.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place17.setRating(4.4);
         place17.setRegion(region);
         placeDao.saveObj(place17);
 
@@ -815,6 +832,7 @@ public class RegionServiceImpl implements RegionService {
         place18.setLatitude(-80.4274);
         place18.setLongitude(20.7588);
         place18.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place18.setRating(4.6);
         place18.setRegion(region);
         placeDao.saveObj(place18);
 
@@ -825,6 +843,7 @@ public class RegionServiceImpl implements RegionService {
         place19.setLatitude(-79.9974);
         place19.setLongitude(15.1909);
         place19.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place19.setRating(4.6);
         place19.setRegion(region);
         placeDao.saveObj(place19);
 
@@ -835,6 +854,7 @@ public class RegionServiceImpl implements RegionService {
         place20.setLatitude(-81.3018);
         place20.setLongitude(22.8237);
         place20.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place20.setRating(4.8);
         place20.setRegion(region);
         placeDao.saveObj(place20);
 
@@ -845,6 +865,7 @@ public class RegionServiceImpl implements RegionService {
         place21.setLatitude(-80.6502);
         place21.setLongitude(26.511);
         place21.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place21.setRating(4.6);
         place21.setRegion(region);
         placeDao.saveObj(place21);
 
@@ -855,6 +876,7 @@ public class RegionServiceImpl implements RegionService {
         place22.setLatitude(-79.7592);
         place22.setLongitude(20.5006);
         place22.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place22.setRating(4.5);
         place22.setRegion(region);
         placeDao.saveObj(place22);
 
@@ -865,6 +887,7 @@ public class RegionServiceImpl implements RegionService {
         place23.setLatitude(-81.8222);
         place23.setLongitude(27.2765);
         place23.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place23.setRating(4.7);
         place23.setRegion(region);
         placeDao.saveObj(place23);
 
@@ -882,6 +905,7 @@ public class RegionServiceImpl implements RegionService {
         place24.setLatitude(60.1533);
         place24.setLongitude(45.7699);
         place24.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place24.setRating(4.6);
         place24.setRegion(region);
         placeDao.saveObj(place24);
 
@@ -892,6 +916,7 @@ public class RegionServiceImpl implements RegionService {
         place25.setLatitude(57.239);
         place25.setLongitude(44.2047);
         place25.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place25.setRating(4.5);
         place25.setRegion(region);
         placeDao.saveObj(place25);
 
@@ -902,6 +927,7 @@ public class RegionServiceImpl implements RegionService {
         place26.setLatitude(51.7626);
         place26.setLongitude(41.4178);
         place26.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place26.setRating(4.8);
         place26.setRegion(region);
         placeDao.saveObj(place26);
 
@@ -912,6 +938,7 @@ public class RegionServiceImpl implements RegionService {
         place27.setLatitude(55.0508);
         place27.setLongitude(42.5249);
         place27.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place27.setRating(4.3);
         place27.setRegion(region);
         placeDao.saveObj(place27);
 
@@ -922,6 +949,7 @@ public class RegionServiceImpl implements RegionService {
         place28.setLatitude(55.0508);
         place28.setLongitude(42.5249);
         place28.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place28.setRating(4.8);
         place28.setRegion(region);
         placeDao.saveObj(place28);
 
@@ -932,6 +960,7 @@ public class RegionServiceImpl implements RegionService {
         place29.setLatitude(55.8991);
         place29.setLongitude(46.1517);
         place29.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place29.setRating(4.5);
         place29.setRegion(region);
         placeDao.saveObj(place29);
 
@@ -942,6 +971,7 @@ public class RegionServiceImpl implements RegionService {
         place30.setLatitude(49.0202);
         place30.setLongitude(39.089);
         place30.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place30.setRating(4.7);
         place30.setRegion(region);
         placeDao.saveObj(place30);
 
@@ -952,6 +982,7 @@ public class RegionServiceImpl implements RegionService {
         place31.setLatitude(47.3995);
         place31.setLongitude(41.3796);
         place31.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place31.setRating(4.9);
         place31.setRegion(region);
         placeDao.saveObj(place31);
 
@@ -962,6 +993,7 @@ public class RegionServiceImpl implements RegionService {
         place32.setLatitude(59.8728);
         place32.setLongitude(50.6565);
         place32.setPlaceStatus(PlaceStatus.AVAILABLE);
+        place32.setRating(4.5);
         place32.setRegion(region);
         placeDao.saveObj(place32);
 
@@ -974,11 +1006,13 @@ public class RegionServiceImpl implements RegionService {
         PlaceUser placeUser1 = new PlaceUser();
         placeUser1.setUser(user);
         placeUser1.setPlace(place6);
+        placeUser1.setRating(4l);
         placeUserDao.saveObj(placeUser1);
 
         PlaceUser placeUser2 = new PlaceUser();
         placeUser2.setUser(user);
         placeUser2.setPlace(place7);
+        placeUser2.setRating(4l);
         placeUserDao.saveObj(placeUser2);
 
         PlaceUser placeUser3 = new PlaceUser();
@@ -989,6 +1023,7 @@ public class RegionServiceImpl implements RegionService {
         PlaceUser placeUser4 = new PlaceUser();
         placeUser4.setUser(user);
         placeUser4.setPlace(place10);
+        placeUser4.setRating(4l);
         placeUserDao.saveObj(placeUser4);
 
         PlaceUser placeUser5 = new PlaceUser();
@@ -999,12 +1034,30 @@ public class RegionServiceImpl implements RegionService {
         PlaceUser placeUser6 = new PlaceUser();
         placeUser6.setUser(user);
         placeUser6.setPlace(place13);
+        placeUser6.setRating(4l);
         placeUserDao.saveObj(placeUser6);
 
         PlaceUser placeUser7 = new PlaceUser();
         placeUser7.setUser(user);
         placeUser7.setPlace(place18);
         placeUserDao.saveObj(placeUser7);
+
+        PlaceUser placeUser8 = new PlaceUser();
+        placeUser8.setUser(user);
+        placeUser8.setPlace(place25);
+        placeUser8.setRating(4l);
+        placeUserDao.saveObj(placeUser8);
+
+        PlaceUser placeUser9 = new PlaceUser();
+        placeUser9.setUser(user);
+        placeUser9.setPlace(place4);
+        placeUserDao.saveObj(placeUser9);
+
+        PlaceUser placeUser10 = new PlaceUser();
+        placeUser10.setUser(user);
+        placeUser10.setPlace(place19);
+        placeUser10.setRating(4l);
+        placeUserDao.saveObj(placeUser10);
 
         // Save Feeling
         Feeling feeling = new Feeling();

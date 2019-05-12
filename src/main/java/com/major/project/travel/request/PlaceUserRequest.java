@@ -15,6 +15,7 @@ public class PlaceUserRequest {
     private String userUid;
     @NotNull(message = "Place must be empty")
     private String placeUid;
+    private Long rating;
     private List<Feeling> feelings;
     private List<Album> albums;
     private List<Video> videos;
@@ -43,6 +44,14 @@ public class PlaceUserRequest {
 
     public void setPlaceUid(String placeUid) {
         this.placeUid = placeUid;
+    }
+
+    public Long getRating() {
+        return rating;
+    }
+
+    public void setRating(Long rating) {
+        this.rating = rating;
     }
 
     public List<Feeling> getFeelings() {

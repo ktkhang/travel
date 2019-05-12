@@ -35,12 +35,8 @@ public class PlaceUser extends CommonSerialize {
     @JoinColumn(name = "PLACE_ID", referencedColumnName = "ID")
     private Place place;
 
-//    @Column(name = "PU_FEELING")
-//    private String feeling;
-
-//    @Column(name = "PU_ALBUM")
-//    @Convert(converter = StringListConverter.class)
-//    private List<String> albums;
+    @Column(name = "PLACE_RATING")
+    private Long rating;
 
     @OneToMany(mappedBy = "placeUser", fetch = FetchType.EAGER)
     @Fetch(value = FetchMode.SUBSELECT)
@@ -50,9 +46,6 @@ public class PlaceUser extends CommonSerialize {
     @Fetch(value = FetchMode.SUBSELECT)
     private List<Album> albums;
 
-//    @Column(name = "PU_VIDEO")
-//    @Convert(converter = StringListConverter.class)
-//    private List<String> videos;
     @OneToMany(mappedBy = "placeUser", fetch = FetchType.EAGER)
     @Fetch(value = FetchMode.SUBSELECT)
     private List<Video> videos;
@@ -81,6 +74,14 @@ public class PlaceUser extends CommonSerialize {
 
     public void setPlace(Place place) {
         this.place = place;
+    }
+
+    public Long getRating() {
+        return rating;
+    }
+
+    public void setRating(Long rating) {
+        this.rating = rating;
     }
 
     public List<Feeling> getFeelings() {

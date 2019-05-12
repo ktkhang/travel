@@ -46,6 +46,9 @@ public class Place extends CommonSerialize {
     @Column(name = "PLACE_STATUS")
     private PlaceStatus placeStatus;
 
+    @Column(name = "PLACE_RATING")
+    private Double rating;
+
     @NotNull
     @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)
@@ -112,6 +115,14 @@ public class Place extends CommonSerialize {
 
     public void setPlaceStatus(PlaceStatus placeStatus) {
         this.placeStatus = placeStatus;
+    }
+
+    public Double getRating() {
+        return rating;
+    }
+
+    public void setRating(Double rating) {
+        this.rating = rating;
     }
 
     public Region getRegion() {

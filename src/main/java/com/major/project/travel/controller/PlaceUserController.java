@@ -4,7 +4,9 @@ import com.major.project.travel.exception.DataNotFoundException;
 import com.major.project.travel.exception.RestException;
 import com.major.project.travel.model.*;
 import com.major.project.travel.request.FeelingPlaceRequest;
+import com.major.project.travel.request.PlaceRequest;
 import com.major.project.travel.request.PlaceUserRequest;
+import com.major.project.travel.request.UserRequest;
 import com.major.project.travel.service.PlaceService;
 import com.major.project.travel.service.PlaceUserService;
 import com.major.project.travel.service.UserService;
@@ -52,6 +54,21 @@ public class PlaceUserController {
         Utility.validateErrorsRequest(errors);
         return placeUserService.save(placeUserRequest);
     }
+
+    /**
+     * Get PlaceUser
+     *
+     * @param userUid
+     * @param placeUid
+     * @return
+     * @throws DataNotFoundException
+     */
+    @GetMapping("/getPlaceUser/{userUid}/{placeUid}")
+    public PlaceUser getPlaceUser(@Valid @PathVariable String userUid, @PathVariable String placeUid)
+    throws DataNotFoundException{
+        return placeUserService.findByUserAndPlace(userUid, placeUid);
+    }
+
 
     /**
      * Update PlaceUser

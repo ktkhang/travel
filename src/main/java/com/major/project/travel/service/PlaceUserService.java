@@ -1,7 +1,9 @@
 package com.major.project.travel.service;
 
 import com.major.project.travel.exception.DataNotFoundException;
+import com.major.project.travel.model.Place;
 import com.major.project.travel.model.PlaceUser;
+import com.major.project.travel.model.User;
 import com.major.project.travel.request.FeelingPlaceRequest;
 import com.major.project.travel.request.PlaceUserRequest;
 
@@ -50,4 +52,12 @@ public interface PlaceUserService {
      * @return
      */
     PlaceUser addPost(FeelingPlaceRequest feelingPlaceRequest);
+
+    /**
+     * Find PlaceUser by user and place
+     * @param userUid
+     * @param placeUid
+     * @return
+     */
+    PlaceUser findByUserAndPlace(String userUid, String placeUid) throws DataNotFoundException;
 }

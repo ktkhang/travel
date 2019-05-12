@@ -18,6 +18,7 @@ public class PlaceRequest {
     private Double latitude;
     private Double longitude;
     private PlaceStatus placeStatus;
+    private Double rating;
     @NotBlank(message = "Region must be empty")
     private String regionUid;
 
@@ -61,6 +62,14 @@ public class PlaceRequest {
 
     public void setPlaceStatus(PlaceStatus placeStatus) {
         this.placeStatus = placeStatus;
+    }
+
+    public Double getRating() {
+        return rating;
+    }
+
+    public void setRating(Double rating) {
+        this.rating = rating;
     }
 
     public String getRegionUid() {
